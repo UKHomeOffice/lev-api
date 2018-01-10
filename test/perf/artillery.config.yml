@@ -1,0 +1,27 @@
+config:
+  target: http://api:8080
+  phases:
+    - duration: 10
+      arrivalRate: 10
+      rampTo: 50
+      name: "Warm up the application"
+    - duration: 60
+      arrivalRate: 200
+      name: "Sustained max load"
+  http:
+    pool: 40
+  defaults:
+    headers:
+      X-Auth-Username: 'foo'
+      X-Auth-Aud: 'bar'
+scenarios:
+  - name: "birth record 1"
+    weight: 50
+    flow:
+      - get:
+          url: "/api/v0/events/birth/123456789"
+  - name: "birth record 2"
+    weight: 50
+    flow:
+      - get:
+          url: "/api/v0/events/birth/999999901"

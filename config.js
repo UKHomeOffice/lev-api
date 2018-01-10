@@ -1,0 +1,25 @@
+'use strict';
+
+const packageJson = require('./package.json');
+
+const defaultsFalse = v => String(v || '').match(/(true|yes|on)/i) !== null;
+const defaultsTrue = v => String(v || '').match(/(false|no|off)/i) === null;
+
+module.exports = {
+  env: process.env.NODE_ENV,
+  httpd: {
+    host: process.env.LISTEN_HOST || '0.0.0.0',
+    port: process.env.LISTEN_PORT || 8080
+  },
+  maxRecords: 25,
+  mock: defaultsFalse(process.env.MOCK),
+  name: packageJson.name,
+  postgres: {
+    host: process.env.POSTGRES_HOST || 'localhost',
+    name: process.env.POSTGRES_DB,
+    pass: process.env.POSTGRES_PASSWORD,
+    port: process.env.POSTGRES_PORT || 5432,
+    user: process.env.POSTGRES_USER,
+    ssl: defaultsTrue(process.env.POSTGRES_SSL)
+  }
+};
