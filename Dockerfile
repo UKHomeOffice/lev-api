@@ -31,11 +31,7 @@ COPY . /app
 RUN npm run postinstall
 
 USER root
-RUN yum update -y -q \
- && yum clean -q all \
- && rm -rf /var/cache/yum \
- && rpm --rebuilddb --quiet \
- && chown -R nodejs:nodejs .
+RUN chown -R nodejs:nodejs .
 
 USER nodejs
 CMD ["./entrypoint.sh"]
