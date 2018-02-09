@@ -1,7 +1,7 @@
 'use strict';
 
-const config = require('../../config.js');
 require('functional-augments-object');
+const config = require('../../config.js');
 
 const pgpInit = {};
 
@@ -17,9 +17,8 @@ const connection = {
 };
 
 const db = pgp(connection);
-const qrm = pgp.queryResult;
 
-pgp.pg.types.setTypeParser(1082, function(val) { return val; });
+pgp.pg.types.setTypeParser(1082, val => val);
 
 pgm.attach(pgpInit);
 
@@ -51,15 +50,8 @@ const term2Param = v => {
 module.exports = {
   any: (q, v) => db.any(q, v),
   none: (q, v) => db.none(q, v),
-  one: (q, v) => db.one(q, v),
+  one: (q, v, cb) => db.one(q, v, cb),
   oneOrNone: (q, v, cb) => db.oneOrNone(q, v, cb),
-  funcNone: (q, v) => db.func(q, v, qrm.none),
-  funcId: (q, v) => db.func(q, v, qrm.one).then(w => w[q]),
-  funcTry: (q, v) => new Promise((resolve, reject) => db.func(q, v, qrm.one).then(b => b ? resolve() : reject())),
-  funcOne: (q, v) => db.func(q, v, qrm.one),
-  funcOneOrNone: (q, v) => db.func(q, v, qrm.one | qrm.none),
-  funcMany: (q, v) => db.func(q, v, qrm.many),
-  func: (q, v) => db.func(q, v),
   processTerms: terms => {
     if (terms === undefined) {
       throw new ReferenceError('Missing argument, f');
