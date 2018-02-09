@@ -2,6 +2,7 @@
 
 const config = require('../config.js');
 const log = require('./lib/logger');
+const healthCheck = require('./middleware/health-check');
 const v0Birth = require('./middleware/api/v0/events/births');
 const v0UserActivity = require('./middleware/api/v0/audit/user-activity');
 const v1Birth = require('./middleware/v1/registration/birth');
@@ -21,6 +22,8 @@ httpd.on('after', restifyBunyanLogger());
 httpd.use(restify.plugins.bodyParser({ mapParams: false }));
 httpd.use(restify.plugins.queryParser({ mapParams: false }));
 
+httpd.get('healthz', healthCheck.liveness);
+httpd.get('readiness', healthCheck.readiness);
 httpd.get('api/v0/events/birth/:id', v0Birth.read);
 httpd.get('api/v0/events/birth', v0Birth.search);
 httpd.get('api/v0/audit/user-activity', v0UserActivity.search);
