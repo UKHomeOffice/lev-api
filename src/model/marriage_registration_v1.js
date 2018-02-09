@@ -1,6 +1,5 @@
 'use strict';
 
-const db = require('../lib/db');
 const documentStore = require('../lib/document-store');
 
 const model = documentStore('marriage_registration_v1', [
