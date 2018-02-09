@@ -1,5 +1,6 @@
 'use strict';
 
+require('functional-augments-object');
 const db = require('./db');
 
 const cleanupInner = e => {
@@ -39,7 +40,7 @@ module.exports = (table, searchFields, dataField, idField) => {
     throw TypeError('Forth argument, idField, was not a string');
   }
 
-  const select = 'SELECT ${_data:name}';
+  const select = 'SELECT ${_data:name} AS data';
   const from = 'FROM ${_table:name}';
   const limit = 'LIMIT 25';
   const names = {
