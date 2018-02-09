@@ -3,7 +3,7 @@
 const errors = require('restify-errors');
 const moment = require('moment');
 const promiseRejectionHandler = require('../../../../lib/promise-rejection-handler');
-const audit = require('../../../../model/lev_api_audit');
+const audit = require('../../../../model/lev_audit');
 const model = require('../../../../model/lev');
 
 const censorRecord = r =>
@@ -43,7 +43,7 @@ module.exports = {
     } else {
       const id = req.params.id;
 
-      audit.createRead(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url, id)
+      audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
         .then(() => model.read(id))
         .then(r => {
           if (r) {
@@ -86,7 +86,7 @@ module.exports = {
       } else if ([req.query.forenames, req.query.forename1, req.query.forename2, req.query.forename3, req.query.forename4].filter(isTooLong).length > 0) {
         next(new errors.BadRequestError(`Forename fields must contain ${fieldLength} characters or less`));
       } else {
-        audit.createSearch(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url, dob, lastname, forename1, forename2, forename3, forename4)
+        audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
           .then(() => model.search(dob, lastname, forename1, forename2, forename3, forename4))
           .then(r => {
             res.send(r.map(censorRecord));

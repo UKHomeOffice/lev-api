@@ -3,7 +3,7 @@
 const errors = require('restify-errors');
 const moment = require('moment');
 const promiseRejectionHandler = require('../../../lib/promise-rejection-handler');
-const audit = require('../../../model/lev_api_audit');
+const audit = require('../../../model/lev_audit');
 const model = require('../../../model/death_registration_v1');
 
 const parseDate = d =>
@@ -24,7 +24,7 @@ module.exports = {
     } else {
       const id = Number(req.params.id);
 
-      audit.createRead(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url, id)
+      audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
         .then(() => model.read(id))
         .then(r => {
           if (r) {
@@ -57,12 +57,13 @@ module.exports = {
       } else if (dod && !dod.isValid()) {
         next(new errors.BadRequestError(`Invalid parameter, dateOfDeath: '${req.query.dateOfDeath}', please use ISO format - e.g. 2000-01-31`));
       } else {
-        model.search({
+        audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
+          .then(() => model.search({
           dateOfBirth: dob && dob.format('YYYY-MM-DD'),
           dateOfDeath: dod && dod.format('YYYY-MM-DD'),
           surname: surname,
           forenames: forenames
-        })
+          }))
           .then(r => {
             res.send(r);
             next();
