@@ -9,7 +9,7 @@ module.exports = {
     res.send({});
   },
   readiness: (req, res, next) => {
-    db.one('SELECT 1;')
+    db.one('SELECT 1')
       .then(r => {
         res.send({});
       })
