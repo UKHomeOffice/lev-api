@@ -14,7 +14,7 @@ ENV FLYWAY_VERSION 5.0.3
 RUN curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}.tar.gz | tar -xz \
  && mv flyway-${FLYWAY_VERSION}/ flyway/
 
-COPY package.json /app/
+COPY *node_modules/ package.json /app/
 RUN npm install --only production > .npm-install.log 2>&1 \
  && rm .npm-install.log \
  || ( EC=$?; cat .npm-install.log; exit $EC )
@@ -24,10 +24,6 @@ COPY entrypoint.sh /app/
 COPY src/ /app/src/
 COPY config.js /app/
 
-COPY ./package.json /app/
-RUN npm install --only production > .npm-install.log 2>&1 && rm .npm-install.log || ( EC=$?; cat .npm-install.log; exit $EC )
-
-COPY . /app
 RUN npm run postinstall
 
 USER root
