@@ -9,7 +9,7 @@ probe_api = curl -fs localhost/readiness &> /dev/null
 
 .PHONY: all clean deps docker docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
-all: deps docker
+all: deps test docker
 
 clean: docker-clean
 	rm -rf .build/
@@ -22,7 +22,9 @@ docker-compose-deps:
 docker-test-deps: docker-compose-deps
 	docker pull "$(test_image)"
 
-node-deps:
+node-deps: node_modules/
+
+node_modules/: package.json
 	npm install
 
 build/:
