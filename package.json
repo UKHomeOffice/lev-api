@@ -43,6 +43,9 @@
     "restify-errors": "^5.0.0"
   },
   "nyc": {
-    "include": ["src/", "config.js"]
+    "include": [
+      "src/",
+      "config.js"
+    ]
   }
 }
