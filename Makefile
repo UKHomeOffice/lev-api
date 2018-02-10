@@ -7,12 +7,16 @@ minor_version != echo "$(patch_version)" | awk -F '.' '{print $$1"."$$2}'
 test_image = quay.io/ukhomeofficedigital/lev-api-test:latest
 probe_api = curl -fs localhost/readiness &> /dev/null
 
-.PHONY: all clean deps docker docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
+.PHONY: all clean deps distclean docker docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
 all: deps test docker
 
-clean: docker-clean
-	rm -rf .build/
+clean: docker-compose-clean
+	rm -rf node_modules/
+
+distclean: clean
+	docker rmi -f '$(DOCKER_IMAGE)' || true
+	docker-compose down -v --rmi all
 
 deps: docker-test-deps node-deps
 
@@ -27,11 +31,8 @@ node-deps: node_modules/
 node_modules/: package.json
 	npm install
 
-build/:
-	mkdir -p build/
-
 docker:
-	docker build -t 'lev-api' .
+	docker build -t '$(DOCKER_IMAGE)' .
 
 unit-test: node-deps
 	npm test
