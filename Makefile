@@ -5,7 +5,9 @@ minor_version != echo "$(patch_version)" | awk -F '.' '{print $$1"."$$2}'
 
 #test_image = quay.io/ukhomeofficedigital/lev-api-test:$(minor_version)
 test_image = quay.io/ukhomeofficedigital/lev-api-test:latest
-probe_api = curl -fs localhost/readiness &> /dev/null
+compose_network = levapi_default
+
+probe_network = docker network ls | grep -q '$(compose_network)'
 
 .PHONY: all clean deps distclean docker docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
@@ -42,13 +44,13 @@ docker-compose: docker-compose-deps docker
 
 docker-test: docker-test-deps docker-compose-clean docker-compose
 	docker-compose up &> /dev/null &
-	eval $(probe_api); \
+	eval $(probe_network); \
 	while [ $$? -ne 0 ]; do \
 		echo ...; \
 		sleep 5; \
-		eval $(probe_api); \
+		eval $(probe_network); \
 	done; true
-	docker run --net host "$(test_image)"
+	docker run --net 'levapi_default' --env 'TEST_URL=http://api:8080' --env 'WAIT=true' '$(test_image)'
 	docker-compose stop
 
 docker-compose-clean:
