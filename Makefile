@@ -5,7 +5,7 @@ minor_version != echo "$(patch_version)" | awk -F '.' '{print $$1"."$$2}'
 
 #test_image = quay.io/ukhomeofficedigital/lev-api-test:$(minor_version)
 test_image = quay.io/ukhomeofficedigital/lev-api-test:latest
-probe_api = curl -s localhost/healthz &> /dev/null
+probe_api = curl -fs localhost/readiness &> /dev/null
 
 .PHONY: all clean deps docker docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
