@@ -108,8 +108,8 @@ describe('lib/db.js', () => {
 
       before(() => {
         result = db.processTerms({
-          date: new Date('2001-09-28 01:00:00'),
-          moment: moment('2001-09-28 01:00:00'),
+          date: new Date('2001-09-28 00:00:00Z'),
+          moment: moment('2001-09-28 00:00:00Z'),
           number: 3.14,
           regEx: /^John(\s|\s.*\s)Smith$/,
           string: 'string'
