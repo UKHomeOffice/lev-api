@@ -26,7 +26,7 @@ docker-compose-deps:
 	docker-compose pull
 
 docker-test-deps: docker-compose-deps
-	docker pull "$(test_image)"
+	docker pull '$(test_image)'
 
 node-deps: node_modules/
 
