@@ -45,7 +45,7 @@ const term2Param = v => {
   } else {
     return v;
   }
-}
+};
 
 module.exports = {
   any: (q, v) => db.any(q, v),

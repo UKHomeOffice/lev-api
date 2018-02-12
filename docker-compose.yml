@@ -15,22 +15,13 @@ services:
     ports:
       - "80:8080"
   postgres:
-    image: postgres:latest
+    build:
+      context: example-db/
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=lev
-    ports:
-      - "5432:5432"
-  wrangler:
-    image: docker.digital.homeoffice.gov.uk/lev-wrangler:latest
-    environment:
-      - POSTGRES_HOST=postgres
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=lev
       - APP_USER=lev
       - APP_PASSWORD=lev
-      - SYMDS_USER=symds
-      - SYMDS_PASSWORD=symds
-      - ADD_TEST_DATA=true
+    ports:
+      - "5432:5432"
