@@ -13,7 +13,8 @@ const connection = {
   port: config.postgres.port,
   database: config.postgres.name,
   user: config.postgres.user,
-  password: config.postgres.pass
+  password: config.postgres.pass,
+  ssl: config.postgres.ssl
 };
 
 const db = pgp(connection);
