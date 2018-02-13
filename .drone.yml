@@ -44,7 +44,7 @@ pipeline:
       - KUBE_DEPLOYMENT
       - KUBE_CONTAINER
     environment:
-      - TAG=${MAJOR}.${MINOR}.${PATCH}-${DRONE_COMMIT}-${DRONE_COMMIT:0:10}
+      - TAG=${MAJOR}.${MINOR}.${PATCH}-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
     commands:
       - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
       - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 2
