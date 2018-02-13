@@ -14,6 +14,7 @@ module.exports = {
         name: process.env.POSTGRES_DB,
         pass: process.env.POSTGRES_PASSWORD,
         port: process.env.POSTGRES_PORT || 5432,
-        user: process.env.POSTGRES_USER
+        user: process.env.POSTGRES_USER,
+        ssl: String(process.env.POSTGRES_SSL || '').match(/false/i) === null
     }
 };
