@@ -58,7 +58,7 @@ pipeline:
       - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT}" "$${KUBE_CONTAINER}=${DOCKER_REPO}/${NAME}:$${TAG}"
       - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT}"
       - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 1
-      - docker run --env 'USERNAME=$${USERNAME}' --env 'PASSWORD=$${PASSWORD}' --env 'CLIENT_ID=$${CLIENT_ID}' --env 'CLIENT_SECRET=$${CLIENT_SECRET}' --env 'OIDC_URL=$${OIDC_URL}' --env 'TEST_URL=$${TEST_URL}' quay.io/ukhomeofficedigital/lev-api-test:v${MAJOR}.${MINOR}.${PATCH}
+      - docker run --env "USERNAME=$${USERNAME}" --env "PASSWORD=$${PASSWORD}" --env "CLIENT_ID=$${CLIENT_ID}" --env "CLIENT_SECRET=$${CLIENT_SECRET}" --env "OIDC_URL=$${OIDC_URL}" --env "TEST_URL=$${TEST_URL}" quay.io/ukhomeofficedigital/lev-api-test:v${MAJOR}.${MINOR}.${PATCH}
     when:
       branch: master
       event: push
