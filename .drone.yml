@@ -55,7 +55,7 @@ pipeline:
       branch: master
       event: push
   e2e_test:
-    image: quay.io/ukhomeofficedigital/lev-api-test:v${MAJOR}.${MINOR}
+    image: quay.io/ukhomeofficedigital/lev-api-test:v${MAJOR}.${MINOR}.${PATCH}
     secrets:
       - USERNAME
       - PASSWORD
