@@ -43,7 +43,14 @@ pipeline:
       - KUBE_TOKEN
       - KUBE_DEPLOYMENT
       - KUBE_CONTAINER
+      - USERNAME
+      - PASSWORD
+      - CLIENT_ID
+      - CLIENT_SECRET
+      - OIDC_URL
+      - TEST_URL
     environment:
+      - DOCKER_HOST=tcp://172.17.0.1:2375
       - TAG=${MAJOR}.${MINOR}.${PATCH}-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
     commands:
       - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
@@ -51,18 +58,7 @@ pipeline:
       - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT}" "$${KUBE_CONTAINER}=${DOCKER_REPO}/${NAME}:$${TAG}"
       - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT}"
       - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 1
-    when:
-      branch: master
-      event: push
-  e2e_test:
-    image: quay.io/ukhomeofficedigital/lev-api-test:v${MAJOR}.${MINOR}.${PATCH}
-    secrets:
-      - USERNAME
-      - PASSWORD
-      - CLIENT_NAME
-      - CLIENT_SECRET
-      - OIDC_URL
-      - TEST_URL
+      - docker run --env 'USERNAME=$${USERNAME}' --env 'PASSWORD=$${PASSWORD}' --env 'CLIENT_ID=$${CLIENT_ID}' --env 'CLIENT_SECRET=$${CLIENT_SECRET}' --env 'OIDC_URL=$${OIDC_URL}' --env 'TEST_URL=$${TEST_URL}' quay.io/ukhomeofficedigital/lev-api-test:v${MAJOR}.${MINOR}.${PATCH}
     when:
       branch: master
       event: push
