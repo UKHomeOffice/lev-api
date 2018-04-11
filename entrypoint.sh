@@ -5,6 +5,7 @@ set -e
 POSTGRES_HOST="${POSTGRES_HOST:-localhost}"
 POSTGRES_PORT="${POSTGRES_PORT:-5432}"
 POSTGRES_DB="${POSTGRES_DB:-lev}"
+POSTGRES_SCHEMA="${POSTGRES_SCHEMA:-public}"
 POSTGRES_URL_PARAMS=""
 JVM_HEAP="32m"
 JVM_META="64m"
@@ -44,6 +45,7 @@ if [ -z "${MOCK}" ]; then
     -url="${POSTGRES_URL}" \
     -user="${POSTGRES_ADMIN_USER}" \
     -password="${POSTGRES_ADMIN_PASSWORD}" \
+    -schemas="${POSTGRES_SCHEMA}" \
     -placeholders.app_user="${POSTGRES_USER}" \
     -placeholders.app_password="${POSTGRES_PASSWORD}" \
     -baselineOnMigrate="true" \
