@@ -14,7 +14,7 @@ compose_project_name = $(current_dir)
 compose_network != echo "$$(echo '$(compose_project_name)' | tr -d '[\-_]')_default"
 probe_network = docker network ls | grep -q '$(compose_network)'
 
-.PHONY: all clean deps distclean docker docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
+.PHONY: all clean deps distclean docker docker-clean docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
 all: deps test docker
 
@@ -41,6 +41,9 @@ node_modules/: package.json
 
 docker:
 	docker build -t '$(DOCKER_IMAGE)' .
+
+docker-clean:
+	docker rmi -f '$(DOCKER_IMAGE)'
 
 unit-test: node-deps
 	npm test
