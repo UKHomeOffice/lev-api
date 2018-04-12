@@ -30,5 +30,5 @@ RUN npm run postinstall
 USER root
 RUN chown -R nodejs:nodejs .
 
-USER nodejs
+USER 999
 CMD ["./entrypoint.sh"]
