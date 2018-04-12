@@ -17,7 +17,7 @@ pipeline:
     environment:
       - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
-      - make test
+      - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test
     when:
       event: pull_request
   test_push:
@@ -26,7 +26,7 @@ pipeline:
       - DOCKER_HOST=tcp://172.17.0.1:2375
     commands:
       - set -o pipefail
-      - make test | tee 'test.log'
+      - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test | tee 'test.log'
     when:
       event: push
       branch: master
