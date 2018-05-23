@@ -1,25 +1,20 @@
-FROM quay.io/ukhomeofficedigital/nodejs-base:v8.9.4
+FROM node:8-alpine
 
-RUN yum install -y -q nmap-ncat java-1.8.0-openjdk-headless \
- && yum update -y -q \
- && yum clean -q all \
- && rm -rf /var/cache/yum \
- && rpm --rebuilddb --quiet
+RUN apk add --no-cache ca-certificates \
+ && apk upgrade --no-cache \
+ && addgroup -S app \
+ && adduser -S app -G app -u 31337 -h /app/ \
+ && chown -R app:app /app/
 
-USER nodejs
+USER app
 WORKDIR /app
 ENV NODE_ENV production
-
-ENV FLYWAY_VERSION 5.0.3
-RUN curl https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERSION}/flyway-commandline-${FLYWAY_VERSION}.tar.gz | tar -xz \
- && mv flyway-${FLYWAY_VERSION}/ flyway/
 
 COPY *node_modules/ package.json /app/
 RUN npm install --only production > .npm-install.log 2>&1 \
  && rm .npm-install.log \
  || ( EC=$?; cat .npm-install.log; exit $EC )
 
-COPY sql/ /app/flyway/sql/
 COPY mock/ /app/mock/
 COPY entrypoint.sh /app/
 COPY src/ /app/src/
@@ -28,7 +23,12 @@ COPY config.js /app/
 RUN npm run postinstall
 
 USER root
-RUN chown -R nodejs:nodejs .
+RUN chown -R app:app .
 
-USER 999
-CMD ["./entrypoint.sh"]
+USER 31337
+ENV LISTEN_HOST="0.0.0.0" \
+    LISTEN_PORT="8080" \
+    POSTGRES_HOST="localhost" \
+    POSTGRES_PORT="5432" \
+    POSTGRES_DB="lev"
+CMD ["node", "."]
