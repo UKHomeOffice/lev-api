@@ -16,7 +16,6 @@ RUN npm install --only production > .npm-install.log 2>&1 \
  || ( EC=$?; cat .npm-install.log; exit $EC )
 
 COPY mock/ /app/mock/
-COPY entrypoint.sh /app/
 COPY src/ /app/src/
 COPY config.js /app/
 
