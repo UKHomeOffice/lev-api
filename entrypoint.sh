@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#! /bin/bash
 
-set -e
+set -euo pipefail
 
 POSTGRES_HOST="${POSTGRES_HOST:-localhost}"
 POSTGRES_PORT="${POSTGRES_PORT:-5432}"
