@@ -1,11 +1,12 @@
-FROM quay.io/ukhomeofficedigital/nodejs-base:v8.11.1
+FROM node:8-alpine
 
-RUN yum update -y -q \
- && yum clean -q all \
- && rm -rf /var/cache/yum \
- && rpm --rebuilddb --quiet
+RUN apk add --no-cache ca-certificates \
+ && apk upgrade --no-cache \
+ && addgroup -S app \
+ && adduser -S app -G app -u 31337 -h /app/ \
+ && chown -R app:app /app/
 
-USER nodejs
+USER app
 WORKDIR /app
 ENV NODE_ENV production
 
@@ -22,7 +23,12 @@ COPY config.js /app/
 RUN npm run postinstall
 
 USER root
-RUN chown -R nodejs:nodejs .
+RUN chown -R app:app .
 
-USER 999
-CMD ["./entrypoint.sh"]
+USER 31337
+ENV LISTEN_HOST="0.0.0.0" \
+    LISTEN_PORT="8080" \
+    POSTGRES_HOST="localhost" \
+    POSTGRES_PORT="5432" \
+    POSTGRES_DB="lev"
+CMD ["node", "."]
