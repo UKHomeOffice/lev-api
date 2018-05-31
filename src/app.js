@@ -34,17 +34,17 @@ httpd.use((req, res, next) => {
 });
 httpd.on('after', restifyBunyanLogger());
 
-httpd.get('healthz', healthCheck.liveness);
-httpd.get('readiness', healthCheck.readiness);
-httpd.get('api/v0/events/birth/:id', v0Birth.read);
-httpd.get('api/v0/events/birth', v0Birth.search);
-httpd.get('api/v0/audit/user-activity', v0UserActivity.search);
-httpd.get('v1/registration/birth/:id', v1Birth.read);
-httpd.get('v1/registration/birth', v1Birth.search);
-httpd.get('v1/registration/death/:id', v1Death.read);
-httpd.get('v1/registration/death', v1Death.search);
-httpd.get('v1/registration/marriage/:id', v1Marriage.read);
-httpd.get('v1/registration/marriage', v1Marriage.search);
+httpd.get('/healthz', healthCheck.liveness);
+httpd.get('/readiness', healthCheck.readiness);
+httpd.get('/api/v0/events/birth/:id', v0Birth.read);
+httpd.get('/api/v0/events/birth', v0Birth.search);
+httpd.get('/api/v0/audit/user-activity', v0UserActivity.search);
+httpd.get('/v1/registration/birth/:id', v1Birth.read);
+httpd.get('/v1/registration/birth', v1Birth.search);
+httpd.get('/v1/registration/death/:id', v1Death.read);
+httpd.get('/v1/registration/death', v1Death.search);
+httpd.get('/v1/registration/marriage/:id', v1Marriage.read);
+httpd.get('/v1/registration/marriage', v1Marriage.search);
 
 httpd.listen(config.httpd.port, config.httpd.host, () => {
   log.info('%s listening at %s', httpd.name, httpd.url);
