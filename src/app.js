@@ -29,6 +29,7 @@ httpd.use(restify.plugins.queryParser({ mapParams: false }));
 httpd.use(restify.plugins.fullResponse());
 httpd.use((req, res, next) => {
   res.cache('no-cache; no-store');
+  res.header('Pragma', 'no-cache');
   res.header('X-Frame-Options', 'DENY');
   next();
 });
