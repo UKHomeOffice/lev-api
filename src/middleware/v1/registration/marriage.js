@@ -64,7 +64,7 @@ module.exports = {
           }))
           .then(r => {
             res.send(r);
-            client.increment('marriage');
+            client.increment('lev.api.marriage');
             next();
           })
           .catch(promiseRejectionHandler(next));

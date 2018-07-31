@@ -92,7 +92,7 @@ module.exports = {
           }))
           .then(r => {
             res.send(r.map(censorRecord));
-            client.increment('birth');
+            client.increment('lev.api.birth');
             next();
           })
           .catch(promiseRejectionHandler(next));

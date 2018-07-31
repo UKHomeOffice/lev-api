@@ -68,7 +68,7 @@ module.exports = {
           }))
           .then(r => {
             res.send(r);
-            client.increment('death');
+            client.increment('lev.api.death');
             next();
           })
           .catch(promiseRejectionHandler(next));
