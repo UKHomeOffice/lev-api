@@ -5,6 +5,8 @@ const moment = require('moment');
 const promiseRejectionHandler = require('../../../lib/promise-rejection-handler');
 const audit = require('../../../model/lev_audit');
 const model = require('../../../model/death_registration_v1');
+const StatsD = require('hot-shots')
+const client = new StatsD();
 
 const parseDate = d =>
       d && moment(d, 'YYYY-MM-DD');
@@ -66,6 +68,7 @@ module.exports = {
           }))
           .then(r => {
             res.send(r);
+            client.increment('death');
             next();
           })
           .catch(promiseRejectionHandler(next));
