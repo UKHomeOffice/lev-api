@@ -5,6 +5,8 @@ const moment = require('moment');
 const promiseRejectionHandler = require('../../../../lib/promise-rejection-handler');
 const audit = require('../../../../model/lev_audit');
 const model = require('../../../../model/birth_registration_v0');
+const StatsD = require('hot-shots')
+const client = new StatsD();
 
 const parseDate = d =>
       d && moment(d, 'YYYY-MM-DD');
@@ -90,6 +92,7 @@ module.exports = {
           }))
           .then(r => {
             res.send(r.map(censorRecord));
+            client.increment('lev.api.birth');
             next();
           })
           .catch(promiseRejectionHandler(next));
