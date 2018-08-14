@@ -56,6 +56,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
+            client.increment('lev.api.birth');
             res.send(censorRecord(r));
             next();
           } else {
@@ -91,8 +92,8 @@ module.exports = {
             forenames: forenames
           }))
           .then(r => {
+            client.increment('lev.api.birth.search');
             res.send(r.map(censorRecord));
-            client.increment('lev.api.birth');
             next();
           })
           .catch(promiseRejectionHandler(next));

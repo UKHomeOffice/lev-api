@@ -30,6 +30,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
+            client.increment('lev.api.death');
             res.send(r);
             next();
           } else {
@@ -67,8 +68,8 @@ module.exports = {
           forenames: forenames
           }))
           .then(r => {
+            client.increment('lev.api.death.search');
             res.send(r);
-            client.increment('lev.api.death');
             next();
           })
           .catch(promiseRejectionHandler(next));

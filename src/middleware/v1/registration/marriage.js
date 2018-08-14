@@ -30,6 +30,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
+            client.increment('lev.api.marriage');
             res.send(r);
             next();
           } else {
@@ -63,8 +64,8 @@ module.exports = {
             forenames: forenames
           }))
           .then(r => {
+            client.increment('lev.api.marriage.search');
             res.send(r);
-            client.increment('lev.api.marriage');
             next();
           })
           .catch(promiseRejectionHandler(next));
