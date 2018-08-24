@@ -4,9 +4,9 @@ matrix:
   MAJOR:
     - 0
   MINOR:
-    - 0
+    - 5
   PATCH:
-    - 10
+    - 0
   DOCKER_USERNAME:
     - ukhomeofficedigital+lev_api
   DOCKER_REPO:
