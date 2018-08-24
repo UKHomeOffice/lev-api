@@ -47,23 +47,19 @@ module.exports = {
       next(new errors.BadRequestError('Must provide the surname parameter'));
     } else if (!req.query.forenames) {
       next(new errors.BadRequestError('Must provide the forenames parameter'));
-    } else if (!req.query.dateOfBirth && !req.query.dateOfDeath) {
-      next(new errors.BadRequestError('Must provide either the dateOfBirth or dateOfDeath parameters'));
+    } else if (!req.query.date) {
+      next(new errors.BadRequestError('Must provide the date parameter'));
     } else {
       const surname = new RegExp('^' + name2regex(req.query.surname) + '$', 'i');
       const forenames = new RegExp('^' + name2regex(req.query.forenames) + '(\\s|$)', 'i');
-      const dob = parseDate(req.query.dateOfBirth);
-      const dod = parseDate(req.query.dateOfDeath);
+      const date = parseDate(req.query.date);
 
-      if (dob && !dob.isValid()) {
-        next(new errors.BadRequestError(`Invalid parameter, dateOfBirth: '${req.query.dateOfBirth}', please use ISO format - e.g. 2000-01-31`));
-      } else if (dod && !dod.isValid()) {
-        next(new errors.BadRequestError(`Invalid parameter, dateOfDeath: '${req.query.dateOfDeath}', please use ISO format - e.g. 2000-01-31`));
+      if (date && !date.isValid()) {
+        next(new errors.BadRequestError(`Invalid parameter, date: '${req.query.date}', please use ISO format - e.g. 2000-01-31`));
       } else {
         audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
           .then(() => model.search({
-          dateOfBirth: dob && dob.format('YYYY-MM-DD'),
-          dateOfDeath: dod && dod.format('YYYY-MM-DD'),
+          date: date && date.format('YYYY-MM-DD'),
           surname: surname,
           forenames: forenames
           }))
