@@ -5,7 +5,7 @@ const moment = require('moment');
 const promiseRejectionHandler = require('../../../../lib/promise-rejection-handler');
 const audit = require('../../../../model/lev_audit');
 const model = require('../../../../model/birth_registration_v0');
-const StatsD = require('hot-shots')
+const StatsD = require('hot-shots');
 const client = new StatsD();
 
 const parseDate = d =>
