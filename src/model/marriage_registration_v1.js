@@ -3,23 +3,22 @@
 const documentStore = require('../lib/document-store');
 
 const model = documentStore('marriage_registration_v1', [
+  'date_of_marriage',
   'bride_forenames',
   'bride_surname',
-  'bride_date_of_birth',
   'groom_forenames',
-  'groom_surname',
-  'groom_date_of_birth'
+  'groom_surname'
 ]);
 
 module.exports = {
   read: model.read,
   search: terms => model.search({
+    dateOfMarriage: terms.dateOfMarriage,
     brideForenames: terms.forenames,
-    brideSurname: terms.surname,
-    brideDateOfBirth: terms.dateOfBirth
+    brideSurname: terms.surname
   }).then(r => model.search({
+    dateOfMarriage: terms.dateOfMarriage,
     groomForenames: terms.forenames,
-    groomSurname: terms.surname,
-    groomDateOfBirth: terms.dateOfBirth
+    groomSurname: terms.surname
   }).then(r2 => r.concat(r2)))
 };

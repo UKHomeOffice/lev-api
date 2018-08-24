@@ -47,19 +47,19 @@ module.exports = {
       next(new errors.BadRequestError('Must provide the surname parameter'));
     } else if (!req.query.forenames) {
       next(new errors.BadRequestError('Must provide the forenames parameter'));
-    } else if (!req.query.dateOfBirth) {
-      next(new errors.BadRequestError('Must provide the dateOfBirth parameter'));
+    } else if (!req.query.dateOfMarriage) {
+      next(new errors.BadRequestError('Must provide the dateOfMarriage parameter'));
     } else {
       const surname = new RegExp('^' + name2regex(req.query.surname) + '$', 'i');
       const forenames = new RegExp('^' + name2regex(req.query.forenames) + '(\\s|$)', 'i');
-      const dob = parseDate(req.query.dateOfBirth);
+      const dom = parseDate(req.query.dateOfMarriage);
 
-      if (dob && !dob.isValid()) {
-        next(new errors.BadRequestError(`Invalid parameter, dateOfBirth: '${req.query.dateOfBirth}', please use ISO format - e.g. 2000-01-31`));
+      if (dom && !dom.isValid()) {
+        next(new errors.BadRequestError(`Invalid parameter, dateOfMarriage: '${req.query.dateOfMarriage}', please use ISO format - e.g. 2000-01-31`));
       } else {
         audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
           .then(() => model.search({
-            dateOfBirth: dob.format('YYYY-MM-DD'),
+            dateOfMarriage: dom.format('YYYY-MM-DD'),
             surname: surname,
             forenames: forenames
           }))
