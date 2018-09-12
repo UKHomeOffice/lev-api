@@ -28,6 +28,7 @@ CREATE TABLE death_registration_v1 (
 CREATE TABLE marriage_registration_v1 (
   id INTEGER PRIMARY KEY,
   data JSON NOT NULL,
+  date_of_marriage DATE NOT NULL,
   bride_forenames TEXT NOT NULL,
   bride_surname TEXT NOT NULL,
   bride_date_of_birth DATE,
