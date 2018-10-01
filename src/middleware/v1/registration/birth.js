@@ -31,6 +31,7 @@ module.exports = {
         .then(r => {
           if (r) {
             client.increment('lev.api.birth');
+            client.increment(`lev.api.${req.headers['x-auth-aud']}`);
             client.increment(`lev.api.${req.headers['x-auth-aud']}.birth`);
             res.send(r);
             next();
@@ -66,6 +67,7 @@ module.exports = {
           }))
           .then(r => {
             client.increment('lev.api.birth.search');
+            client.increment(`lev.api.${req.headers['x-auth-aud']}`);
             client.increment(`lev.api.${req.headers['x-auth-aud']}.birth.search`);
             res.send(r);
             next();
