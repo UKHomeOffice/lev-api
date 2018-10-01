@@ -5,12 +5,16 @@ const moment = require('moment');
 const hsIncrementStub = sinon.stub();
 const hsSetStub = sinon.stub();
 const hsTimingStub = sinon.stub();
+const logInfoStub = sinon.stub();
 const metrics = proxyquire('../../../src/lib/metrics', {
   'hot-shots': function () {
     this.increment = hsIncrementStub;
     this.set = hsSetStub;
     this.timing = hsTimingStub;
     this.unique = hsSetStub;
+  },
+  './logger': {
+    info: logInfoStub
   }
 });
 
@@ -163,6 +167,17 @@ describe('lib/metrics.js', () => {
             it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
             it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
             it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
+
+            it('calls log.info', () => logInfoStub.should.have.been.called);
+            it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
+              dataSet: 'birth',
+              client: 'client',
+              groups: ['group'],
+              id: 1,
+              reqType: 'lookup',
+              responseTime: responseTime + 'ms',
+              username: 'user'
+            }));
           });
         });
       });
@@ -209,6 +224,17 @@ describe('lib/metrics.js', () => {
         it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
         it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
         it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
+
+        it('calls log.info', () => logInfoStub.should.have.been.called);
+        it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
+          dataSet: 'birth',
+          client: 'client',
+          groups: ['group'],
+          query: {},
+          reqType: 'search',
+          responseTime: responseTime + 'ms',
+          username: 'user'
+        }));
       });
     });
   });

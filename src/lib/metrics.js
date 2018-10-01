@@ -1,6 +1,7 @@
 'use strict';
 
 const moment = require('moment');
+const log = require('./logger');
 const HotShots = require('hot-shots');
 const statsdClient = new HotShots();
 
@@ -83,9 +84,22 @@ const lookup = (dataSet, username, client, groups, startTime, finishTime, id) =>
     throw RangeError('Seventh argument, id, was not a positive integer');
   }
 
+  const reqType = 'lookup';
   const duration = finishTime.diff(startTime);
 
-  statsd('lookup', dataSet, username, client, groups, duration);
+  statsd(reqType, dataSet, username, client, groups, duration);
+
+  const msg = `${username}(${groups.join(',')}) accessed ${dataSet} record ${id} using ${client} in ${duration} ms`;
+
+  log.info({
+    dataSet: dataSet,
+    client: client,
+    groups: groups,
+    id: id,
+    reqType: reqType,
+    responseTime: duration + 'ms',
+    username: username
+  }, msg);
 };
 
 const search = (dataSet, username, client, groups, startTime, finishTime, query) => {
@@ -97,9 +111,24 @@ const search = (dataSet, username, client, groups, startTime, finishTime, query)
     throw TypeError('Seventh argument, query, was not an object');
   }
 
+  const reqType = 'search';
   const duration = finishTime.diff(startTime);
 
-  statsd('search', dataSet, username, client, groups, duration);
+  statsd(reqType, dataSet, username, client, groups, duration);
+
+  const surname = query.surname && query.surname.toUpperCase();
+  const forenames = query.forenames && (query.forenames[0].toUpperCase() + query.forenames.substring(1));
+  const msg = `${username}(${groups.join(',')}) searched ${dataSet} records matching '${forenames} ${surname} ${query.dateOfBirth}' using ${client} in ${duration} ms`;
+
+  log.info({
+    dataSet: dataSet,
+    client: client,
+    groups: groups,
+    query: query,
+    reqType: reqType,
+    responseTime: duration + 'ms',
+    username: username
+  }, msg);
 };
 
 module.exports = {
