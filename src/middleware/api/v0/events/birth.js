@@ -5,8 +5,8 @@ const moment = require('moment');
 const promiseRejectionHandler = require('../../../../lib/promise-rejection-handler');
 const audit = require('../../../../model/lev_audit');
 const model = require('../../../../model/birth_registration_v0');
-const StatsD = require('hot-shots');
-const client = new StatsD();
+const metrics = require('../../../../lib/metrics');
+const reqInfo = require('../../../../lib/req-info');
 
 const parseDate = d =>
       d && moment(d, 'YYYY-MM-DD');
@@ -50,16 +50,16 @@ module.exports = {
     } else if (!req.params.id.match(/^\d+$/)) {
       next(new errors.BadRequestError('ID must be an integer'));
     } else {
+      const ri = reqInfo(req);
+      const startTime = moment();
       const id = Number(req.params.id);
 
-      audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
+      audit.create(ri.username, ri.client, req.url)
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            client.increment('lev.api.birth');
-            client.increment(`lev.api.${req.headers['x-auth-aud']}`);
-            client.increment(`lev.api.${req.headers['x-auth-aud']}.birth`);
             res.send(censorRecord(r));
+            metrics.lookup('birth', ri.username, ri.client, ri.groups, startTime, moment(), id);
             next();
           } else {
             next(new errors.NotFoundError());
@@ -80,6 +80,8 @@ module.exports = {
     } else if (req.query.forenames && req.query.forename1) {
       next(new errors.BadRequestError('Must only provide forenames, or forename1 (plus optionally forename2, 3, and 4)'));
     } else {
+      const ri = reqInfo(req);
+      const startTime = moment();
       const surname = new RegExp('^' + name2regex(req.query.lastname) + '$', 'i');
       const forenames = new RegExp('^' + name2regex(req.query.forenames || [req.query.forename1, req.query.forenames2, req.query.forename3, req.query.forename4].join(' ')) + '(\\s|$)', 'i');
       const dob = parseDate(req.query.dateofbirth);
@@ -87,17 +89,17 @@ module.exports = {
       if (!dob.isValid()) {
         next(new errors.BadRequestError(`Invalid date of birth: '${req.query.dateofbirth}', please use ISO format - e.g. dateofbirth=2000-01-31`));
       } else {
-        audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
-          .then(() => model.search({
-            dateOfBirth: dob && dob.format('YYYY-MM-DD'),
-            surname: surname,
-            forenames: forenames
-          }))
+        const query = {
+          dateOfBirth: dob && dob.format('YYYY-MM-DD'),
+          surname: surname,
+          forenames: forenames
+        };
+
+        audit.create(ri.username, ri.client, req.url)
+          .then(() => model.search(query))
           .then(r => {
-            client.increment('lev.api.birth.search');
-            client.increment(`lev.api.${req.headers['x-auth-aud']}`);
-            client.increment(`lev.api.${req.headers['x-auth-aud']}.birth.search`);
             res.send(r.map(censorRecord));
+            metrics.search('birth', ri.username, ri.client, ri.groups, startTime, moment(), req.query);
             next();
           })
           .catch(promiseRejectionHandler(next));

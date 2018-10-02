@@ -5,8 +5,8 @@ const moment = require('moment');
 const promiseRejectionHandler = require('../../../lib/promise-rejection-handler');
 const audit = require('../../../model/lev_audit');
 const model = require('../../../model/marriage_registration_v1');
-const StatsD = require('hot-shots');
-const client = new StatsD();
+const metrics = require('../../../lib/metrics');
+const reqInfo = require('../../../lib/req-info');
 
 const parseDate = d =>
       d && moment(d, 'YYYY-MM-DD');
@@ -24,16 +24,16 @@ module.exports = {
     } else if (!req.params.id.match(/^\d+$/)) {
       next(new errors.BadRequestError('ID must be an integer'));
     } else {
+      const ri = reqInfo(req);
+      const startTime = moment();
       const id = Number(req.params.id);
 
-      audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
+      audit.create(ri.username, ri.client, req.url)
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            client.increment('lev.api.marriage');
-            client.increment(`lev.api.${req.headers['x-auth-aud']}`);
-            client.increment(`lev.api.${req.headers['x-auth-aud']}.marriage`);
             res.send(r);
+            metrics.lookup('marriage', ri.username, ri.client, ri.groups, startTime, moment(), id);
             next();
           } else {
             next(new errors.NotFoundError());
@@ -52,6 +52,8 @@ module.exports = {
     } else if (!req.query.dateOfMarriage) {
       next(new errors.BadRequestError('Must provide the dateOfMarriage parameter'));
     } else {
+      const ri = reqInfo(req);
+      const startTime = moment();
       const surname = new RegExp('^' + name2regex(req.query.surname) + '$', 'i');
       const forenames = new RegExp('^' + name2regex(req.query.forenames) + '(\\s|$)', 'i');
       const dom = parseDate(req.query.dateOfMarriage);
@@ -59,17 +61,17 @@ module.exports = {
       if (dom && !dom.isValid()) {
         next(new errors.BadRequestError(`Invalid parameter, dateOfMarriage: '${req.query.dateOfMarriage}', please use ISO format - e.g. 2000-01-31`));
       } else {
-        audit.create(req.headers['x-auth-username'], req.headers['x-auth-aud'], req.url)
-          .then(() => model.search({
-            dateOfMarriage: dom.format('YYYY-MM-DD'),
-            surname: surname,
-            forenames: forenames
-          }))
+        const query = {
+          dateOfMarriage: dom.format('YYYY-MM-DD'),
+          surname: surname,
+          forenames: forenames
+        };
+
+        audit.create(ri.username, ri.client, req.url)
+          .then(() => model.search(query))
           .then(r => {
-            client.increment('lev.api.marriage.search');
-            client.increment(`lev.api.${req.headers['x-auth-aud']}`);
-            client.increment(`lev.api.${req.headers['x-auth-aud']}.marriage.search`);
             res.send(r);
+            metrics.search('marriage', ri.username, ri.client, ri.groups, startTime, moment(), req.query);
             next();
           })
           .catch(promiseRejectionHandler(next));
