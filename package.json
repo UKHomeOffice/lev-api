@@ -13,7 +13,8 @@
     "test:check-coverage": "nyc check-coverage --statements 0 --branches 0 --functions 0 --lines 0",
     "snyk-protect": "snyk protect",
     "postinstall": "npm run snyk-protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "version": "./.version.js && git add .drone.yml"
   },
   "repository": {
     "type": "git",
