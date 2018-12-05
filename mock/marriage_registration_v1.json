@@ -130,14 +130,14 @@
         "signature": "T. Bride"
       },
       "fatherOfGroom": {
-        "forenames": "Test",
+        "forenames": "Test Fog",
         "surname": "FATHER",
         "occupation": "Father"
       },
       "fatherOfBride": {
-        "forenames": null,
-        "surname": null,
-        "occupation": null
+        "forenames": "Test Fob",
+        "surname": "BRIDE",
+        "occupation": "Father"
       },
       "witness1": {
         "signature": "A. Witness"
@@ -418,14 +418,14 @@
         "signature": "T. Bride"
       },
       "fatherOfGroom": {
-        "forenames": "Test",
+        "forenames": "Test Fog",
         "surname": "FATHER",
         "occupation": "Father"
       },
       "fatherOfBride": {
-        "forenames": null,
-        "surname": null,
-        "occupation": null
+        "forenames": "Test Fob",
+        "surname": "BRIDE",
+        "occupation": "Father"
       },
       "witness1": {
         "signature": "A. Witness"
