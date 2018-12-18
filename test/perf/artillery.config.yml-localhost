@@ -1,0 +1,27 @@
+config:
+  target: http://127.0.0.1:8080
+  phases:
+    - duration: 10
+      arrivalRate: 10
+      rampTo: 50
+      name: "Warm up the application"
+    - duration: 60
+      arrivalRate: 200
+      name: "Sustained max load"
+  http:
+    pool: 40
+  defaults:
+    headers:
+      X-Auth-Username: 'dacm'
+      X-Auth-Aud: 'artillery'
+scenarios:
+  - name: "birth record 1"
+    weight: 50
+    flow:
+      - get:
+          url: "/api/v0/events/birth/513609063"
+  - name: "birth record 2"
+    weight: 50
+    flow:
+      - get:
+          url: "/api/v0/events/birth?lastname=smith&forenames=john&dateofbirth=2010-01-01"

@@ -90,26 +90,38 @@ const requestValidationTest = (subject) => {
   });
 
   describe('when called with five arguments', () => {
-    describe('that IS NOT a time', () => {
+    describe('that IS NOT an array', () => {
       it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], {})).to.throw());
       it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], {})).to.throw(TypeError));
     });
 
-    describe('that IS a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime)).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime)).to.throw(ReferenceError));
+    describe('that IS an array', () => {
+      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'])).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'])).to.throw(ReferenceError));
     });
   });
 
   describe('when called with six arguments', () => {
     describe('that IS NOT a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, {})).to.throw());
-      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, {})).to.throw(TypeError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], {})).to.throw());
+      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], {})).to.throw(TypeError));
     });
 
     describe('that IS a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime)).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime)).to.throw(ReferenceError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime)).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime)).to.throw(ReferenceError));
+    });
+  });
+
+  describe('when called with seven arguments', () => {
+    describe('that IS NOT a time', () => {
+      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, {})).to.throw());
+      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, {})).to.throw(TypeError));
+    });
+
+    describe('that IS a time', () => {
+      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime)).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime)).to.throw(ReferenceError));
     });
   });
 };
@@ -119,32 +131,32 @@ describe('lib/metrics.js', () => {
     const subject = metrics.lookup;
 
     it('is a function', () => (typeof subject).should.equal('function'));
-    it('takes seven arguments', () => subject.length.should.equal(7));
+    it('takes eight arguments', () => subject.length.should.equal(8));
 
     requestValidationTest(subject);
 
-    describe('when called with seven arguments', () => {
+    describe('when called with eight arguments', () => {
       describe('that IS NOT a number', () => {
-        it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, {})).to.throw());
-        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, {})).to.throw(TypeError));
+        it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {})).to.throw());
+        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {})).to.throw(TypeError));
       });
 
       describe('that IS a number', () => {
         describe('that IS NOT an integer', () => {
-          it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, 3.14)).to.throw());
-          it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, 3.14)).to.throw(TypeError));
+          it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 3.14)).to.throw());
+          it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 3.14)).to.throw(TypeError));
         });
 
         describe('that IS an integer', () => {
           describe('that IS negative', () => {
-            it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, -1)).to.throw());
-            it('throws a RangeError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, -1)).to.throw(RangeError));
+            it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, -1)).to.throw());
+            it('throws a RangeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, -1)).to.throw(RangeError));
           });
 
           describe('that IS NOT negative', () => {
             before(() => {
               resetStubs();
-              subject('birth', 'user', 'client', ['group'], startTime, finishTime, 1);
+              subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 1);
             });
 
             it('calls increment from the hot-shots library', () => hsIncrementStub.should.have.been.called);
@@ -188,20 +200,20 @@ describe('lib/metrics.js', () => {
     const subject = metrics.search;
 
     it('is a function', () => (typeof subject).should.equal('function'));
-    it('takes seven arguments', () => subject.length.should.equal(7));
+    it('takes eight arguments', () => subject.length.should.equal(8));
 
     requestValidationTest(subject);
 
-    describe('when called with seven arguments', () => {
+    describe('when called with eight arguments', () => {
       describe('that IS NOT an object', () => {
-        it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, '')).to.throw());
-        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], startTime, finishTime, '')).to.throw(TypeError));
+        it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, '')).to.throw());
+        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, '')).to.throw(TypeError));
       });
 
       describe('that IS an object', () => {
         before(() => {
           resetStubs();
-          subject('birth', 'user', 'client', ['group'], startTime, finishTime, {});
+          subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {});
         });
 
         it('calls increment from the hot-shots library', () => hsIncrementStub.should.have.been.called);
@@ -233,6 +245,7 @@ describe('lib/metrics.js', () => {
           query: {},
           reqType: 'search',
           responseTime: responseTime + 'ms',
+          roles: ['role'],
           username: 'user'
         }));
       });

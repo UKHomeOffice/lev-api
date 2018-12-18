@@ -11,7 +11,7 @@ const validDataSets = [
   'marriage'
 ];
 
-const validateCommon = (dataSet, username, client, groups, startTime, finishTime) => {
+const validateCommon = (dataSet, username, client, groups, roles, startTime, finishTime) => {
   if (dataSet === undefined) {
     throw ReferenceError('First argument, dataSet, was not defined');
   } else if (typeof dataSet !== 'string') {
@@ -38,16 +38,22 @@ const validateCommon = (dataSet, username, client, groups, startTime, finishTime
     throw TypeError('Forth argument, groups, was not an array');
   }
 
+  if (roles === undefined) {
+    throw ReferenceError('Fifth argument, roles, was not defined');
+  } else if (!(roles instanceof Array)) {
+    throw TypeError('Fifth argument, roles, was not an array');
+  }
+
   if (startTime === undefined) {
-    throw ReferenceError('Fifth argument, startTime, was not defined');
+    throw ReferenceError('Sixth argument, startTime, was not defined');
   } else if (!(startTime instanceof moment)) {
-    throw TypeError('Fifth argument, startTime, was not a moment object');
+    throw TypeError('Sixth argument, startTime, was not a moment object');
   }
 
   if (finishTime === undefined) {
-    throw ReferenceError('Sixth argument, finishTime, was not defined');
+    throw ReferenceError('Seventh argument, finishTime, was not defined');
   } else if (!(finishTime instanceof moment)) {
-    throw TypeError('Sixth argument, finishTime, was not a moment object');
+    throw TypeError('Seventh argument, finishTime, was not a moment object');
   }
 };
 
@@ -73,15 +79,15 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
   groups.forEach(g => statsdClient.set(`${statsdPrefix}.req.${g}.users`, username));
 };
 
-const lookup = (dataSet, username, client, groups, startTime, finishTime, id) => {
-  validateCommon(dataSet, username, client, groups, startTime, finishTime);
+const lookup = (dataSet, username, client, groups, roles, startTime, finishTime, id) => {
+  validateCommon(dataSet, username, client, groups, roles, startTime, finishTime);
 
   if (id === undefined) {
-    throw ReferenceError('Seventh argument, id, was not defined');
+    throw ReferenceError('Eighth argument, id, was not defined');
   } else if (!Number.isInteger(id)) {
-    throw TypeError('Seventh argument, id, was not an integer');
+    throw TypeError('Eighth argument, id, was not an integer');
   } else if (id < 0) {
-    throw RangeError('Seventh argument, id, was not a positive integer');
+    throw RangeError('Eighth argument, id, was not a positive integer');
   }
 
   const reqType = 'lookup';
@@ -102,13 +108,13 @@ const lookup = (dataSet, username, client, groups, startTime, finishTime, id) =>
   }, msg);
 };
 
-const search = (dataSet, username, client, groups, startTime, finishTime, query) => {
-  validateCommon(dataSet, username, client, groups, startTime, finishTime);
+const search = (dataSet, username, client, groups, roles, startTime, finishTime, query) => {
+  validateCommon(dataSet, username, client, groups, roles, startTime, finishTime);
 
   if (query === undefined) {
-    throw ReferenceError('Seventh argument, query, was not defined');
+    throw ReferenceError('Eighth argument, query, was not defined');
   } else if (!(query instanceof Object)) {
-    throw TypeError('Seventh argument, query, was not an object');
+    throw TypeError('Eighth argument, query, was not an object');
   }
 
   const reqType = 'search';
@@ -127,6 +133,7 @@ const search = (dataSet, username, client, groups, startTime, finishTime, query)
     query: query,
     reqType: reqType,
     responseTime: duration + 'ms',
+    roles: roles,
     username: username
   }, msg);
 };

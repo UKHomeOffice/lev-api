@@ -33,7 +33,7 @@ module.exports = {
         .then(r => {
           if (r) {
             res.send(r);
-            metrics.lookup('marriage', ri.username, ri.client, ri.groups, startTime, moment(), id);
+            metrics.lookup('marriage', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
             next(new errors.NotFoundError());
@@ -71,7 +71,7 @@ module.exports = {
           .then(() => model.search(query))
           .then(r => {
             res.send(r);
-            metrics.search('marriage', ri.username, ri.client, ri.groups, startTime, moment(), req.query);
+            metrics.search('marriage', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
           .catch(promiseRejectionHandler(next));
