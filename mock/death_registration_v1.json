@@ -20,8 +20,10 @@
         "signature": "I. McInformface"
       },
       "deceased": {
+        "prefix": null,
         "forenames": "Joan Narcissus Ouroboros",
         "surname": "SMITH",
+        "suffix": null,
         "dateOfBirth": "2008-08-08",
         "dateOfDeath": "2008-08-08",
         "birthplace": "888 Birth House, 8 Birth way, Bournemouth, B1 7TH",
@@ -64,8 +66,10 @@
         "signature": "I. McInformface"
       },
       "deceased": {
+        "prefix": null,
         "forenames": "Tester One",
         "surname": "MULTIPLE",
+        "suffix": null,
         "dateOfBirth": "1910-01-01",
         "dateOfDeath": "2010-01-01",
         "birthplace": "Test address",
@@ -108,8 +112,10 @@
         "signature": "I. McInformface"
       },
       "deceased": {
+        "prefix": null,
         "forenames": "Tester Two",
         "surname": "MULTIPLE",
+        "suffix": null,
         "dateOfBirth": "1910-01-01",
         "dateOfDeath": "2010-01-01",
         "birthplace": "Test address",
@@ -152,8 +158,10 @@
         "signature": "I. McInformface"
       },
       "deceased": {
+        "prefix": null,
         "forenames": "Tester Three",
         "surname": "MULTIPLE",
+        "suffix": null,
         "dateOfBirth": "1910-01-01",
         "dateOfDeath": "2010-01-01",
         "birthplace": "Test address",
@@ -196,8 +204,10 @@
         "signature": "I. McInformface"
       },
       "deceased": {
+        "prefix": null,
         "forenames": "Tester",
         "surname": "SOLO",
+        "suffix": null,
         "dateOfBirth": "1912-02-29",
         "dateOfDeath": "2012-02-29",
         "birthplace": "Test address",

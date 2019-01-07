@@ -6,7 +6,11 @@
       "date": "2008-08-08",
       "entryNumber": 0,
       "dateOfMarriage": "2008-08-08",
-      "placeOfMarriage": "Church",
+      "placeOfMarriage": {
+        "address": "Church, Church street, Gospelton, District City",
+        "parish": "Gospelton",
+        "short": "Church"
+      },
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -16,62 +20,122 @@
         "administrativeArea": "Adminshire"
       },
       "groom": {
+        "prefix": null,
         "forenames": "John Narcissus Ouroboros",
         "surname": "SMITH",
+        "suffix": null,
         "age": 0,
         "occupation": "Unemployed",
-        "address": "888, Groom House, 8, Groom grove, Wedford, Wedfordshire, GR0 0M, England",
+        "retired": false,
+        "address": "888 Groom House, 8 Groom grove, Wedford, Wedfordshire, GR0 0M",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "J.N.O. Smith"
+        "signature": "J.N.O. Smith",
+        "signatureIsMark": false
       },
       "bride": {
+        "prefix": null,
         "forenames": "Joan Narcissus Ouroboros",
         "surname": "BLACK",
+        "suffix": null,
         "age": 0,
         "occupation": "Unemployed",
-        "address": "888, Bride House, 8, Bride grove, Wedford, Wedfordshire, BR1 2E, England",
+        "retired": false,
+        "address": "888 Bride House, 8 Bride grove, Wedford, Wedfordshire, BR1 2E",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Widow",
-        "signature": "J.N.O. Black"
+        "signature": "J.N.O. Black",
+        "signatureIsMark": false
       },
       "fatherOfGroom": {
         "forenames": "John Narcissus Ouroboros",
         "surname": "SMITH",
-        "occupation": "Unemployed"
+        "occupation": "Unemployed",
+        "retired": false,
+        "designation": null,
+        "deceased": false
       },
       "fatherOfBride": {
         "forenames": "John Narcissus Ouroboros",
         "surname": "SMITH",
-        "occupation": "Unemployed"
+        "occupation": "Unemployed",
+        "retired": false,
+        "designation": null,
+        "deceased": false
       },
       "witness1": {
-        "signature": "A. Witness"
+        "signature": "A. Witness",
+        "signatureIsMark": false
       },
       "witness2": {
-        "signature": "A.N. Other"
+        "signature": "A.N. Other",
+        "signatureIsMark": true
       },
       "witness3": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness4": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness5": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness6": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness7": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness8": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness9": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness10": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness11": {
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness12": {
+        "signature": null,
+        "signatureIsMark": false
       },
       "minister1": {
         "signature": "A. Minister",
@@ -102,7 +166,11 @@
       "date": "2014-10-10",
       "entryNumber": 1,
       "dateOfMarriage": "2012-02-29",
-      "placeOfMarriage": "Test place",
+      "placeOfMarriage": {
+        "address": "Test place",
+        "parish": null,
+        "short": "Test place"
+      },
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -112,62 +180,122 @@
         "administrativeArea": "Reading"
       },
       "groom": {
+        "prefix": null,
         "forenames": "Tester One",
         "surname": "MULTIPLE",
+        "suffix": null,
         "age": 100,
         "occupation": "Unemployed",
-        "address": "1, Test street",
+        "retired": false,
+        "address": "1 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T.1. Multiple"
+        "signature": "T.1. Multiple",
+        "signatureIsMark": false
       },
       "bride": {
+        "prefix": null,
         "forenames": "Test",
         "surname": "BRIDE",
+        "suffix": null,
         "age": 18,
         "occupation": "Bride",
-        "address": "1, Test street",
+        "retired": false,
+        "address": "1 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T. Bride"
+        "signature": "T. Bride",
+        "signatureIsMark": false
       },
       "fatherOfGroom": {
         "forenames": "Test Fog",
         "surname": "FATHER",
-        "occupation": "Father"
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "fatherOfBride": {
         "forenames": "Test Fob",
         "surname": "BRIDE",
-        "occupation": "Father"
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "witness1": {
-        "signature": "A. Witness"
+        "signature": "A. Witness",
+        "signatureIsMark": false
       },
       "witness2": {
-        "signature": "A.N. Other"
+        "signature": "A.N. Other",
+        "signatureIsMark": true
       },
       "witness3": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness4": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness5": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness6": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness7": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness8": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness9": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness10": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness11": {
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness12": {
+        "signature": null,
+        "signatureIsMark": false
       },
       "minister1": {
         "signature": "A. Minister",
@@ -198,7 +326,11 @@
       "date": "2014-10-10",
       "entryNumber": 2,
       "dateOfMarriage": "2012-02-29",
-      "placeOfMarriage": "Test place",
+      "placeOfMarriage": {
+        "address": "Test place",
+        "parish": null,
+        "short": "Test place"
+      },
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -208,62 +340,122 @@
         "administrativeArea": "Reading"
       },
       "groom": {
+        "prefix": null,
         "forenames": "Tester Two",
         "surname": "MULTIPLE",
+        "suffix": null,
         "age": 100,
         "occupation": "Unemployed",
-        "address": "2, Test street",
+        "retired": false,
+        "address": "2 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T.2. Multiple"
+        "signature": "T.2. Multiple",
+        "signatureIsMark": false
       },
       "bride": {
+        "prefix": null,
         "forenames": "Test",
         "surname": "BRIDE",
+        "suffix": null,
         "age": 18,
         "occupation": "Bride",
-        "address": "2, Test street",
+        "retired": false,
+        "address": "2 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T. Bride"
+        "signature": "T. Bride",
+        "signatureIsMark": false
       },
       "fatherOfGroom": {
-        "forenames": "Test",
+        "forenames": "Test Fog",
         "surname": "FATHER",
-        "occupation": "Father"
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "fatherOfBride": {
-        "forenames": null,
-        "surname": null,
-        "occupation": null
+        "forenames": "Test Fob",
+        "surname": "BRIDE",
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "witness1": {
-        "signature": "A. Witness"
+        "signature": "A. Witness",
+        "signatureIsMark": false
       },
       "witness2": {
-        "signature": "A.N. Other"
+        "signature": "A.N. Other",
+        "signatureIsMark": true
       },
       "witness3": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness4": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness5": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness6": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness7": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness8": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness9": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness10": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness11": {
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness12": {
+        "signature": null,
+        "signatureIsMark": false
       },
       "minister1": {
         "signature": "A. Minister",
@@ -294,7 +486,11 @@
       "date": "2014-10-10",
       "entryNumber": 3,
       "dateOfMarriage": "2012-02-29",
-      "placeOfMarriage": "Test place",
+      "placeOfMarriage": {
+        "address": "Test place",
+        "parish": null,
+        "short": "Test place"
+      },
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -304,62 +500,122 @@
         "administrativeArea": "Reading"
       },
       "groom": {
+        "prefix": null,
         "forenames": "Tester Three",
         "surname": "MULTIPLE",
+        "suffix": null,
         "age": 100,
         "occupation": "Unemployed",
-        "address": "3, Test street",
+        "retired": false,
+        "address": "3 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T.3. Multiple"
+        "signature": "T.3. Multiple",
+        "signatureIsMark": false
       },
       "bride": {
+        "prefix": null,
         "forenames": "Test",
         "surname": "BRIDE",
+        "suffix": null,
         "age": 18,
         "occupation": "Bride",
-        "address": "3, Test street",
+        "retired": false,
+        "address": "3 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T. Bride"
+        "signature": "T. Bride",
+        "signatureIsMark": false
       },
       "fatherOfGroom": {
-        "forenames": "Test",
+        "forenames": "Test Fog",
         "surname": "FATHER",
-        "occupation": "Father"
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "fatherOfBride": {
-        "forenames": null,
-        "surname": null,
-        "occupation": null
+        "forenames": "Test Fob",
+        "surname": "BRIDE",
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "witness1": {
-        "signature": "A. Witness"
+        "signature": "A. Witness",
+        "signatureIsMark": false
       },
       "witness2": {
-        "signature": "A.N. Other"
+        "signature": "A.N. Other",
+        "signatureIsMark": true
       },
       "witness3": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness4": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness5": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness6": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness7": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness8": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness9": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness10": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness11": {
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness12": {
+        "signature": null,
+        "signatureIsMark": false
       },
       "minister1": {
         "signature": "A. Minister",
@@ -390,7 +646,11 @@
       "date": "2014-10-10",
       "entryNumber": 10,
       "dateOfMarriage": "2012-02-29",
-      "placeOfMarriage": "Test place",
+      "placeOfMarriage": {
+        "address": "Test place",
+        "parish": null,
+        "short": "Test place"
+      },
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -400,62 +660,122 @@
         "administrativeArea": "Reading"
       },
       "groom": {
+        "prefix": null,
         "forenames": "Tester",
         "surname": "SOLO",
+        "suffix": null,
         "age": 100,
         "occupation": "Unemployed",
-        "address": "10, Test street",
+        "retired": false,
+        "address": "10 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T. Solo"
+        "signature": "T. Solo",
+        "signatureIsMark": false
       },
       "bride": {
+        "prefix": null,
         "forenames": "Test",
         "surname": "BRIDE",
+        "suffix": null,
         "age": 18,
         "occupation": "Bride",
-        "address": "10, Test street",
+        "retired": false,
+        "address": "10 Test street",
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "condition": "Single",
-        "signature": "T. Bride"
+        "signature": "T. Bride",
+        "signatureIsMark": false
       },
       "fatherOfGroom": {
         "forenames": "Test Fog",
         "surname": "FATHER",
-        "occupation": "Father"
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "fatherOfBride": {
         "forenames": "Test Fob",
         "surname": "BRIDE",
-        "occupation": "Father"
+        "occupation": "Father",
+        "retired": true,
+        "designation": null,
+        "deceased": true
       },
       "witness1": {
-        "signature": "A. Witness"
+        "signature": "A. Witness",
+        "signatureIsMark": false
       },
       "witness2": {
-        "signature": "A.N. Other"
+        "signature": "A.N. Other",
+        "signatureIsMark": true
       },
       "witness3": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness4": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness5": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness6": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness7": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness8": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness9": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
       },
       "witness10": {
-        "signature": null
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness11": {
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "witness12": {
+        "signature": null,
+        "signatureIsMark": false
       },
       "minister1": {
         "signature": "A. Minister",
