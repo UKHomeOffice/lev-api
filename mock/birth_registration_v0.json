@@ -25,7 +25,7 @@
           },
           "dateOfBirth": "2008-08-08",
           "sex": "Indeterminate",
-          "birthplace": "888 Birth House, 8 Birth way, Bournemouth, B1 7TH"
+          "birthplace": "888 Birth House, 8 Birth way, Bournemouth"
         },
         "father": {
           "name": {
@@ -57,7 +57,7 @@
             "fullName": "Informy McInformface",
             "qualifier": "generated from prepending forename to surname"
           },
-          "usualAddress": "888 Dad House, 8 Dad street, Daddington, Dadshire, DA7 7Y",
+          "usualAddress": "888 Dad House, 8 Dad street, Daddington, Dadshire",
           "qualification": "Parent, Mother",
           "signature": "J. Smith, J.Smith"
         }
