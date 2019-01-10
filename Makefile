@@ -30,9 +30,10 @@ deps: docker-test-deps node-deps
 docker-compose-deps:
 	docker-compose pull
 
-docker-test-deps: docker-compose-deps
+docker-test-deps:
 	docker pull '$(test_image)'
 	docker pull '$(perf_test_image)'
+	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' pull
 
 node-deps: node_modules/
 
@@ -56,10 +57,7 @@ docker-test: docker-test-deps docker
 	docker run -d --name 'lev-api-mock' --env 'MOCK=true' '$(DOCKER_IMAGE)'
 	docker run --net 'container:lev-api-mock' --env 'TEST_URL=http://localhost:8080' --env 'WAIT=true' '$(test_image)'
 	docker stop 'lev-api-mock'
-	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' stop
-	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' rm -vfs
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' down -v
-	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' pull
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' build
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' up &> /dev/null &
 	compose_network=`$(probe_network)`; \
