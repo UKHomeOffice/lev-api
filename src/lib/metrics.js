@@ -3,8 +3,10 @@
 const moment = require('moment');
 const log = require('./logger');
 const HotShots = require('hot-shots');
+const promClient = require('prom-client');
 const statsdClient = new HotShots();
 
+const prometheusMetrics = {};
 const validDataSets = [
   'birth',
   'death',
@@ -79,6 +81,78 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
   groups.forEach(g => statsdClient.set(`${statsdPrefix}.req.${g}.users`, username));
 };
 
+const prometheus = (reqType, dataSet, username, client, groups, duration) => {
+  const prometheusPrefix = 'lev_api_';
+
+  duration /= 1000;
+
+  // Initialise metrics if required
+  prometheusMetrics.req = prometheusMetrics.req || new promClient.Counter({
+    prefix: prometheusPrefix,
+    name: 'req',
+    help: 'Number of requests'
+  });
+  prometheusMetrics.req[reqType] = prometheusMetrics.req[reqType] || new promClient.Counter({
+    prefix: prometheusPrefix,
+    name: `req_${reqType}`,
+    help: `Number of ${reqType} requests`
+  });
+  prometheusMetrics.req[dataSet] = prometheusMetrics.req[dataSet] || new promClient.Counter({
+    prefix: prometheusPrefix,
+    name: `req_${dataSet}`,
+    help: `Number of ${dataSet} requests`
+  });
+  prometheusMetrics.req[client] = prometheusMetrics.req[client] || new promClient.Counter({
+    prefix: prometheusPrefix,
+    name: `req_${client}`,
+    help: `Number of requests from the ${client} client`
+  });
+  groups.forEach(g => prometheusMetrics.req[g] = prometheusMetrics.req[g] || new promClient.Counter({
+    prefix: prometheusPrefix,
+    name: `req_${g}`,
+    help: `Number of requests from members of the ${g} group`
+  }));
+
+  prometheusMetrics.req.time = prometheusMetrics.req.time || new promClient.Histogram({
+    prefix: prometheusPrefix,
+    name: 'req_time',
+    help: 'Request time'
+  });
+  prometheusMetrics.req[reqType].time = prometheusMetrics.req[reqType].time || new promClient.Histogram({
+    prefix: prometheusPrefix,
+    name: `req_${reqType}_time`,
+    help: `Request time of ${reqType} requests`
+  });
+  prometheusMetrics.req[dataSet].time = prometheusMetrics.req[dataSet].time || new promClient.Histogram({
+    prefix: prometheusPrefix,
+    name: `req_${dataSet}_time`,
+    help: `Request time of ${dataSet} requests`
+  });
+  prometheusMetrics.req[client].time = prometheusMetrics.req[client].time || new promClient.Histogram({
+    prefix: prometheusPrefix,
+    name: `req_${client}_time`,
+    help: `Request time of requests from the ${client} client`
+  });
+  groups.forEach(g => prometheusMetrics.req[g].time = prometheusMetrics.req[g].time || new promClient.Histogram({
+    prefix: prometheusPrefix,
+    name: `req_${g}_time`,
+    help: `Request time of requests from members of the ${g} group`
+  }));
+
+  // Update metrics
+  prometheusMetrics.req.inc();
+  prometheusMetrics.req[reqType].inc();
+  prometheusMetrics.req[dataSet].inc();
+  prometheusMetrics.req[client].inc();
+  groups.forEach(g => prometheusMetrics.req[g].inc());
+
+  prometheusMetrics.req.time.observe(duration);
+  prometheusMetrics.req[reqType].time.observe(duration);
+  prometheusMetrics.req[dataSet].time.observe(duration);
+  prometheusMetrics.req[client].time.observe(duration);
+  groups.forEach(g => prometheusMetrics.req[g].time.observe(duration));
+};
+
 const lookup = (dataSet, username, client, groups, roles, startTime, finishTime, id) => {
   validateCommon(dataSet, username, client, groups, roles, startTime, finishTime);
 
@@ -94,6 +168,7 @@ const lookup = (dataSet, username, client, groups, roles, startTime, finishTime,
   const duration = finishTime.diff(startTime);
 
   statsd(reqType, dataSet, username, client, groups, duration);
+  prometheus(reqType, dataSet, username, client, groups, duration);
 
   const msg = `${username}(${groups.join(',')}) accessed ${dataSet} record ${id} using ${client} in ${duration} ms`;
 
@@ -121,6 +196,7 @@ const search = (dataSet, username, client, groups, roles, startTime, finishTime,
   const duration = finishTime.diff(startTime);
 
   statsd(reqType, dataSet, username, client, groups, duration);
+  prometheus(reqType, dataSet, username, client, groups, duration);
 
   const surname = query.surname && query.surname.toUpperCase();
   const forenames = query.forenames && (query.forenames[0].toUpperCase() + query.forenames.substring(1));
@@ -140,5 +216,8 @@ const search = (dataSet, username, client, groups, roles, startTime, finishTime,
 
 module.exports = {
   lookup: lookup,
-  search: search
+  search: search,
+  prometheus: {
+    register: promClient.register
+  }
 };

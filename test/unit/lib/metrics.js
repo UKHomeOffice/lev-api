@@ -156,6 +156,7 @@ describe('lib/metrics.js', () => {
           describe('that IS NOT negative', () => {
             before(() => {
               resetStubs();
+              metrics.prometheus.register.resetMetrics();
               subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 1);
             });
 
@@ -179,6 +180,12 @@ describe('lib/metrics.js', () => {
             it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
             it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
             it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
+
+            it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('req').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('req_birth').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('req_client').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('req_group').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_lookup', () => metrics.prometheus.register.getSingleMetricAsString('req_lookup').should.match(/[^0-9]1$/));
 
             it('calls log.info', () => logInfoStub.should.have.been.called);
             it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
@@ -213,6 +220,7 @@ describe('lib/metrics.js', () => {
       describe('that IS an object', () => {
         before(() => {
           resetStubs();
+          metrics.prometheus.register.resetMetrics();
           subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {});
         });
 
@@ -236,6 +244,12 @@ describe('lib/metrics.js', () => {
         it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
         it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
         it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
+
+        it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('req').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('req_birth').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('req_client').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('req_group').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_search', () => metrics.prometheus.register.getSingleMetricAsString('req_search').should.match(/[^0-9]1$/));
 
         it('calls log.info', () => logInfoStub.should.have.been.called);
         it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
