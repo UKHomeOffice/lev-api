@@ -85,70 +85,58 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
 };
 
 const prometheus = (reqType, dataSet, username, client, groups, duration) => {
-  const prometheusPrefix = 'lev_api_';
+  const prometheusPrefix = 'lev_api';
 
   duration /= 1000;
 
   // Initialise metrics if required
   prometheusMetrics.req = prometheusMetrics.req || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: 'req',
+    name: `${prometheusPrefix}_req`,
     help: 'Number of requests'
   });
   prometheusMetrics.req[reqType] = prometheusMetrics.req[reqType] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${reqType}`,
+    name: `${prometheusPrefix}_req_${reqType}`,
     help: `Number of ${reqType} requests`
   });
   prometheusMetrics.req[dataSet] = prometheusMetrics.req[dataSet] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${dataSet}`,
+    name: `${prometheusPrefix}_req_${dataSet}`,
     help: `Number of ${dataSet} requests`
   });
   prometheusMetrics.req[client] = prometheusMetrics.req[client] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${client}`,
+    name: `${prometheusPrefix}_req_${client}`,
     help: `Number of requests from the ${client} client`
   });
   prometheusMetrics.req[dataSet][reqType] = prometheusMetrics.req[dataSet][reqType] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${dataSet}_${reqType}`,
+    name: `${prometheusPrefix}_req_${dataSet}_${reqType}`,
     help: `Number of ${dataSet} ${reqType} requests`
   });
   groups.forEach(g => prometheusMetrics.req[g] = prometheusMetrics.req[g] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${g}`,
+    name: `${prometheusPrefix}_req_${g}`,
     help: `Number of requests from members of the ${g} group`
   }));
 
   prometheusMetrics.req.time = prometheusMetrics.req.time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: 'req_time',
+    name: `${prometheusPrefix}_req_time`,
     help: 'Request time'
   });
   prometheusMetrics.req[reqType].time = prometheusMetrics.req[reqType].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${reqType}_time`,
+    name: `${prometheusPrefix}_req_${reqType}_time`,
     help: `Request time of ${reqType} requests`
   });
   prometheusMetrics.req[dataSet].time = prometheusMetrics.req[dataSet].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${dataSet}_time`,
+    name: `${prometheusPrefix}_req_${dataSet}_time`,
     help: `Request time of ${dataSet} requests`
   });
   prometheusMetrics.req[client].time = prometheusMetrics.req[client].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${client}_time`,
+    name: `${prometheusPrefix}_req_${client}_time`,
     help: `Request time of requests from the ${client} client`
   });
   prometheusMetrics.req[dataSet][reqType].time = prometheusMetrics.req[dataSet][reqType].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${dataSet}_${reqType}`,
-    help: `Number of ${dataSet} ${reqType} requests`
+    name: `${prometheusPrefix}_req_${dataSet}_${reqType}_time`,
+    help: `Request time of ${dataSet} ${reqType} requests`
   });
   groups.forEach(g => prometheusMetrics.req[g].time = prometheusMetrics.req[g].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${g}_time`,
+    name: `${prometheusPrefix}_req_${g}_time`,
     help: `Request time of requests from members of the ${g} group`
   }));
 
