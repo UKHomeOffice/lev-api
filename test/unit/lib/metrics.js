@@ -165,6 +165,7 @@ describe('lib/metrics.js', () => {
             it('calls increment on lev.api.req.lookup', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.lookup'));
             it('calls increment on lev.api.req.${dataSet}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth'));
             it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.client'));
+            it('calls increment on lev.api.req.${dataSet}.lookup', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth.lookup'));
             it('calls increment on lev.api.req.${group}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.group'));
 
             it('calls timing from the hot-shots library', () => hsTimingStub.should.have.been.called);
@@ -172,6 +173,7 @@ describe('lib/metrics.js', () => {
             it('calls timing on lev.api.req.lookup', () => hsTimingStub.should.have.been.calledWith('lev.api.req.lookup.time', responseTime));
             it('calls timing on lev.api.req.${dataSet}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.time', responseTime));
             it('calls timing on lev.api.req.${client}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.client.time', responseTime));
+            it('calls timing on lev.api.req.${dataSet}.lookup', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.lookup.time', responseTime));
             it('calls timing on lev.api.req.${group}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.group.time', responseTime));
 
             it('calls set from the hot-shots library', () => hsSetStub.should.have.been.called);
@@ -179,13 +181,15 @@ describe('lib/metrics.js', () => {
             it('calls set on lev.api.req.lookup', () => hsSetStub.should.have.been.calledWith('lev.api.req.lookup.users', 'user'));
             it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
             it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
+            it('calls set on lev.api.req.${dataSet}.lookup', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.lookup.users', 'user'));
             it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
 
-            it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('req').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('req_birth').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('req_client').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('req_group').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_lookup', () => metrics.prometheus.register.getSingleMetricAsString('req_lookup').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_client').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_lookup', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_lookup').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_birth_lookup', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth_lookup').should.match(/[^0-9]1$/));
 
             it('calls log.info', () => logInfoStub.should.have.been.called);
             it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
@@ -229,6 +233,7 @@ describe('lib/metrics.js', () => {
         it('calls increment on lev.api.req.search', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.search'));
         it('calls increment on lev.api.req.${dataSet}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth'));
         it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.client'));
+        it('calls increment on lev.api.req.${dataSet}.search', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth.search'));
         it('calls increment on lev.api.req.${group}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.group'));
 
         it('calls timing from the hot-shots library', () => hsTimingStub.should.have.been.called);
@@ -236,6 +241,7 @@ describe('lib/metrics.js', () => {
         it('calls timing on lev.api.req.search', () => hsTimingStub.should.have.been.calledWith('lev.api.req.search.time', responseTime));
         it('calls timing on lev.api.req.${dataSet}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.time', responseTime));
         it('calls timing on lev.api.req.${client}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.client.time', responseTime));
+        it('calls timing on lev.api.req.${dataSet}.search', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.search.time', responseTime));
         it('calls timing on lev.api.req.${group}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.group.time', responseTime));
 
         it('calls set from the hot-shots library', () => hsSetStub.should.have.been.called);
@@ -243,13 +249,15 @@ describe('lib/metrics.js', () => {
         it('calls set on lev.api.req.search', () => hsSetStub.should.have.been.calledWith('lev.api.req.search.users', 'user'));
         it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
         it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
+        it('calls set on lev.api.req.${dataSet}.search', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.search.users', 'user'));
         it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
 
-        it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('req').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('req_birth').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('req_client').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('req_group').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_search', () => metrics.prometheus.register.getSingleMetricAsString('req_search').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_client').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_search', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_search').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_birth_search', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth_search').should.match(/[^0-9]1$/));
 
         it('calls log.info', () => logInfoStub.should.have.been.called);
         it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({

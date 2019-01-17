@@ -66,76 +66,77 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
   statsdClient.increment(`${statsdPrefix}.req.${reqType}`);
   statsdClient.increment(`${statsdPrefix}.req.${dataSet}`);
   statsdClient.increment(`${statsdPrefix}.req.${client}`);
+  statsdClient.increment(`${statsdPrefix}.req.${dataSet}.${reqType}`);
   groups.forEach(g => statsdClient.increment(`${statsdPrefix}.req.${g}`));
 
   statsdClient.timing(`${statsdPrefix}.req.time`, duration);
   statsdClient.timing(`${statsdPrefix}.req.${reqType}.time`, duration);
   statsdClient.timing(`${statsdPrefix}.req.${dataSet}.time`, duration);
   statsdClient.timing(`${statsdPrefix}.req.${client}.time`, duration);
+  statsdClient.timing(`${statsdPrefix}.req.${dataSet}.${reqType}.time`, duration);
   groups.forEach(g => statsdClient.timing(`${statsdPrefix}.req.${g}.time`, duration));
 
   statsdClient.set(`${statsdPrefix}.req.users`, username);
   statsdClient.set(`${statsdPrefix}.req.${reqType}.users`, username);
   statsdClient.set(`${statsdPrefix}.req.${dataSet}.users`, username);
   statsdClient.set(`${statsdPrefix}.req.${client}.users`, username);
+  statsdClient.set(`${statsdPrefix}.req.${dataSet}.${reqType}.users`, username);
   groups.forEach(g => statsdClient.set(`${statsdPrefix}.req.${g}.users`, username));
 };
 
 const prometheus = (reqType, dataSet, username, client, groups, duration) => {
-  const prometheusPrefix = 'lev_api_';
+  const prometheusPrefix = 'lev_api';
 
   duration /= 1000;
 
   // Initialise metrics if required
   prometheusMetrics.req = prometheusMetrics.req || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: 'req',
+    name: `${prometheusPrefix}_req`,
     help: 'Number of requests'
   });
   prometheusMetrics.req[reqType] = prometheusMetrics.req[reqType] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${reqType}`,
+    name: `${prometheusPrefix}_req_${reqType}`,
     help: `Number of ${reqType} requests`
   });
   prometheusMetrics.req[dataSet] = prometheusMetrics.req[dataSet] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${dataSet}`,
+    name: `${prometheusPrefix}_req_${dataSet}`,
     help: `Number of ${dataSet} requests`
   });
   prometheusMetrics.req[client] = prometheusMetrics.req[client] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${client}`,
+    name: `${prometheusPrefix}_req_${client}`,
     help: `Number of requests from the ${client} client`
   });
+  prometheusMetrics.req[dataSet][reqType] = prometheusMetrics.req[dataSet][reqType] || new promClient.Counter({
+    name: `${prometheusPrefix}_req_${dataSet}_${reqType}`,
+    help: `Number of ${dataSet} ${reqType} requests`
+  });
   groups.forEach(g => prometheusMetrics.req[g] = prometheusMetrics.req[g] || new promClient.Counter({
-    prefix: prometheusPrefix,
-    name: `req_${g}`,
+    name: `${prometheusPrefix}_req_${g}`,
     help: `Number of requests from members of the ${g} group`
   }));
 
   prometheusMetrics.req.time = prometheusMetrics.req.time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: 'req_time',
+    name: `${prometheusPrefix}_req_time`,
     help: 'Request time'
   });
   prometheusMetrics.req[reqType].time = prometheusMetrics.req[reqType].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${reqType}_time`,
+    name: `${prometheusPrefix}_req_${reqType}_time`,
     help: `Request time of ${reqType} requests`
   });
   prometheusMetrics.req[dataSet].time = prometheusMetrics.req[dataSet].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${dataSet}_time`,
+    name: `${prometheusPrefix}_req_${dataSet}_time`,
     help: `Request time of ${dataSet} requests`
   });
   prometheusMetrics.req[client].time = prometheusMetrics.req[client].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${client}_time`,
+    name: `${prometheusPrefix}_req_${client}_time`,
     help: `Request time of requests from the ${client} client`
   });
+  prometheusMetrics.req[dataSet][reqType].time = prometheusMetrics.req[dataSet][reqType].time || new promClient.Histogram({
+    name: `${prometheusPrefix}_req_${dataSet}_${reqType}_time`,
+    help: `Request time of ${dataSet} ${reqType} requests`
+  });
   groups.forEach(g => prometheusMetrics.req[g].time = prometheusMetrics.req[g].time || new promClient.Histogram({
-    prefix: prometheusPrefix,
-    name: `req_${g}_time`,
+    name: `${prometheusPrefix}_req_${g}_time`,
     help: `Request time of requests from members of the ${g} group`
   }));
 
@@ -144,12 +145,14 @@ const prometheus = (reqType, dataSet, username, client, groups, duration) => {
   prometheusMetrics.req[reqType].inc();
   prometheusMetrics.req[dataSet].inc();
   prometheusMetrics.req[client].inc();
+  prometheusMetrics.req[dataSet][reqType].inc();
   groups.forEach(g => prometheusMetrics.req[g].inc());
 
   prometheusMetrics.req.time.observe(duration);
   prometheusMetrics.req[reqType].time.observe(duration);
   prometheusMetrics.req[dataSet].time.observe(duration);
   prometheusMetrics.req[client].time.observe(duration);
+  prometheusMetrics.req[dataSet][reqType].time.observe(duration);
   groups.forEach(g => prometheusMetrics.req[g].time.observe(duration));
 };
 
