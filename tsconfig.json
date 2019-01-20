@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./build",
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "include": [
+    "./src/**/*",
+    "./test/**/*"
+  ],
+  "exclude": [
+    "coverage",
+    "example-db",
+    "mock",
+    "node_modules",
+    "sql"
+  ]
+}
