@@ -67,7 +67,7 @@ docker-test: docker-test-deps docker
 		compose_network=`$(probe_network)`; \
 	done; \
 	docker run --net "$${compose_network}" --env 'TEST_URL=http://api:8080' --env 'WAIT=true' '$(test_image)' && \
-	docker run --net "$${compose_network}" --env "TEST_CONFIG=$$(cat ./test/perf/artillery.config.yml)" --env "MEDIAN_LATENCY=50" '$(perf_test_image)'
+	docker run --net "$${compose_network}" --env "TEST_CONFIG=$$(cat ./test/perf/artillery.config.yml)" --env "MEDIAN_LATENCY=100" '$(perf_test_image)'
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' down -v
 
 docker-compose-clean:
