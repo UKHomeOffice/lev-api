@@ -86,7 +86,7 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
 
 const prometheus = (reqType, dataSet, username, client, groups, duration) => {
   const prometheusPrefix = 'lev_api';
-  const escape = t => t.replace(/-/g, '_');
+  const escape = t => t.replace(/[ -/]/g, '');
 
   duration /= 1000;
 
