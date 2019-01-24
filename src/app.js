@@ -4,13 +4,13 @@ const config = require('../config.js');
 const log = require('./lib/logger');
 const healthCheck = require('./middleware/health-check');
 const metrics = require('./middleware/metrics');
+const restify = require('restify');
+const restifyBunyanLogger = require('restify-bunyan-logger');
 const v0Birth = require('./middleware/api/v0/events/birth');
 const v0UserActivity = require('./middleware/api/v0/audit/user-activity');
 const v1Birth = require('./middleware/v1/registration/birth');
 const v1Death = require('./middleware/v1/registration/death');
 const v1Marriage = require('./middleware/v1/registration/marriage');
-const restify = require('restify');
-const restifyBunyanLogger = require('restify-bunyan-logger');
 
 process.title = config.name.replace(/[^\w]/gi, '').substr(0, 6);
 

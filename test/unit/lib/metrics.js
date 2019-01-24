@@ -72,56 +72,56 @@ const requestValidationTest = (subject) => {
     });
 
     describe('that IS a string', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client')).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client')).to.throw(ReferenceError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client')).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'my-client')).to.throw(ReferenceError));
     });
   });
 
   describe('when called with four arguments', () => {
     describe('that IS NOT an array', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', {})).to.throw());
-      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', {})).to.throw(TypeError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', {})).to.throw());
+      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', {})).to.throw(TypeError));
     });
 
     describe('that IS an array', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'])).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'])).to.throw(ReferenceError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'])).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'my-client', ['group'])).to.throw(ReferenceError));
     });
   });
 
   describe('when called with five arguments', () => {
     describe('that IS NOT an array', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], {})).to.throw());
-      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], {})).to.throw(TypeError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], {})).to.throw());
+      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], {})).to.throw(TypeError));
     });
 
     describe('that IS an array', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'])).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'])).to.throw(ReferenceError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'])).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'])).to.throw(ReferenceError));
     });
   });
 
   describe('when called with six arguments', () => {
     describe('that IS NOT a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], {})).to.throw());
-      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], {})).to.throw(TypeError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], {})).to.throw());
+      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], {})).to.throw(TypeError));
     });
 
     describe('that IS a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime)).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime)).to.throw(ReferenceError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime)).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime)).to.throw(ReferenceError));
     });
   });
 
   describe('when called with seven arguments', () => {
     describe('that IS NOT a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, {})).to.throw());
-      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, {})).to.throw(TypeError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, {})).to.throw());
+      it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, {})).to.throw(TypeError));
     });
 
     describe('that IS a time', () => {
-      it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime)).to.throw());
-      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime)).to.throw(ReferenceError));
+      it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime)).to.throw());
+      it('throws a ReferenceError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime)).to.throw(ReferenceError));
     });
   });
 };
@@ -137,34 +137,34 @@ describe('lib/metrics.js', () => {
 
     describe('when called with eight arguments', () => {
       describe('that IS NOT a number', () => {
-        it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {})).to.throw());
-        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {})).to.throw(TypeError));
+        it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, {})).to.throw());
+        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, {})).to.throw(TypeError));
       });
 
       describe('that IS a number', () => {
         describe('that IS NOT an integer', () => {
-          it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 3.14)).to.throw());
-          it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 3.14)).to.throw(TypeError));
+          it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, 3.14)).to.throw());
+          it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, 3.14)).to.throw(TypeError));
         });
 
         describe('that IS an integer', () => {
           describe('that IS negative', () => {
-            it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, -1)).to.throw());
-            it('throws a RangeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, -1)).to.throw(RangeError));
+            it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, -1)).to.throw());
+            it('throws a RangeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, -1)).to.throw(RangeError));
           });
 
           describe('that IS NOT negative', () => {
             before(() => {
               resetStubs();
               metrics.prometheus.register.resetMetrics();
-              subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, 1);
+              subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, 1);
             });
 
             it('calls increment from the hot-shots library', () => hsIncrementStub.should.have.been.called);
             it('calls increment on lev.api.req', () => hsIncrementStub.should.have.been.calledWith('lev.api.req'));
             it('calls increment on lev.api.req.lookup', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.lookup'));
             it('calls increment on lev.api.req.${dataSet}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth'));
-            it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.client'));
+            it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.my-client'));
             it('calls increment on lev.api.req.${dataSet}.lookup', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth.lookup'));
             it('calls increment on lev.api.req.${group}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.group'));
 
@@ -172,7 +172,7 @@ describe('lib/metrics.js', () => {
             it('calls timing on lev.api.req', () => hsTimingStub.should.have.been.calledWith('lev.api.req.time', responseTime));
             it('calls timing on lev.api.req.lookup', () => hsTimingStub.should.have.been.calledWith('lev.api.req.lookup.time', responseTime));
             it('calls timing on lev.api.req.${dataSet}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.time', responseTime));
-            it('calls timing on lev.api.req.${client}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.client.time', responseTime));
+            it('calls timing on lev.api.req.${client}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.my-client.time', responseTime));
             it('calls timing on lev.api.req.${dataSet}.lookup', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.lookup.time', responseTime));
             it('calls timing on lev.api.req.${group}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.group.time', responseTime));
 
@@ -180,13 +180,13 @@ describe('lib/metrics.js', () => {
             it('calls set on lev.api.req', () => hsSetStub.should.have.been.calledWith('lev.api.req.users', 'user'));
             it('calls set on lev.api.req.lookup', () => hsSetStub.should.have.been.calledWith('lev.api.req.lookup.users', 'user'));
             it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
-            it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
+            it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.my-client.users', 'user'));
             it('calls set on lev.api.req.${dataSet}.lookup', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.lookup.users', 'user'));
             it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
 
             it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req').should.match(/[^0-9]1$/));
             it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_client').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_my_client').should.match(/[^0-9]1$/));
             it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
             it('increments the Prometheus counter lev_api_req_lookup', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_lookup').should.match(/[^0-9]1$/));
             it('increments the Prometheus counter lev_api_req_birth_lookup', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth_lookup').should.match(/[^0-9]1$/));
@@ -194,7 +194,7 @@ describe('lib/metrics.js', () => {
             it('calls log.info', () => logInfoStub.should.have.been.called);
             it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
               dataSet: 'birth',
-              client: 'client',
+              client: 'my-client',
               groups: ['group'],
               id: 1,
               reqType: 'lookup',
@@ -217,22 +217,22 @@ describe('lib/metrics.js', () => {
 
     describe('when called with eight arguments', () => {
       describe('that IS NOT an object', () => {
-        it('throws an error', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, '')).to.throw());
-        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, '')).to.throw(TypeError));
+        it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, '')).to.throw());
+        it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, '')).to.throw(TypeError));
       });
 
       describe('that IS an object', () => {
         before(() => {
           resetStubs();
           metrics.prometheus.register.resetMetrics();
-          subject('birth', 'user', 'client', ['group'], ['role'], startTime, finishTime, {});
+          subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, {});
         });
 
         it('calls increment from the hot-shots library', () => hsIncrementStub.should.have.been.called);
         it('calls increment on lev.api.req', () => hsIncrementStub.should.have.been.calledWith('lev.api.req'));
         it('calls increment on lev.api.req.search', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.search'));
         it('calls increment on lev.api.req.${dataSet}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth'));
-        it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.client'));
+        it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.my-client'));
         it('calls increment on lev.api.req.${dataSet}.search', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth.search'));
         it('calls increment on lev.api.req.${group}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.group'));
 
@@ -240,7 +240,7 @@ describe('lib/metrics.js', () => {
         it('calls timing on lev.api.req', () => hsTimingStub.should.have.been.calledWith('lev.api.req.time', responseTime));
         it('calls timing on lev.api.req.search', () => hsTimingStub.should.have.been.calledWith('lev.api.req.search.time', responseTime));
         it('calls timing on lev.api.req.${dataSet}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.time', responseTime));
-        it('calls timing on lev.api.req.${client}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.client.time', responseTime));
+        it('calls timing on lev.api.req.${client}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.my-client.time', responseTime));
         it('calls timing on lev.api.req.${dataSet}.search', () => hsTimingStub.should.have.been.calledWith('lev.api.req.birth.search.time', responseTime));
         it('calls timing on lev.api.req.${group}', () => hsTimingStub.should.have.been.calledWith('lev.api.req.group.time', responseTime));
 
@@ -248,13 +248,13 @@ describe('lib/metrics.js', () => {
         it('calls set on lev.api.req', () => hsSetStub.should.have.been.calledWith('lev.api.req.users', 'user'));
         it('calls set on lev.api.req.search', () => hsSetStub.should.have.been.calledWith('lev.api.req.search.users', 'user'));
         it('calls set on lev.api.req.${dataSet}', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.users', 'user'));
-        it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.client.users', 'user'));
+        it('calls set on lev.api.req.${client}', () => hsSetStub.should.have.been.calledWith('lev.api.req.my-client.users', 'user'));
         it('calls set on lev.api.req.${dataSet}.search', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.search.users', 'user'));
         it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
 
         it('increments the Prometheus counter lev_api_req', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req').should.match(/[^0-9]1$/));
         it('increments the Prometheus counter lev_api_req_birth', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_client').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req_client', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_my_client').should.match(/[^0-9]1$/));
         it('increments the Prometheus counter lev_api_req_group', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
         it('increments the Prometheus counter lev_api_req_search', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_search').should.match(/[^0-9]1$/));
         it('increments the Prometheus counter lev_api_req_birth_search', () => metrics.prometheus.register.getSingleMetricAsString('lev_api_req_birth_search').should.match(/[^0-9]1$/));
@@ -262,7 +262,7 @@ describe('lib/metrics.js', () => {
         it('calls log.info', () => logInfoStub.should.have.been.called);
         it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
           dataSet: 'birth',
-          client: 'client',
+          client: 'my-client',
           groups: ['group'],
           query: {},
           reqType: 'search',
