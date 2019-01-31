@@ -7,13 +7,7 @@ const audit = require('../../../../model/lev_audit');
 const model = require('../../../../model/birth_registration_v0');
 const metrics = require('../../../../lib/metrics');
 const reqInfo = require('../../../../lib/req-info');
-
-const parseDate = d =>
-      d && moment(d, 'YYYY-MM-DD');
-
-const name2regex = n => n
-      .trim()
-      .replace(/[\s-]+/, '[\\s-]+');
+const params = require('../../../../lib/params');
 
 const censorRecord = r =>
       !r.status.blockedRegistration ? r : {
@@ -82,9 +76,9 @@ module.exports = {
     } else {
       const ri = reqInfo(req);
       const startTime = moment();
-      const surname = new RegExp('^' + name2regex(req.query.lastname) + '$', 'i');
-      const forenames = new RegExp('^' + name2regex(req.query.forenames || [req.query.forename1, req.query.forenames2, req.query.forename3, req.query.forename4].join(' ')) + '(\\s|$)', 'i');
-      const dob = parseDate(req.query.dateofbirth);
+      const surname = new RegExp('^' + params.name2regex(req.query.lastname) + '$', 'i');
+      const forenames = new RegExp('^' + params.name2regex(req.query.forenames || [req.query.forename1, req.query.forenames2, req.query.forename3, req.query.forename4].join(' ')) + '(\\s|$)', 'i');
+      const dob = params.parseDate(req.query.dateofbirth);
 
       if (!dob.isValid()) {
         next(new errors.BadRequestError(`Invalid date of birth: '${req.query.dateofbirth}', please use ISO format - e.g. dateofbirth=2000-01-31`));

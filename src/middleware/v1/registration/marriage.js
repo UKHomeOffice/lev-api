@@ -7,13 +7,7 @@ const audit = require('../../../model/lev_audit');
 const model = require('../../../model/marriage_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('../../../lib/req-info');
-
-const parseDate = d =>
-      d && moment(d, 'YYYY-MM-DD');
-
-const name2regex = n => n
-      .trim()
-      .replace(/[\s-]+/, '[\\s-]+');
+const params = require('../../../lib/params');
 
 module.exports = {
   read: (req, res, next) => {
@@ -54,9 +48,9 @@ module.exports = {
     } else {
       const ri = reqInfo(req);
       const startTime = moment();
-      const surname = new RegExp('^' + name2regex(req.query.surname) + '$', 'i');
-      const forenames = new RegExp('^' + name2regex(req.query.forenames) + '(\\s|$)', 'i');
-      const dom = parseDate(req.query.dateOfMarriage);
+      const surname = new RegExp('^' + params.name2regex(req.query.surname) + '$', 'i');
+      const forenames = new RegExp('^' + params.name2regex(req.query.forenames) + '(\\s|$)', 'i');
+      const dom = params.parseDate(req.query.dateOfMarriage);
 
       if (dom && !dom.isValid()) {
         next(new errors.BadRequestError(`Invalid parameter, dateOfMarriage: '${req.query.dateOfMarriage}', please use ISO format - e.g. 2000-01-31`));
