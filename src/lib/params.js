@@ -7,7 +7,7 @@ const name2regex = n => n
       .replace(/[\s-]+/, '[\\s-]+');
 
 const parseDate = d =>
-      d && moment(d, 'YYYY-MM-DD');
+      d && moment(d, 'YYYY-MM-DD', true);
 
 module.exports = {
   name2regex: name2regex,
