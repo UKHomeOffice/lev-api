@@ -7,13 +7,7 @@ const audit = require('../../../model/lev_audit');
 const model = require('../../../model/death_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('../../../lib/req-info');
-
-const parseDate = d =>
-      d && moment(d, 'YYYY-MM-DD');
-
-const name2regex = n => n
-      .trim()
-      .replace(/[\s-]+/, '[\\s-]+');
+const params = require('../../../lib/params');
 
 module.exports = {
   read: (req, res, next) => {
@@ -54,9 +48,9 @@ module.exports = {
     } else {
       const ri = reqInfo(req);
       const startTime = moment();
-      const surname = new RegExp('^' + name2regex(req.query.surname) + '$', 'i');
-      const forenames = new RegExp('^' + name2regex(req.query.forenames) + '(\\s|$)', 'i');
-      const date = parseDate(req.query.date);
+      const surname = new RegExp('^' + params.name2regex(req.query.surname) + '$', 'i');
+      const forenames = new RegExp('^' + params.name2regex(req.query.forenames) + '(\\s|$)', 'i');
+      const date = params.parseDate(req.query.date);
 
       if (date && !date.isValid()) {
         next(new errors.BadRequestError(`Invalid parameter, date: '${req.query.date}', please use ISO format - e.g. 2000-01-31`));
