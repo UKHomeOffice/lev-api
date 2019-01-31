@@ -4,6 +4,7 @@ const moment = require('moment');
 
 const name2regex = n => n
       .trim()
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       .replace(/[\s-]+/, '[\\s-]+');
 
 const parseDate = d =>

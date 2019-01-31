@@ -57,6 +57,17 @@ describe('lib/params.js', () => {
           it('returns a string', () => result.should.be.a('string'));
           it('returns the input with regex', () => result.should.equal('joan[\\s-]+narcissus'));
         });
+
+        describe('that has regexp syntax in it', () => {
+          let result;
+
+          before(() => {
+            result = subject('.*');
+          });
+
+          it('returns a string', () => result.should.be.a('string'));
+          it('returns the escaped input', () => result.should.equal('\\.\\*'));
+        });
       });
     });
   });
