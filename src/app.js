@@ -11,6 +11,7 @@ const v0UserActivity = require('./middleware/api/v0/audit/user-activity');
 const v1Birth = require('./middleware/v1/registration/birth');
 const v1Death = require('./middleware/v1/registration/death');
 const v1Marriage = require('./middleware/v1/registration/marriage');
+const v1Partnership = require('./middleware/v1/registration/partnership');
 
 process.title = config.name.replace(/[^\w]/gi, '').substr(0, 6);
 
@@ -47,6 +48,8 @@ httpd.get('/v1/registration/death/:id', v1Death.read);
 httpd.get('/v1/registration/death', v1Death.search);
 httpd.get('/v1/registration/marriage/:id', v1Marriage.read);
 httpd.get('/v1/registration/marriage', v1Marriage.search);
+httpd.get('/v1/registration/partnership/:id', v1Partnership.read);
+httpd.get('/v1/registration/partnership', v1Partnership.search);
 
 httpd.listen(config.httpd.port, config.httpd.host, () => {
   log.info('%s listening at %s', httpd.name, httpd.url);
