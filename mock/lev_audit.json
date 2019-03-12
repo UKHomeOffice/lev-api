@@ -1,7 +1,7 @@
 [
-  { "id": 0, "date_time": "2016-12-26T00:00:00Z", "username": "lev-e2e-tests", "client": "test-client", "uri": "/test" },
-  { "id": 1, "date_time": "2017-01-01T00:00:00Z", "username": "foo", "client": "test-client", "uri": "/test" },
-  { "id": 2, "date_time": "2017-01-01T00:30:00Z", "username": "bar", "client": "test-client", "uri": "/test" },
-  { "id": 3, "date_time": "2017-01-01T01:00:00Z", "username": "foo", "client": "test-client", "uri": "/test" },
-  { "id": 4, "date_time": "2017-02-14T00:00:00Z", "username": "bar", "client": "test-client", "uri": "/test" }
+  { "id": 0, "date_time": "2016-12-26T00:00:00Z", "username": "lev-e2e-tests", "client": "test-client", "uri": "/test", "groups": ["machine"], "operation": "search", "dataset": "birth" },
+  { "id": 1, "date_time": "2017-01-01T00:00:00Z", "username": "foo", "client": "test-client", "uri": "/test", "groups": ["human"], "operation": "search", "dataset": "birth" },
+  { "id": 2, "date_time": "2017-01-01T00:30:00Z", "username": "bar", "client": "test-client", "uri": "/test", "groups": ["human"], "operation": "search", "dataset": "birth" },
+  { "id": 3, "date_time": "2017-01-01T01:00:00Z", "username": "foo", "client": "test-client", "uri": "/test", "groups": ["human"], "operation": "search", "dataset": "birth" },
+  { "id": 4, "date_time": "2017-02-14T00:00:00Z", "username": "bar", "client": "test-client", "uri": "/test", "groups": ["human"], "operation": "search", "dataset": "birth" }
 ]
