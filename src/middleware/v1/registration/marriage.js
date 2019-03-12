@@ -22,7 +22,7 @@ module.exports = {
       const startTime = moment();
       const id = Number(req.params.id);
 
-      audit.create(ri.username, ri.client, req.url)
+      audit.create(ri.username, ri.client, req.url, ri.groups, 'lookup', 'marriage')
         .then(() => model.read(id))
         .then(r => {
           if (r) {
@@ -61,7 +61,7 @@ module.exports = {
           forenames: forenames
         };
 
-        audit.create(ri.username, ri.client, req.url)
+        audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'marriage')
           .then(() => model.search(query))
           .then(r => {
             res.send(r);

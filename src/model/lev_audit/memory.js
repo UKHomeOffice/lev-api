@@ -1,6 +1,6 @@
 'use strict';
 
-const dao = require('../../lib/table')('lev_audit', ['id', 'date_time', 'username', 'client', 'uri']);
+const dao = require('../../lib/table')('lev_audit', ['id', 'date_time', 'username', 'client', 'uri', 'groups', 'operation', 'dataset']);
 const moment = require('moment');
 
 require('functional-augments');
@@ -24,7 +24,7 @@ const count = r => {
 };
 
 module.exports = {
-  create: (username, client, uri) => new Promise(resolve => resolve(undefined)),
+  create: (username, client, uri, groups, operation, dataset) => new Promise(resolve => resolve(undefined)),
   search: (start, finish, username) => dao.search({
     username: username,
     dateTime: {
