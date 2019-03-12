@@ -39,6 +39,9 @@ module.exports = (tableName, fields, idField) => {
           if(cur['<='] !== undefined) {
             test = test && obj[field] <= cur['<='];
           }
+          if(cur['includes'] !== undefined) {
+            test = test && obj[field].includes(cur['includes']);
+          }
         } else {
           test = obj[field] === cur;
         }
