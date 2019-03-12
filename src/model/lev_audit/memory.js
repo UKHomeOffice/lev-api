@@ -25,11 +25,16 @@ const count = r => {
 
 module.exports = {
   create: (username, client, uri, groups, operation, dataset) => new Promise(resolve => resolve(undefined)),
-  search: (start, finish, username) => dao.search({
+  search: (start, finish, username, group, operation, dataset) => dao.search({
     username: username,
     dateTime: {
       '>=': start,
       '<=': finish
-    }
+    },
+    groups: {
+      'includes': group
+    },
+    operation: operation,
+    dataset: dataset
   }).then(count)
 };
