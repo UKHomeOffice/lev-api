@@ -2,8 +2,8 @@
 
 const proxyquire = require('proxyquire');
 const dbMethodStub = sinon.stub();
-const postgres = proxyquire('../../../../src/lib/table/postgres', {
-  '../postgres': {
+const postgres = proxyquire('../../../../../src/lib/table/postgres', {
+  '../../postgres': {
     any: dbMethodStub,
     one: dbMethodStub,
     oneOrNone: dbMethodStub,
@@ -117,50 +117,4 @@ describe('lib/table/postgres.js', () => {
       });
     });
   });
-
-  /*
-  describe('processTerms()', () => {
-    it('is a function', () => (typeof postgres.processTerms).should.equal('function'));
-    it('takes one argument', () => postgres.processTerms.length.should.equal(1));
-
-    describe('When called with no arguments', () => {
-      it('Throws an error', () => expect(postgres.processTerms).to.throw());
-      it('Throws a ReferenceError', () => expect(postgres.processTerms).to.throw(ReferenceError));
-    });
-
-    describe('When called with a non-object argument', () => {
-      it('Throws an error', () => expect(() => postgres.processTerms(true)).to.throw());
-      it('Throws a TypeError', () => expect(() => postgres.processTerms(true)).to.throw(TypeError));
-    });
-
-    describe('When called with an object argument', () => {
-      let result;
-
-      before(() => {
-        result = postgres.processTerms({
-          date: new Date('2001-09-28 00:00:00Z'),
-          moment: moment('2001-09-28 00:00:00Z'),
-          number: 3.14,
-          regEx: /^John(\s|\s.*\s)Smith$/,
-          string: 'string'
-        });
-      });
-
-      it('Reduces the object', () => result.should.deep.equal({
-        sql: 'WHERE date = ${date}\n'
-           + '  AND moment = ${moment}\n'
-           + '  AND number = ${number}\n'
-           + '  AND anglicise(reg_ex) ~ anglicise(${regEx})\n'
-           + '  AND string = ${string}',
-        params: {
-          date: '2001-09-28T00:00:00.000Z',
-          moment: '2001-09-28T00:00:00.000Z',
-          number: 3.14,
-          regEx: '^John(\\s|\\s.*\\s)Smith$',
-          string: 'string'
-        }
-      }));
-    });
-  });
-  */
 });
