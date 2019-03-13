@@ -14,7 +14,7 @@ describe('lib/table/memory/helpers.js', () => {
           let result;
 
           before(() => {
-            result = applyTest('2001-09-28T00:00:00.000Z', new Date('2001-09-28 00:00:00Z'));
+            result = applyTest('2001-09-28', new Date('2001-09-28 00:00:00Z'));
           });
 
           it('Returns true', () => result.should.equal(true));
@@ -24,7 +24,7 @@ describe('lib/table/memory/helpers.js', () => {
           let result;
 
           before(() => {
-            result = applyTest('2001-09-28T00:00:01.000Z', new Date('2001-09-28 00:00:02Z'));
+            result = applyTest('2001-09-28', new Date('2001-09-28 00:00:02Z'));
           });
 
           it('Returns false', () => result.should.equal(false));
@@ -36,7 +36,7 @@ describe('lib/table/memory/helpers.js', () => {
           let result;
 
           before(() => {
-            result = applyTest('2001-09-28T00:00:00.000Z', new moment('2001-09-28 00:00:00Z'));
+            result = applyTest('2001-09-28', new moment('2001-09-28 00:00:00'));
           });
 
           it('Returns true', () => result.should.equal(true));
@@ -46,7 +46,7 @@ describe('lib/table/memory/helpers.js', () => {
           let result;
 
           before(() => {
-            result = applyTest('2001-09-28T00:00:01.000Z', new moment('2001-09-28 00:00:02Z'));
+            result = applyTest('2001-09-28', new moment('2001-09-28 00:00:01'));
           });
 
           it('Returns false', () => result.should.equal(false));

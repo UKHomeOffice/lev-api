@@ -7,10 +7,10 @@ const applyTest = (target, test) => {
 
   if (test instanceof RegExp) {
     r = target && target.match && target.match(test) !== null;
-  } else if (test instanceof moment || test && test.isValid && test.isValid()) {
-    r = target === test.toISOString();
-  } else if (test instanceof Date || test && test.isValid && test.isValid()) {
-    r = target === test.toISOString();
+  } else if (test instanceof moment) {
+    r = test.isSame(target);
+  } else if (test instanceof Date) {
+    r = (new Date(target)) - test === 0;
   } else if (test instanceof Object) {
     r = true;
     if(test['>'] !== undefined) {
