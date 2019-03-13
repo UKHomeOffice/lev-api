@@ -31,7 +31,7 @@ const term2Sql = t => {
 const term2Param = v => {
   if (v instanceof RegExp) {
     return v.source;
-  } else if (v instanceof Date || v && v.isValid && v.isValid()) {
+  } else if (v instanceof Date || v instanceof moment) {
     return v.toISOString();
   } else {
     return v;
