@@ -44,6 +44,11 @@ describe('lib/table/index.js', () => {
       it('throws a TypeError', () => expect(() => table('tbl', [])).to.throw(RangeError));
     });
 
+    describe('and the second is an array with an empty string', () => {
+      it('throws an error', () => expect(() => table('tbl', [''])).to.throw());
+      it('throws a TypeError', () => expect(() => table('tbl', [''])).to.throw(RangeError));
+    });
+
     describe('and they are valid', () => {
       let result;
 
@@ -99,7 +104,7 @@ describe('lib/table/index.js', () => {
               });
 
               describe('and the database returns a record', () => {
-                const record = { foo: 'bar' };
+                const record = { foo: 'bar', baz: null };
 
                 before(() => {
                   postgresMethodStub.returns(new Promise(resolve => resolve(record)));
@@ -108,7 +113,7 @@ describe('lib/table/index.js', () => {
 
                 it('returns a promise', () => (result2 instanceof Promise).should.equal(true));
                 it('returns a promise that resolves', () => result2.should.be.fulfilled);
-                it('returns a promise that resolves with the record', () => result2.should.eventually.deep.equal(record));
+                it('returns a promise that resolves with the record with nulls removed', () => result2.should.eventually.deep.equal({ foo: 'bar' }));
               });
             });
           });
@@ -170,6 +175,11 @@ describe('lib/table/index.js', () => {
     describe('and the third IS NOT a string', () => {
       it('throws an error', () => expect(() => table('tbl', ['id'], {})).to.throw());
       it('throws a TypeError', () => expect(() => table('tbl', ['id'], {})).to.throw(TypeError));
+    });
+
+    describe('and the third is an empty string', () => {
+      it('throws an error', () => expect(() => table('tbl', ['id'], '')).to.throw());
+      it('throws a RangeError', () => expect(() => table('tbl', ['id'], '')).to.throw(RangeError));
     });
   });
 });
