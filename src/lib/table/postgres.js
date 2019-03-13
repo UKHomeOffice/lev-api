@@ -2,11 +2,9 @@
 
 const config = require('../../../config');
 const postgres = require('../postgres');
+const { key2Field } = require('./helpers');
 
 require('functional-augments');
-
-const key2Field = v =>
-      v.replace(/([A-Z]+)/g, '_$1').toLowerCase();
 
 const term2Sql = t => {
   const k = t[0];

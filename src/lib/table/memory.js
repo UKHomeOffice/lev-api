@@ -1,11 +1,9 @@
 'use strict';
 
 const config = require('../../../config');
+const { key2Field } = require('./helpers');
 
 require('functional-augments');
-
-const key2Field = v =>
-      v.replace(/([A-Z]+)/g, '_$1').toLowerCase();
 
 module.exports = (tableName, fields, idField) => {
   const reduce2Store = (acc, cur) => acc.set(cur[idField], cur);
