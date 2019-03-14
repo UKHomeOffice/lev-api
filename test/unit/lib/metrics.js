@@ -225,7 +225,7 @@ describe('lib/metrics.js', () => {
         before(() => {
           resetStubs();
           metrics.prometheus.register.resetMetrics();
-          subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, {});
+          subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, { surname: 'smith', forenames: 'joan' });
         });
 
         it('calls increment from the hot-shots library', () => hsIncrementStub.should.have.been.called);
@@ -264,7 +264,10 @@ describe('lib/metrics.js', () => {
           dataSet: 'birth',
           client: 'my-client',
           groups: ['group'],
-          query: {},
+          query: {
+            surname: 'smith',
+            forenames: 'joan'
+          },
           reqType: 'search',
           responseTime: responseTime + 'ms',
           roles: ['role'],
