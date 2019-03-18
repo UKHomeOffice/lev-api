@@ -13,10 +13,10 @@
         "signature": "A. Registrar"
       },
       "partner1": {
-        "prefix": null,
+        "prefix": "Mr",
         "forenames": "Tester",
         "surname": "SOLO",
-        "suffix": null,
+        "suffix": "IV",
         "dob": "1912-02-29",
         "sex": "Female",
         "occupation": "Unemployed",
@@ -24,43 +24,43 @@
         "address": "10 Test street",
         "aliases": [
           {
-            "prefix": null,
+            "prefix": "Mr",
             "forenames": "Test Previous",
             "surname": "Smithers",
-            "suffix": null
+            "suffix": "IV"
           },
           {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "prefix": "Mr",
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "IV"
           }
         ],
         "signature": "T. Solo",
         "condition": "Single"
       },
       "partner2": {
-        "prefix": null,
+        "prefix": "Miss",
         "forenames": "Test",
         "surname": "BRIDE",
-        "suffix": null,
+        "suffix": "IV",
         "dob": "2008-08-08",
         "sex": "Female",
         "occupation": "Bride",
         "retired": false,
-        "address": null,
+        "address": "A dark dark flat in a dark dark house, down a dark dark street, in a dark dark town",
         "aliases": [
           {
-            "prefix": null,
-            "forenames": "Test Former",
-            "surname": "SMITHE",
-            "suffix": null
+            "prefix": "Ms",
+            "forenames": "Test Previous",
+            "surname": "Smithers",
+            "suffix": "IV"
           },
           {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "prefix": "Ms",
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "IV"
           }
         ],
         "signature": "T. Bride",
@@ -71,7 +71,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": null,
+        "designation": "Undesignated",
         "deceased": true
       },
       "motherOfPartner1": {
@@ -79,7 +79,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": null,
+        "designation": "Driver",
         "deceased": true
       },
       "fatherOfPartner2": {
@@ -87,7 +87,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": null,
+        "designation": "Idiot",
         "deceased": true
       },
       "motherOfPartner2": {
@@ -95,7 +95,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": null,
+        "designation": "Helper",
         "deceased": true
       },
       "witness1": {
@@ -135,10 +135,10 @@
         "signature": "A. Registrar"
       },
       "partner1": {
-        "prefix": null,
+        "prefix": "Mr",
         "forenames": "Tester One",
         "surname": "MULTIPLE",
-        "suffix": null,
+        "suffix": "I",
         "dob": "1912-02-29",
         "sex": "Female",
         "occupation": "Unemployed",
@@ -146,26 +146,26 @@
         "address": "1 Test street",
         "aliases": [
           {
-            "prefix": null,
+            "prefix": "Mr",
             "forenames": "Test Previous",
             "surname": "Smithers",
-            "suffix": null
+            "suffix": "I"
           },
           {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "prefix": "Mr",
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "I"
           }
         ],
         "signature": "T.1. Multiple",
         "condition": "Single"
       },
       "partner2": {
-        "prefix": null,
+        "prefix": "Miss",
         "forenames": "Test",
         "surname": "BRIDE",
-        "suffix": null,
+        "suffix": "I",
         "dob": "2008-08-08",
         "sex": "Female",
         "occupation": "Bride",
@@ -173,16 +173,16 @@
         "address": null,
         "aliases": [
           {
-            "prefix": null,
-            "forenames": "Test Former",
-            "surname": "SMITHE",
-            "suffix": null
+            "prefix": "Ms",
+            "forenames": "Test Previous",
+            "surname": "Smithers",
+            "suffix": "I"
           },
           {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "prefix": "Ms",
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "I"
           }
         ],
         "signature": "T. Bride",
@@ -193,7 +193,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": null,
+        "designation": "Undesignated",
         "deceased": true
       },
       "motherOfPartner1": {
@@ -201,7 +201,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": null,
+        "designation": "Driver",
         "deceased": true
       },
       "fatherOfPartner2": {
@@ -209,7 +209,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": null,
+        "designation": "Idiot",
         "deceased": true
       },
       "motherOfPartner2": {
@@ -217,7 +217,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": null,
+        "designation": "Helper",
         "deceased": true
       },
       "witness1": {
@@ -260,7 +260,7 @@
         "prefix": null,
         "forenames": "Tester Two",
         "surname": "MULTIPLE",
-        "suffix": null,
+        "suffix": "II",
         "dob": "1912-02-29",
         "sex": "Female",
         "occupation": "Unemployed",
@@ -271,13 +271,13 @@
             "prefix": null,
             "forenames": "Test Previous",
             "surname": "Smithers",
-            "suffix": null
+            "suffix": "II"
           },
           {
             "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "II"
           }
         ],
         "signature": "T.2. Multiple",
@@ -287,7 +287,7 @@
         "prefix": null,
         "forenames": "Test",
         "surname": "BRIDE",
-        "suffix": null,
+        "suffix": "II",
         "dob": "2008-08-08",
         "sex": "Female",
         "occupation": "Bride",
@@ -296,15 +296,15 @@
         "aliases": [
           {
             "prefix": null,
-            "forenames": "Test Former",
-            "surname": "SMITHE",
-            "suffix": null
+            "forenames": "Test Previous",
+            "surname": "Smithers",
+            "suffix": "II"
           },
           {
             "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "II"
           }
         ],
         "signature": "T. Bride",
@@ -382,7 +382,7 @@
         "prefix": null,
         "forenames": "Tester Three",
         "surname": "MULTIPLE",
-        "suffix": null,
+        "suffix": "III",
         "dob": "1912-02-29",
         "sex": "Female",
         "occupation": "Unemployed",
@@ -393,13 +393,13 @@
             "prefix": null,
             "forenames": "Test Previous",
             "surname": "Smithers",
-            "suffix": null
+            "suffix": "III"
           },
           {
             "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "III"
           }
         ],
         "signature": "T.3. Multiple",
@@ -409,7 +409,7 @@
         "prefix": null,
         "forenames": "Test",
         "surname": "BRIDE",
-        "suffix": null,
+        "suffix": "III",
         "dob": "2008-08-08",
         "sex": "Female",
         "occupation": "Bride",
@@ -418,15 +418,15 @@
         "aliases": [
           {
             "prefix": null,
-            "forenames": "Test Former",
-            "surname": "SMITHE",
-            "suffix": null
+            "forenames": "Test Previous",
+            "surname": "Smithers",
+            "suffix": "III"
           },
           {
             "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "forenames": "Testy Previous",
+            "surname": "Smithers",
+            "suffix": "III"
           }
         ],
         "signature": "T. Bride",
@@ -501,10 +501,10 @@
         "signature": "A. Registrar"
       },
       "partner1": {
-        "prefix": null,
+        "prefix": "Mr",
         "forenames": "John Narcissus Ouroboros",
         "surname": "SMITH",
-        "suffix": null,
+        "suffix": "II",
         "dob": "2008-08-08",
         "sex": "Female",
         "occupation": "Unemployed",
@@ -512,26 +512,26 @@
         "address": "888 Groom House, 8 Groom grove, Wedford, Wedfordshire, GR0 0M",
         "aliases": [
           {
-            "prefix": null,
+            "prefix": "Mr",
             "forenames": "John Narcissus Ouroboros",
             "surname": "Burns",
-            "suffix": null
+            "suffix": "II"
           },
           {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "prefix": "Mr",
+            "forenames": "Jonny Narcissus Ouroboros",
+            "surname": "Burns",
+            "suffix": "II"
           }
         ],
         "signature": "J.N.O. Smith",
         "condition": "Single"
       },
       "partner2": {
-        "prefix": null,
+        "prefix": "Miss",
         "forenames": "Joan Narcissus Ouroboros",
         "surname": "BLACK",
-        "suffix": null,
+        "suffix": "II",
         "dob": "2008-08-08",
         "sex": "Female",
         "occupation": "Unemployed",
@@ -539,16 +539,16 @@
         "address": "888 Bride House, 8 Bride grove, Wedford, Wedfordshire, BR1 2E",
         "aliases": [
           {
-            "prefix": null,
-            "forenames": "John Narcissus Ouroboros",
-            "surname": "SMITHE",
-            "suffix": null
+            "prefix": "Ms",
+            "forenames": "Joan Narcissus Ouroboros",
+            "surname": "Burns",
+            "suffix": "II"
           },
           {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
+            "prefix": "Ms",
+            "forenames": "Joany Narcissus Ouroboros",
+            "surname": "Burns",
+            "suffix": "II"
           }
         ],
         "signature": "J.N.O. Black",
@@ -559,7 +559,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": null,
+        "designation": "Undesignated",
         "deceased": false
       },
       "motherOfPartner1": {
@@ -567,7 +567,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": null,
+        "designation": "Driver",
         "deceased": false
       },
       "fatherOfPartner2": {
@@ -575,7 +575,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": null,
+        "designation": "Idiot",
         "deceased": false
       },
       "motherOfPartner2": {
@@ -583,7 +583,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": null,
+        "designation": "Helper",
         "deceased": false
       },
       "witness1": {
