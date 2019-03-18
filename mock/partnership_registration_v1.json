@@ -71,7 +71,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": "Undesignated",
+        "designation": "Step-father",
         "deceased": true
       },
       "motherOfPartner1": {
@@ -79,7 +79,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": "Driver",
+        "designation": "Stepmother",
         "deceased": true
       },
       "fatherOfPartner2": {
@@ -87,7 +87,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": "Idiot",
+        "designation": "Father",
         "deceased": true
       },
       "motherOfPartner2": {
@@ -95,7 +95,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": "Helper",
+        "designation": "Mother",
         "deceased": true
       },
       "witness1": {
@@ -193,7 +193,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": "Undesignated",
+        "designation": "Step father",
         "deceased": true
       },
       "motherOfPartner1": {
@@ -201,7 +201,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": "Driver",
+        "designation": "Mother",
         "deceased": true
       },
       "fatherOfPartner2": {
@@ -209,7 +209,7 @@
         "surname": "FATHER",
         "occupation": "Father",
         "retired": true,
-        "designation": "Idiot",
+        "designation": "Adoptive father",
         "deceased": true
       },
       "motherOfPartner2": {
@@ -217,7 +217,7 @@
         "surname": "MOTHER",
         "occupation": "Mother",
         "retired": true,
-        "designation": "Helper",
+        "designation": "Adoptive Mother",
         "deceased": true
       },
       "witness1": {
@@ -559,7 +559,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": "Undesignated",
+        "designation": "Father",
         "deceased": false
       },
       "motherOfPartner1": {
@@ -567,7 +567,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": "Driver",
+        "designation": "Step mother",
         "deceased": false
       },
       "fatherOfPartner2": {
@@ -575,7 +575,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": "Idiot",
+        "designation": "Father",
         "deceased": false
       },
       "motherOfPartner2": {
@@ -583,7 +583,7 @@
         "surname": "SMITH",
         "occupation": "Unemployed",
         "retired": false,
-        "designation": "Helper",
+        "designation": "Mother",
         "deceased": false
       },
       "witness1": {
