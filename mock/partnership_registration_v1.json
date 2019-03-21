@@ -3,7 +3,6 @@
     "id": 999999910,
     "data": {
       "id": 999999910,
-      "date": "2014-10-10",
       "dateOfPartnership": "2012-02-29",
       "placeOfPartnership": {
         "address": "Test place",
@@ -125,7 +124,6 @@
     "id": 999999901,
     "data": {
       "id": 999999901,
-      "date": "2014-10-10",
       "dateOfPartnership": "2012-02-29",
       "placeOfPartnership": {
         "address": "Test place",
@@ -247,7 +245,6 @@
     "id": 999999902,
     "data": {
       "id": 999999902,
-      "date": "2014-10-10",
       "dateOfPartnership": "2012-02-29",
       "placeOfPartnership": {
         "address": "Test place",
@@ -369,7 +366,6 @@
     "id": 999999903,
     "data": {
       "id": 999999903,
-      "date": "2014-10-10",
       "dateOfPartnership": "2012-02-29",
       "placeOfPartnership": {
         "address": "Test place",
@@ -491,7 +487,6 @@
     "id": 123456789,
     "data": {
       "id": 123456789,
-      "date": "2008-08-08",
       "dateOfPartnership": "2008-08-08",
       "placeOfPartnership": {
         "address": "Church, Church street, Gospelton, District City",
