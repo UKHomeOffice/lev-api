@@ -3,7 +3,6 @@
     "id": 123456789,
     "data": {
       "id": 123456789,
-      "date": "2008-08-08",
       "entryNumber": 0,
       "dateOfMarriage": "2008-08-08",
       "placeOfMarriage": {
@@ -163,7 +162,6 @@
     "id": 999999901,
     "data": {
       "id": 999999901,
-      "date": "2014-10-10",
       "entryNumber": 1,
       "dateOfMarriage": "2012-02-29",
       "placeOfMarriage": {
@@ -323,7 +321,6 @@
     "id": 999999902,
     "data": {
       "id": 999999902,
-      "date": "2014-10-10",
       "entryNumber": 2,
       "dateOfMarriage": "2012-02-29",
       "placeOfMarriage": {
@@ -483,7 +480,6 @@
     "id": 999999903,
     "data": {
       "id": 999999903,
-      "date": "2014-10-10",
       "entryNumber": 3,
       "dateOfMarriage": "2012-02-29",
       "placeOfMarriage": {
@@ -643,7 +639,6 @@
     "id": 999999910,
     "data": {
       "id": 999999910,
-      "date": "2014-10-10",
       "entryNumber": 10,
       "dateOfMarriage": "2012-02-29",
       "placeOfMarriage": {
