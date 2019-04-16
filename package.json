@@ -26,16 +26,11 @@
   },
   "homepage": "https://github.com/UKHomeOffice/lev-api#readme",
   "dependencies": {
-    "bunyan": "^1.8.12",
     "functional-augments": "^1.0.0",
-    "hot-shots": "^5.9.0",
+    "lev-restify": "^1.0.0",
     "moment": "^2.22.1",
     "pg-monitor": "^1.0.0",
     "pg-promise": "^8.4.4",
-    "prom-client": "^11.2.1",
-    "restify": "^7.2.0",
-    "restify-bunyan-logger": "^2.0.7",
-    "restify-errors": "^6.1.0",
     "snyk": "^1.82.0"
   },
   "devDependencies": {

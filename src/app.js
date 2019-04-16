@@ -1,11 +1,8 @@
 'use strict';
 
 const config = require('../config.js');
-const log = require('./lib/logger');
-const healthCheck = require('./middleware/health-check');
-const metrics = require('./middleware/metrics');
-const restify = require('restify');
-const restifyBunyanLogger = require('restify-bunyan-logger');
+const httpd = require('./lib/httpd');
+const readiness = require('./middleware/readiness');
 const v0Birth = require('./middleware/api/v0/events/birth');
 const v0UserActivity = require('./middleware/api/v0/audit/user-activity');
 const v1Birth = require('./middleware/v1/registration/birth');
@@ -15,30 +12,7 @@ const v1Partnership = require('./middleware/v1/registration/partnership');
 
 process.title = config.name.replace(/[^\w]/gi, '').substr(0, 6);
 
-const httpd = restify.createServer({
-  log: log,
-  name: config.name
-});
-
-httpd.use(restify.plugins.requestLogger({
-  headers: [
-    'x-auth-aud',
-    'x-auth-username'
-  ]
-}));
-httpd.use(restify.plugins.acceptParser(httpd.acceptable));
-httpd.use(restify.plugins.queryParser({ mapParams: false }));
-httpd.use(restify.plugins.fullResponse());
-httpd.use((req, res, next) => {
-  res.cache('no-cache; no-store');
-  res.header('X-Frame-Options', 'DENY');
-  next();
-});
-httpd.on('after', restifyBunyanLogger());
-
-httpd.get('/healthz', healthCheck.liveness);
-httpd.get('/metrics', metrics);
-httpd.get('/readiness', healthCheck.readiness);
+httpd.get('/readiness', readiness);
 httpd.get('/api/v0/events/birth/:id', v0Birth.read);
 httpd.get('/api/v0/events/birth', v0Birth.search);
 httpd.get('/api/v0/audit/user-activity', v0UserActivity.search);
@@ -52,5 +26,5 @@ httpd.get('/v1/registration/partnership/:id', v1Partnership.read);
 httpd.get('/v1/registration/partnership', v1Partnership.search);
 
 httpd.listen(config.httpd.port, config.httpd.host, () => {
-  log.info('%s listening at %s', httpd.name, httpd.url);
+  httpd.log.info('%s listening at %s', httpd.name, httpd.url);
 });

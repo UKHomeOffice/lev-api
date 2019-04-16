@@ -2,9 +2,8 @@
 
 const moment = require('moment');
 const log = require('./logger');
-const HotShots = require('hot-shots');
-const promClient = require('prom-client');
-const statsdClient = new HotShots();
+const promClient = require('lev-restify').metrics.promClient;
+const statsdClient = require('lev-restify').metrics.statsdClient;
 
 const prometheusMetrics = {};
 const validDataSets = [
@@ -221,8 +220,5 @@ const search = (dataSet, username, client, groups, roles, startTime, finishTime,
 
 module.exports = {
   lookup: lookup,
-  search: search,
-  prometheus: {
-    register: promClient.register
-  }
+  search: search
 };
