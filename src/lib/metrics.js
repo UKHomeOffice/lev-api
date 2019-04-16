@@ -10,7 +10,8 @@ const prometheusMetrics = {};
 const validDataSets = [
   'birth',
   'death',
-  'marriage'
+  'marriage',
+  'partnership'
 ];
 
 const validateCommon = (dataSet, username, client, groups, roles, startTime, finishTime) => {
