@@ -17,7 +17,7 @@ module.exports = {
     const operationFragment = operation ? ' AND operation = $5' : '';
     const datasetFragment = dataset ? ' AND dataset = $6' : '';
 
-    return postgres.any('SELECT username, date_time::date AS date, count(*) AS count FROM lev_audit WHERE date_time::date >= $1 AND date_time::date <= $2' + usernameFragment + groupFragment + operationFragment + datasetFragment + ' GROUP BY username, date', [start, finish, username, [group], operation, dataset])
+    return postgres.any('SELECT regexp_replace(username, \'.gsi.gov.uk$\', \'.gov.uk\') as username, date_time::date AS date, count(*) AS count FROM lev_audit WHERE date_time::date >= $1 AND date_time::date <= $2' + usernameFragment + groupFragment + operationFragment + datasetFragment + ' GROUP BY 1, date', [start, finish, username, [group], operation, dataset])
       .then(r => r.reduce(reduce2Object, {}));
   }
 };
