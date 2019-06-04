@@ -1,6 +1,6 @@
 {
   "name": "lev-api",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Life Event Verification API",
   "main": "src/app.js",
   "scripts": {
