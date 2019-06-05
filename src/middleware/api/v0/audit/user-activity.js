@@ -1,6 +1,6 @@
 'use strict';
 
-const errors = require('restify-errors');
+const errors = require('lev-restify').errors;
 const moment = require('moment');
 const promiseRejectionHandler = require('../../../../lib/promise-rejection-handler');
 const model = require('../../../../model/lev_audit');

@@ -1,12 +1,12 @@
 'use strict';
 
-const errors = require('restify-errors');
+const errors = require('lev-restify').errors;
 const moment = require('moment');
 const promiseRejectionHandler = require('../../../../lib/promise-rejection-handler');
 const audit = require('../../../../model/lev_audit');
 const model = require('../../../../model/birth_registration_v0');
 const metrics = require('../../../../lib/metrics');
-const reqInfo = require('../../../../lib/req-info');
+const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../../lib/params');
 
 const censorRecord = r =>
