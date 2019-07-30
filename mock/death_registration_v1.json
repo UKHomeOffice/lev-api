@@ -15,7 +15,7 @@
       "informant": {
         "forenames": "Informy",
         "surname": "McInformface",
-        "address": "666, Inform House, 6, Inform street, Informington, Informshire, IN7 0RM",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
         "qualification": "Life-long nemesis, Present at death",
         "signature": "I. McInformface"
       },
@@ -26,16 +26,71 @@
         "suffix": null,
         "dateOfBirth": "2008-08-08",
         "dateOfDeath": "2008-08-08",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "00:00:00",
         "birthplace": "888 Birth House, 8 Birth way, Bournemouth, B1 7TH",
-        "deathplace": "888 Death House, 8 Death lane, Deadington, Deadshire, D3 4TH",
+        "deathplace": "888 Death House, 8 Death lane, Deadington, Deadshire",
         "sex": "Indeterminate",
-        "address": "888, Death House, 8, Death lane, Deadington, Deadshire, D3 47H",
+        "address": "888 Death House, 8 Death lane, Deadington, Deadshire",
         "occupation": "Unemployed",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "causeOfDeath": "Misadventure",
-        "certifiedBy": "I. McInformface MD"
+        "certifiedBy": "I. McInformface MD",
+        "relationshipToPartner": null
       },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
       "status": {
-        "blocked": false
+        "blocked": false,
+        "correction": "None",
+        "marginal_note": "None",
+        "onAuthorityOfRegistrarGeneral": false
       },
       "nextRegistration": null,
       "previousRegistration": null
@@ -61,7 +116,7 @@
       "informant": {
         "forenames": "Informy",
         "surname": "McInformface",
-        "address": "666, Inform House, 6, Inform street, Informington, Informshire, IN7 0RM",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
         "qualification": "Life-long nemesis, Present at death",
         "signature": "I. McInformface"
       },
@@ -72,16 +127,71 @@
         "suffix": null,
         "dateOfBirth": "1910-01-01",
         "dateOfDeath": "2010-01-01",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
         "birthplace": "Test address",
         "deathplace": "Test address",
         "sex": "Male",
-        "address": "1, Test street",
+        "address": "1 Test street",
         "occupation": "Unemployed",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "causeOfDeath": "Old age",
-        "certifiedBy": "A. Doctor MD"
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
       },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
       "status": {
-        "blocked": false
+        "blocked": false,
+        "correction": "None",
+        "marginal_note": "None",
+        "onAuthorityOfRegistrarGeneral": false
       },
       "nextRegistration": null,
       "previousRegistration": null
@@ -107,7 +217,7 @@
       "informant": {
         "forenames": "Informy",
         "surname": "McInformface",
-        "address": "666, Inform House, 6, Inform street, Informington, Informshire, IN7 0RM",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
         "qualification": "Life-long nemesis, Present at death",
         "signature": "I. McInformface"
       },
@@ -118,16 +228,71 @@
         "suffix": null,
         "dateOfBirth": "1910-01-01",
         "dateOfDeath": "2010-01-01",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
         "birthplace": "Test address",
         "deathplace": "Test address",
         "sex": "Male",
-        "address": "2, Test street",
+        "address": "2 Test street",
         "occupation": "Unemployed",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "causeOfDeath": "Old age",
-        "certifiedBy": "A. Doctor MD"
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
       },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
       "status": {
-        "blocked": false
+        "blocked": false,
+        "correction": "None",
+        "marginal_note": "None",
+        "onAuthorityOfRegistrarGeneral": false
       },
       "nextRegistration": null,
       "previousRegistration": null
@@ -153,7 +318,7 @@
       "informant": {
         "forenames": "Informy",
         "surname": "McInformface",
-        "address": "666, Inform House, 6, Inform street, Informington, Informshire, IN7 0RM",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
         "qualification": "Life-long nemesis, Present at death",
         "signature": "I. McInformface"
       },
@@ -164,16 +329,71 @@
         "suffix": null,
         "dateOfBirth": "1910-01-01",
         "dateOfDeath": "2010-01-01",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
         "birthplace": "Test address",
         "deathplace": "Test address",
         "sex": "Male",
-        "address": "3, Test street",
+        "address": "3 Test street",
         "occupation": "Unemployed",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "causeOfDeath": "Old age",
-        "certifiedBy": "A. Doctor MD"
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
       },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
       "status": {
-        "blocked": false
+        "blocked": false,
+        "correction": "None",
+        "marginal_note": "None",
+        "onAuthorityOfRegistrarGeneral": false
       },
       "nextRegistration": null,
       "previousRegistration": null
@@ -199,7 +419,7 @@
       "informant": {
         "forenames": "Informy",
         "surname": "McInformface",
-        "address": "666, Inform House, 6, Inform street, Informington, Informshire, IN7 0RM",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
         "qualification": "Life-long nemesis, Present at death",
         "signature": "I. McInformface"
       },
@@ -210,16 +430,71 @@
         "suffix": null,
         "dateOfBirth": "1912-02-29",
         "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
         "birthplace": "Test address",
         "deathplace": "Test address",
         "sex": "Male",
-        "address": "10, Test street",
+        "address": "10 Test street",
         "occupation": "Unemployed",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
         "causeOfDeath": "Old age",
-        "certifiedBy": "A. Doctor MD"
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
       },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
       "status": {
-        "blocked": false
+        "blocked": false,
+        "correction": "None",
+        "marginal_note": "None",
+        "onAuthorityOfRegistrarGeneral": false
       },
       "nextRegistration": null,
       "previousRegistration": null
