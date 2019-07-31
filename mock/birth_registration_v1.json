@@ -122,10 +122,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -137,408 +137,11 @@
     "date_of_birth": "2008-08-08"
   },
   {
-    "id": 999999926,
+    "id": 999999902,
     "data": {
-      "id": 999999926,
-      "date": null,
-      "entryNumber": null,
-      "registrar": {
-        "signature": null,
-        "designation": null,
-        "superintendentSignature": null,
-        "superintendentDesignation": null,
-        "subdistrict": null,
-        "district": null,
-        "administrativeArea": null
-      },
-      "informant1": {
-        "forenames": null,
-        "surname": null,
-        "address": null,
-        "qualification": null,
-        "signature": null,
-        "signatureIsMark": null
-      },
-      "informant2": {
-        "forenames": null,
-        "surname": null,
-        "address": null,
-        "qualification": null,
-        "signature": null,
-        "signatureIsMark": null
-      },
-      "child": {
-        "originalPrefix": null,
-        "prefix": null,
-        "forenames": null,
-        "originalForenames": null,
-        "surname": null,
-        "originalSuffix": null,
-        "suffix": null,
-        "dateOfBirth": null,
-        "sex": null,
-        "birthplace": null
-      },
-      "mother": {
-        "prefix": null,
-        "forenames": null,
-        "surname": null,
-        "suffix": null,
-        "birthplace": null,
-        "occupation": null,
-        "aliases": [
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          },
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          },
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          },
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          }
-        ],
-        "address": null,
-        "maidenSurname": null,
-        "marriageSurname": null
-      },
-      "father": {
-        "prefix": null,
-        "forenames": null,
-        "surname": null,
-        "suffix": null,
-        "birthplace": null,
-        "occupation": null,
-        "aliases": [
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          },
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          },
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          },
-          {
-            "prefix": null,
-            "forenames": null,
-            "surname": null,
-            "suffix": null
-          }
-        ],
-        "deceased": null
-      },
-      "dateOfDeclaration": null,
-      "dateOfStatutoryDeclarationOfParentage": null,
-      "statutoryDeclarationOfParentage": null,
-      "dateOfNameUpdate": null,
-      "status": {
-        "blocked": true,
-        "cancelled": null,
-        "correction": null,
-        "courtOrder": null,
-        "fictitious": null,
-        "nameUpdate": null,
-        "onAuthorityOfRegistrarGeneral": null,
-        "praOrCourtOrder": null,
-        "reregistration": null
-      },
-      "nextRegistration": null,
-      "previousRegistration": {
-        "id": 999999925,
-        "date": "2014-10-10",
-        "entryNumber": 25,
-        "registrar": {
-          "signature": "A. Registrar",
-          "designation": "Registrar",
-          "superintendentSignature": null,
-          "superintendentDesignation": null,
-          "subdistrict": "Test Subdistrict",
-          "district": "Test District",
-          "administrativeArea": "Reading"
-        },
-        "informant1": {
-          "forenames": "Mum",
-          "surname": "Reregistered",
-          "address": null,
-          "qualification": "Mother",
-          "signature": "Mary Manzarek",
-          "signatureIsMark": false
-        },
-        "informant2": {
-          "forenames": null,
-          "surname": null,
-          "address": null,
-          "qualification": null,
-          "signature": null,
-          "signatureIsMark": false
-        },
-        "child": {
-          "originalPrefix": null,
-          "prefix": null,
-          "forenames": "Tester",
-          "originalForenames": null,
-          "surname": "Reregistered",
-          "originalSuffix": null,
-          "suffix": null,
-          "dateOfBirth": "2000-02-01",
-          "sex": "Male",
-          "birthplace": "Test Address"
-        },
-        "mother": {
-          "prefix": null,
-          "forenames": "Mum",
-          "surname": "Reregistered",
-          "suffix": null,
-          "birthplace": "Test Birthplace",
-          "occupation": null,
-          "aliases": [
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            }
-          ],
-          "address": null,
-          "maidenSurname": "prev-Reregistered",
-          "marriageSurname": "prev-M-Reregistered"
-        },
-        "father": {
-          "prefix": null,
-          "forenames": "Dad",
-          "surname": "Reregistered",
-          "suffix": null,
-          "birthplace": "Test Birthplace",
-          "occupation": null,
-          "aliases": [
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            }
-          ],
-          "deceased": false
-        },
-        "dateOfDeclaration": null,
-        "dateOfStatutoryDeclarationOfParentage": null,
-        "statutoryDeclarationOfParentage": null,
-        "dateOfNameUpdate": null,
-        "status": {
-          "blocked": false,
-          "cancelled": false,
-          "correction": "None",
-          "courtOrder": "None",
-          "fictitious": "No",
-          "nameUpdate": "None",
-          "onAuthorityOfRegistrarGeneral": false,
-          "praOrCourtOrder": "None",
-          "reregistration": "Subsequently married"
-        },
-        "nextRegistration": null,
-        "previousRegistration": {
-          "id": 999999922,
-          "date": "2014-10-10",
-          "entryNumber": 22,
-          "registrar": {
-            "signature": "A. Registrar",
-            "designation": "Registrar",
-            "superintendentSignature": null,
-            "superintendentDesignation": null,
-            "subdistrict": "Test Subdistrict",
-            "district": "Test District",
-            "administrativeArea": "Reading"
-          },
-          "informant1": {
-            "forenames": "Mum",
-            "surname": "Cautionmark",
-            "address": null,
-            "qualification": "Mother",
-            "signature": "Mary Manzarek",
-            "signatureIsMark": false
-          },
-          "informant2": {
-            "forenames": null,
-            "surname": null,
-            "address": null,
-            "qualification": null,
-            "signature": null,
-            "signatureIsMark": false
-          },
-          "child": {
-            "originalPrefix": null,
-            "prefix": null,
-            "forenames": "Tester",
-            "originalForenames": null,
-            "surname": "CautionMark",
-            "originalSuffix": null,
-            "suffix": null,
-            "dateOfBirth": "2000-02-01",
-            "sex": "Male",
-            "birthplace": "Test Address"
-          },
-          "mother": {
-            "prefix": null,
-            "forenames": "Mum",
-            "surname": "Cautionmark",
-            "suffix": null,
-            "birthplace": "Test Birthplace",
-            "occupation": null,
-            "aliases": [
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              },
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              },
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              },
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              }
-            ],
-            "address": null,
-            "maidenSurname": "prev-Cautionmark",
-            "marriageSurname": "prev-M-Cautionmark"
-          },
-          "father": {
-            "prefix": null,
-            "forenames": "Dad",
-            "surname": "Cautionmark",
-            "suffix": null,
-            "birthplace": "Test Birthplace",
-            "occupation": null,
-            "aliases": [
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              },
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              },
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              },
-              {
-                "prefix": null,
-                "forenames": null,
-                "surname": null,
-                "suffix": null
-              }
-            ],
-            "deceased": false
-          },
-          "dateOfDeclaration": null,
-          "dateOfStatutoryDeclarationOfParentage": null,
-          "statutoryDeclarationOfParentage": null,
-          "dateOfNameUpdate": null,
-          "status": {
-            "blocked": false,
-            "cancelled": false,
-            "correction": "None",
-            "courtOrder": "None",
-            "fictitious": "No",
-            "nameUpdate": "None",
-            "onAuthorityOfRegistrarGeneral": false,
-            "praOrCourtOrder": "None",
-            "reregistration": "None"
-          },
-          "nextRegistration": null,
-          "previousRegistration": null
-        }
-      }
-    },
-    "forenames": "Tester",
-    "surname": "Allflags",
-    "date_of_birth": "2000-02-01"
-  },
-  {
-    "id": 999999930,
-    "data": {
-      "id": 999999930,
-      "date": "2012-10-17",
-      "entryNumber": 30,
+      "id": 999999902,
+      "date": "2014-10-10",
+      "entryNumber": 2,
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -549,11 +152,11 @@
         "administrativeArea": "Reading"
       },
       "informant1": {
-        "forenames": "Annabelle",
-        "surname": "LEE",
+        "forenames": "Mum Two",
+        "surname": "Multiple",
         "address": null,
         "qualification": "Mother",
-        "signature": "A. Lee",
+        "signature": "Mary Manzarek",
         "signatureIsMark": false
       },
       "informant2": {
@@ -567,22 +170,22 @@
       "child": {
         "originalPrefix": null,
         "prefix": null,
-        "forenames": "Zack",
+        "forenames": "Tester Two",
         "originalForenames": null,
-        "surname": "Howard",
+        "surname": "Multiple",
         "originalSuffix": null,
         "suffix": null,
-        "dateOfBirth": "2012-10-10",
+        "dateOfBirth": "2010-01-01",
         "sex": "Male",
-        "birthplace": "38 York Rd"
+        "birthplace": "Test Address"
       },
       "mother": {
         "prefix": null,
-        "forenames": "Annabelle",
-        "surname": "LEE",
+        "forenames": "Mum Two",
+        "surname": "Multiple",
         "suffix": null,
-        "birthplace": "7 Welwyn Rd, Hinckley",
-        "occupation": "Teacher",
+        "birthplace": "Test Birthplace",
+        "occupation": null,
         "aliases": [
           {
             "prefix": null,
@@ -610,16 +213,16 @@
           }
         ],
         "address": null,
-        "maidenSurname": null,
-        "marriageSurname": null
+        "maidenSurname": "prev-Multiple",
+        "marriageSurname": "prev-M-Multiple"
       },
       "father": {
         "prefix": null,
-        "forenames": "Arron",
-        "surname": "HOWARD",
+        "forenames": "Dad Two",
+        "surname": "Multiple",
         "suffix": null,
-        "birthplace": "9 The Old Ln, Reading",
-        "occupation": "Builder",
+        "birthplace": "Test Birthplace",
+        "occupation": null,
         "aliases": [
           {
             "prefix": null,
@@ -656,149 +259,19 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
-      "nextRegistration": {
-        "id": 999999931,
-        "date": "2013-03-25",
-        "entryNumber": 31,
-        "registrar": {
-          "signature": "A. Registrar",
-          "designation": "Registrar",
-          "superintendentSignature": null,
-          "superintendentDesignation": null,
-          "subdistrict": "Test Subdistrict",
-          "district": "Test District",
-          "administrativeArea": "Reading"
-        },
-        "informant1": {
-          "forenames": "Arron",
-          "surname": "HOWARD",
-          "address": "38 York Rd",
-          "qualification": "Father",
-          "signature": "A. Howard",
-          "signatureIsMark": false
-        },
-        "informant2": {
-          "forenames": "Annabelle",
-          "surname": "HOWARD",
-          "address": null,
-          "qualification": "Mother",
-          "signature": "A. Howard",
-          "signatureIsMark": false
-        },
-        "child": {
-          "originalPrefix": null,
-          "prefix": null,
-          "forenames": "Zack",
-          "originalForenames": null,
-          "surname": "Howard",
-          "originalSuffix": null,
-          "suffix": null,
-          "dateOfBirth": "2012-10-10",
-          "sex": "Male",
-          "birthplace": "38 York Rd"
-        },
-        "mother": {
-          "prefix": null,
-          "forenames": "Annabelle",
-          "surname": "HOWARD",
-          "suffix": null,
-          "birthplace": "7 Welwyn Rd, Hinckley",
-          "occupation": "Teacher",
-          "aliases": [
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            }
-          ],
-          "address": null,
-          "maidenSurname": "LEE",
-          "marriageSurname": null
-        },
-        "father": {
-          "prefix": null,
-          "forenames": "Arron",
-          "surname": "HOWARD",
-          "suffix": null,
-          "birthplace": "9 The Old Ln, Reading",
-          "occupation": "Builder",
-          "aliases": [
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            },
-            {
-              "prefix": null,
-              "forenames": null,
-              "surname": null,
-              "suffix": null
-            }
-          ],
-          "deceased": false
-        },
-        "dateOfDeclaration": null,
-        "dateOfStatutoryDeclarationOfParentage": null,
-        "statutoryDeclarationOfParentage": null,
-        "dateOfNameUpdate": null,
-        "status": {
-          "blocked": false,
-          "cancelled": false,
-          "correction": "None",
-          "courtOrder": "None",
-          "fictitious": "No",
-          "nameUpdate": "None",
-          "onAuthorityOfRegistrarGeneral": false,
-          "praOrCourtOrder": "None",
-          "reregistration": "Subsequently married"
-        },
-        "nextRegistration": null,
-        "previousRegistration": null
-      },
+      "nextRegistration": null,
       "previousRegistration": null
     },
-    "forenames": "Zack",
-    "surname": "Howard",
-    "date_of_birth": "2012-10-10"
+    "forenames": "Tester Two",
+    "surname": "Multiple",
+    "date_of_birth": "2010-01-01"
   },
   {
     "id": 999999903,
@@ -923,10 +396,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -1060,10 +533,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -1197,10 +670,10 @@
         "blocked": true,
         "cancelled": null,
         "correction": null,
-        "courtOrder": null,
-        "fictitious": null,
+        "marginalNote": null,
         "nameUpdate": null,
         "onAuthorityOfRegistrarGeneral": null,
+        "potentiallyFictitious": null,
         "praOrCourtOrder": null,
         "reregistration": null
       },
@@ -1334,10 +807,10 @@
         "blocked": false,
         "cancelled": true,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -1471,10 +944,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -1599,10 +1072,10 @@
           "blocked": false,
           "cancelled": false,
           "correction": "None",
-          "courtOrder": "None",
-          "fictitious": "No",
+          "marginalNote": "None",
           "nameUpdate": "None",
           "onAuthorityOfRegistrarGeneral": false,
+          "potentiallyFictitious": false,
           "praOrCourtOrder": "None",
           "reregistration": "Subsequently married"
         },
@@ -1727,10 +1200,10 @@
             "blocked": true,
             "cancelled": null,
             "correction": null,
-            "courtOrder": null,
-            "fictitious": null,
+            "marginalNote": null,
             "nameUpdate": null,
             "onAuthorityOfRegistrarGeneral": null,
+            "potentiallyFictitious": null,
             "praOrCourtOrder": null,
             "reregistration": null
           },
@@ -1868,10 +1341,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "In place",
-        "fictitious": "No",
+        "marginalNote": "Court order in place",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -2005,10 +1478,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "Potential",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": true,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
@@ -2142,10 +1615,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "Subsequently married"
       },
@@ -2270,10 +1743,10 @@
           "blocked": true,
           "cancelled": null,
           "correction": null,
-          "courtOrder": null,
-          "fictitious": null,
+          "marginalNote": null,
           "nameUpdate": null,
           "onAuthorityOfRegistrarGeneral": null,
+          "potentiallyFictitious": null,
           "praOrCourtOrder": null,
           "reregistration": null
         },
@@ -2401,10 +1874,10 @@
           "blocked": false,
           "cancelled": false,
           "correction": "None",
-          "courtOrder": "None",
-          "fictitious": "No",
+          "marginalNote": "None",
           "nameUpdate": "None",
           "onAuthorityOfRegistrarGeneral": false,
+          "potentiallyFictitious": false,
           "praOrCourtOrder": "None",
           "reregistration": "None"
         },
@@ -2417,27 +1890,27 @@
     "date_of_birth": "2000-02-01"
   },
   {
-    "id": 999999901,
+    "id": 999999926,
     "data": {
-      "id": 999999901,
-      "date": "2014-10-10",
-      "entryNumber": 1,
+      "id": 999999926,
+      "date": null,
+      "entryNumber": null,
       "registrar": {
-        "signature": "A. Registrar",
-        "designation": "Registrar",
+        "signature": null,
+        "designation": null,
         "superintendentSignature": null,
         "superintendentDesignation": null,
-        "subdistrict": "Test Subdistrict",
-        "district": "Test District",
-        "administrativeArea": "Reading"
+        "subdistrict": null,
+        "district": null,
+        "administrativeArea": null
       },
       "informant1": {
-        "forenames": "Mum One",
-        "surname": "Multiple",
+        "forenames": null,
+        "surname": null,
         "address": null,
-        "qualification": "Mother",
-        "signature": "Mary Manzarek",
-        "signatureIsMark": false
+        "qualification": null,
+        "signature": null,
+        "signatureIsMark": null
       },
       "informant2": {
         "forenames": null,
@@ -2445,26 +1918,26 @@
         "address": null,
         "qualification": null,
         "signature": null,
-        "signatureIsMark": false
+        "signatureIsMark": null
       },
       "child": {
         "originalPrefix": null,
         "prefix": null,
-        "forenames": "Tester One",
+        "forenames": null,
         "originalForenames": null,
-        "surname": "Multiple",
+        "surname": null,
         "originalSuffix": null,
         "suffix": null,
-        "dateOfBirth": "2010-01-01",
-        "sex": "Male",
-        "birthplace": "Test Address"
+        "dateOfBirth": null,
+        "sex": null,
+        "birthplace": null
       },
       "mother": {
         "prefix": null,
-        "forenames": "Mum One",
-        "surname": "Multiple",
+        "forenames": null,
+        "surname": null,
         "suffix": null,
-        "birthplace": "Test Birthplace",
+        "birthplace": null,
         "occupation": null,
         "aliases": [
           {
@@ -2493,15 +1966,15 @@
           }
         ],
         "address": null,
-        "maidenSurname": "prev-Multiple",
-        "marriageSurname": "prev-M-Multiple"
+        "maidenSurname": null,
+        "marriageSurname": null
       },
       "father": {
         "prefix": null,
-        "forenames": "Dad One",
-        "surname": "Multiple",
+        "forenames": null,
+        "surname": null,
         "suffix": null,
-        "birthplace": "Test Birthplace",
+        "birthplace": null,
         "occupation": null,
         "aliases": [
           {
@@ -2529,36 +2002,296 @@
             "suffix": null
           }
         ],
-        "deceased": false
+        "deceased": null
       },
       "dateOfDeclaration": null,
       "dateOfStatutoryDeclarationOfParentage": null,
       "statutoryDeclarationOfParentage": null,
       "dateOfNameUpdate": null,
       "status": {
-        "blocked": false,
-        "cancelled": false,
-        "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
-        "nameUpdate": "None",
-        "onAuthorityOfRegistrarGeneral": false,
-        "praOrCourtOrder": "None",
-        "reregistration": "None"
+        "blocked": true,
+        "cancelled": null,
+        "correction": null,
+        "marginalNote": null,
+        "nameUpdate": null,
+        "onAuthorityOfRegistrarGeneral": null,
+        "potentiallyFictitious": null,
+        "praOrCourtOrder": null,
+        "reregistration": null
       },
       "nextRegistration": null,
-      "previousRegistration": null
+      "previousRegistration": {
+        "id": 999999925,
+        "date": "2014-10-10",
+        "entryNumber": 25,
+        "registrar": {
+          "signature": "A. Registrar",
+          "designation": "Registrar",
+          "superintendentSignature": null,
+          "superintendentDesignation": null,
+          "subdistrict": "Test Subdistrict",
+          "district": "Test District",
+          "administrativeArea": "Reading"
+        },
+        "informant1": {
+          "forenames": "Mum",
+          "surname": "Reregistered",
+          "address": null,
+          "qualification": "Mother",
+          "signature": "Mary Manzarek",
+          "signatureIsMark": false
+        },
+        "informant2": {
+          "forenames": null,
+          "surname": null,
+          "address": null,
+          "qualification": null,
+          "signature": null,
+          "signatureIsMark": false
+        },
+        "child": {
+          "originalPrefix": null,
+          "prefix": null,
+          "forenames": "Tester",
+          "originalForenames": null,
+          "surname": "Reregistered",
+          "originalSuffix": null,
+          "suffix": null,
+          "dateOfBirth": "2000-02-01",
+          "sex": "Male",
+          "birthplace": "Test Address"
+        },
+        "mother": {
+          "prefix": null,
+          "forenames": "Mum",
+          "surname": "Reregistered",
+          "suffix": null,
+          "birthplace": "Test Birthplace",
+          "occupation": null,
+          "aliases": [
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "address": null,
+          "maidenSurname": "prev-Reregistered",
+          "marriageSurname": "prev-M-Reregistered"
+        },
+        "father": {
+          "prefix": null,
+          "forenames": "Dad",
+          "surname": "Reregistered",
+          "suffix": null,
+          "birthplace": "Test Birthplace",
+          "occupation": null,
+          "aliases": [
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "deceased": false
+        },
+        "dateOfDeclaration": null,
+        "dateOfStatutoryDeclarationOfParentage": null,
+        "statutoryDeclarationOfParentage": null,
+        "dateOfNameUpdate": null,
+        "status": {
+          "blocked": false,
+          "cancelled": false,
+          "correction": "None",
+          "marginalNote": "None",
+          "nameUpdate": "None",
+          "onAuthorityOfRegistrarGeneral": false,
+          "potentiallyFictitious": false,
+          "praOrCourtOrder": "None",
+          "reregistration": "Subsequently married"
+        },
+        "nextRegistration": null,
+        "previousRegistration": {
+          "id": 999999922,
+          "date": "2014-10-10",
+          "entryNumber": 22,
+          "registrar": {
+            "signature": "A. Registrar",
+            "designation": "Registrar",
+            "superintendentSignature": null,
+            "superintendentDesignation": null,
+            "subdistrict": "Test Subdistrict",
+            "district": "Test District",
+            "administrativeArea": "Reading"
+          },
+          "informant1": {
+            "forenames": "Mum",
+            "surname": "Cautionmark",
+            "address": null,
+            "qualification": "Mother",
+            "signature": "Mary Manzarek",
+            "signatureIsMark": false
+          },
+          "informant2": {
+            "forenames": null,
+            "surname": null,
+            "address": null,
+            "qualification": null,
+            "signature": null,
+            "signatureIsMark": false
+          },
+          "child": {
+            "originalPrefix": null,
+            "prefix": null,
+            "forenames": "Tester",
+            "originalForenames": null,
+            "surname": "CautionMark",
+            "originalSuffix": null,
+            "suffix": null,
+            "dateOfBirth": "2000-02-01",
+            "sex": "Male",
+            "birthplace": "Test Address"
+          },
+          "mother": {
+            "prefix": null,
+            "forenames": "Mum",
+            "surname": "Cautionmark",
+            "suffix": null,
+            "birthplace": "Test Birthplace",
+            "occupation": null,
+            "aliases": [
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              }
+            ],
+            "address": null,
+            "maidenSurname": "prev-Cautionmark",
+            "marriageSurname": "prev-M-Cautionmark"
+          },
+          "father": {
+            "prefix": null,
+            "forenames": "Dad",
+            "surname": "Cautionmark",
+            "suffix": null,
+            "birthplace": "Test Birthplace",
+            "occupation": null,
+            "aliases": [
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              }
+            ],
+            "deceased": false
+          },
+          "dateOfDeclaration": null,
+          "dateOfStatutoryDeclarationOfParentage": null,
+          "statutoryDeclarationOfParentage": null,
+          "dateOfNameUpdate": null,
+          "status": {
+            "blocked": false,
+            "cancelled": false,
+            "correction": "None",
+            "marginalNote": "None",
+            "nameUpdate": "None",
+            "onAuthorityOfRegistrarGeneral": false,
+            "potentiallyFictitious": false,
+            "praOrCourtOrder": "None",
+            "reregistration": "None"
+          },
+          "nextRegistration": null,
+          "previousRegistration": null
+        }
+      }
     },
-    "forenames": "Tester One",
-    "surname": "Multiple",
-    "date_of_birth": "2010-01-01"
+    "forenames": "Tester",
+    "surname": "Allflags",
+    "date_of_birth": "2000-02-01"
   },
   {
-    "id": 999999902,
+    "id": 999999930,
     "data": {
-      "id": 999999902,
-      "date": "2014-10-10",
-      "entryNumber": 2,
+      "id": 999999930,
+      "date": "2012-10-17",
+      "entryNumber": 30,
       "registrar": {
         "signature": "A. Registrar",
         "designation": "Registrar",
@@ -2569,11 +2302,11 @@
         "administrativeArea": "Reading"
       },
       "informant1": {
-        "forenames": "Mum Two",
-        "surname": "Multiple",
+        "forenames": "Annabelle",
+        "surname": "LEE",
         "address": null,
         "qualification": "Mother",
-        "signature": "Mary Manzarek",
+        "signature": "A. Lee",
         "signatureIsMark": false
       },
       "informant2": {
@@ -2587,22 +2320,22 @@
       "child": {
         "originalPrefix": null,
         "prefix": null,
-        "forenames": "Tester Two",
+        "forenames": "Zack",
         "originalForenames": null,
-        "surname": "Multiple",
+        "surname": "Howard",
         "originalSuffix": null,
         "suffix": null,
-        "dateOfBirth": "2010-01-01",
+        "dateOfBirth": "2012-10-10",
         "sex": "Male",
-        "birthplace": "Test Address"
+        "birthplace": "38 York Rd"
       },
       "mother": {
         "prefix": null,
-        "forenames": "Mum Two",
-        "surname": "Multiple",
+        "forenames": "Annabelle",
+        "surname": "LEE",
         "suffix": null,
-        "birthplace": "Test Birthplace",
-        "occupation": null,
+        "birthplace": "7 Welwyn Rd, Hinckley",
+        "occupation": "Teacher",
         "aliases": [
           {
             "prefix": null,
@@ -2630,16 +2363,16 @@
           }
         ],
         "address": null,
-        "maidenSurname": "prev-Multiple",
-        "marriageSurname": "prev-M-Multiple"
+        "maidenSurname": null,
+        "marriageSurname": null
       },
       "father": {
         "prefix": null,
-        "forenames": "Dad Two",
-        "surname": "Multiple",
+        "forenames": "Arron",
+        "surname": "HOWARD",
         "suffix": null,
-        "birthplace": "Test Birthplace",
-        "occupation": null,
+        "birthplace": "9 The Old Ln, Reading",
+        "occupation": "Builder",
         "aliases": [
           {
             "prefix": null,
@@ -2676,19 +2409,149 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "Re-registered",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "None"
       },
-      "nextRegistration": null,
+      "nextRegistration": {
+        "id": 999999931,
+        "date": "2013-03-25",
+        "entryNumber": 31,
+        "registrar": {
+          "signature": "A. Registrar",
+          "designation": "Registrar",
+          "superintendentSignature": null,
+          "superintendentDesignation": null,
+          "subdistrict": "Test Subdistrict",
+          "district": "Test District",
+          "administrativeArea": "Reading"
+        },
+        "informant1": {
+          "forenames": "Arron",
+          "surname": "HOWARD",
+          "address": "38 York Rd",
+          "qualification": "Father",
+          "signature": "A. Howard",
+          "signatureIsMark": false
+        },
+        "informant2": {
+          "forenames": "Annabelle",
+          "surname": "HOWARD",
+          "address": null,
+          "qualification": "Mother",
+          "signature": "A. Howard",
+          "signatureIsMark": false
+        },
+        "child": {
+          "originalPrefix": null,
+          "prefix": null,
+          "forenames": "Zack",
+          "originalForenames": null,
+          "surname": "Howard",
+          "originalSuffix": null,
+          "suffix": null,
+          "dateOfBirth": "2012-10-10",
+          "sex": "Male",
+          "birthplace": "38 York Rd"
+        },
+        "mother": {
+          "prefix": null,
+          "forenames": "Annabelle",
+          "surname": "HOWARD",
+          "suffix": null,
+          "birthplace": "7 Welwyn Rd, Hinckley",
+          "occupation": "Teacher",
+          "aliases": [
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "address": null,
+          "maidenSurname": "LEE",
+          "marriageSurname": null
+        },
+        "father": {
+          "prefix": null,
+          "forenames": "Arron",
+          "surname": "HOWARD",
+          "suffix": null,
+          "birthplace": "9 The Old Ln, Reading",
+          "occupation": "Builder",
+          "aliases": [
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "deceased": false
+        },
+        "dateOfDeclaration": null,
+        "dateOfStatutoryDeclarationOfParentage": null,
+        "statutoryDeclarationOfParentage": null,
+        "dateOfNameUpdate": null,
+        "status": {
+          "blocked": false,
+          "cancelled": false,
+          "correction": "None",
+          "marginalNote": "None",
+          "nameUpdate": "None",
+          "onAuthorityOfRegistrarGeneral": false,
+          "potentiallyFictitious": false,
+          "praOrCourtOrder": "None",
+          "reregistration": "Subsequently married"
+        },
+        "nextRegistration": null,
+        "previousRegistration": null
+      },
       "previousRegistration": null
     },
-    "forenames": "Tester Two",
-    "surname": "Multiple",
-    "date_of_birth": "2010-01-01"
+    "forenames": "Zack",
+    "surname": "Howard",
+    "date_of_birth": "2012-10-10"
   },
   {
     "id": 999999931,
@@ -2813,10 +2676,10 @@
         "blocked": false,
         "cancelled": false,
         "correction": "None",
-        "courtOrder": "None",
-        "fictitious": "No",
+        "marginalNote": "None",
         "nameUpdate": "None",
         "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
         "praOrCourtOrder": "None",
         "reregistration": "Subsequently married"
       },
@@ -2942,10 +2805,10 @@
           "blocked": false,
           "cancelled": false,
           "correction": "None",
-          "courtOrder": "None",
-          "fictitious": "No",
+          "marginalNote": "Re-registered",
           "nameUpdate": "None",
           "onAuthorityOfRegistrarGeneral": false,
+          "potentiallyFictitious": false,
           "praOrCourtOrder": "None",
           "reregistration": "None"
         },
@@ -2956,5 +2819,142 @@
     "forenames": "Zack",
     "surname": "Howard",
     "date_of_birth": "2012-10-10"
+  },
+  {
+    "id": 999999901,
+    "data": {
+      "id": 999999901,
+      "date": "2014-10-10",
+      "entryNumber": 1,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "superintendentSignature": null,
+        "superintendentDesignation": null,
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant1": {
+        "forenames": "Mum One",
+        "surname": "Multiple",
+        "address": null,
+        "qualification": "Mother",
+        "signature": "Mary Manzarek",
+        "signatureIsMark": false
+      },
+      "informant2": {
+        "forenames": null,
+        "surname": null,
+        "address": null,
+        "qualification": null,
+        "signature": null,
+        "signatureIsMark": false
+      },
+      "child": {
+        "originalPrefix": null,
+        "prefix": null,
+        "forenames": "Tester One",
+        "originalForenames": null,
+        "surname": "Multiple",
+        "originalSuffix": null,
+        "suffix": null,
+        "dateOfBirth": "2010-01-01",
+        "sex": "Male",
+        "birthplace": "Test Address"
+      },
+      "mother": {
+        "prefix": null,
+        "forenames": "Mum One",
+        "surname": "Multiple",
+        "suffix": null,
+        "birthplace": "Test Birthplace",
+        "occupation": null,
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "address": null,
+        "maidenSurname": "prev-Multiple",
+        "marriageSurname": "prev-M-Multiple"
+      },
+      "father": {
+        "prefix": null,
+        "forenames": "Dad One",
+        "surname": "Multiple",
+        "suffix": null,
+        "birthplace": "Test Birthplace",
+        "occupation": null,
+        "aliases": [
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "deceased": false
+      },
+      "dateOfDeclaration": null,
+      "dateOfStatutoryDeclarationOfParentage": null,
+      "statutoryDeclarationOfParentage": null,
+      "dateOfNameUpdate": null,
+      "status": {
+        "blocked": false,
+        "cancelled": false,
+        "correction": "None",
+        "marginalNote": "None",
+        "nameUpdate": "None",
+        "onAuthorityOfRegistrarGeneral": false,
+        "potentiallyFictitious": false,
+        "praOrCourtOrder": "None",
+        "reregistration": "None"
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester One",
+    "surname": "Multiple",
+    "date_of_birth": "2010-01-01"
   }
 ]
