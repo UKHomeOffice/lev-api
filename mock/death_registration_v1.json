@@ -26,26 +26,27 @@
         "suffix": null,
         "dateOfBirth": "2008-08-08",
         "dateOfDeath": "2008-08-08",
-        "dateOfDeathQualifier": null,
+        "dateOfDeathQualifier": "On or about",
         "ageAtDeath": "00:00:00",
         "birthplace": "888 Birth House, 8 Birth way, Bournemouth, B1 7TH",
         "deathplace": "888 Death House, 8 Death lane, Deadington, Deadshire",
         "sex": "Indeterminate",
         "address": "888 Death House, 8 Death lane, Deadington, Deadshire",
         "occupation": "Unemployed",
+        "maidenSurname": "BLACK",
         "aliases": [
           {
-            "type": null,
+            "type": "formerly known as",
             "prefix": null,
-            "forenames": null,
-            "surname": null,
+            "forenames": "Joan Narcissus Ouroboros",
+            "surname": "WHITE",
             "suffix": null
           },
           {
-            "type": null,
+            "type": "otherwise",
             "prefix": null,
-            "forenames": null,
-            "surname": null,
+            "forenames": "John Narcissus Ouroboros",
+            "surname": "SMITH",
             "suffix": null
           },
           {
@@ -65,27 +66,27 @@
         ],
         "causeOfDeath": "Misadventure",
         "certifiedBy": "I. McInformface MD",
-        "relationshipToPartner": null
+        "relationshipToPartner": "Wife of"
       },
       "partner": {
-        "name": null,
-        "occupation": null,
-        "retired": null
+        "name": "John SMITH",
+        "occupation": "Unemployed",
+        "retired": true
       },
       "mother": {
-        "name": null,
-        "occupation": null
+        "name": "Joan BLACK",
+        "occupation": "Unemployed"
       },
       "father": {
-        "name": null,
-        "occupation": null
+        "name": "John SMITH",
+        "occupation": "Unemployed"
       },
       "coroner": {
-        "name": null,
-        "designation": null,
-        "area": null
+        "name": "Informy McInformface",
+        "designation": "Coroner",
+        "area": "Adminshire"
       },
-      "inquestDate": null,
+      "inquestDate": "2008-08-08",
       "status": {
         "blocked": false,
         "correction": "None",
@@ -134,6 +135,7 @@
         "sex": "Male",
         "address": "1 Test street",
         "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
         "aliases": [
           {
             "type": null,
@@ -235,6 +237,7 @@
         "sex": "Male",
         "address": "2 Test street",
         "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
         "aliases": [
           {
             "type": null,
@@ -336,6 +339,7 @@
         "sex": "Male",
         "address": "3 Test street",
         "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
         "aliases": [
           {
             "type": null,
@@ -437,6 +441,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
         "aliases": [
           {
             "type": null,
@@ -501,6 +506,1998 @@
     },
     "forenames": "Tester",
     "surname": "SOLO",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999920,
+    "data": {
+      "id": 999999920,
+      "date": null,
+      "entryNumber": null,
+      "registrar": {
+        "signature": null,
+        "designation": null,
+        "subdistrict": null,
+        "district": null,
+        "administrativeArea": null
+      },
+      "informant": {
+        "forenames": null,
+        "surname": null,
+        "address": null,
+        "qualification": null,
+        "signature": null
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": null,
+        "surname": null,
+        "suffix": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": null,
+        "birthplace": null,
+        "deathplace": null,
+        "sex": null,
+        "address": null,
+        "occupation": null,
+        "maidenSurname": null,
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": null,
+        "certifiedBy": null,
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": true,
+        "correction": null,
+        "marginalNote": null,
+        "onAuthorityOfRegistrarGeneral": null
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester",
+    "surname": "BLOCKED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999930,
+    "data": {
+      "id": 999999930,
+      "date": "2014-10-10",
+      "entryNumber": 30,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Typographical",
+        "surname": "CORRECTED",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "Typographical",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Typographical",
+    "surname": "CORRECTED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999931,
+    "data": {
+      "id": 999999931,
+      "date": "2014-10-10",
+      "entryNumber": 31,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Simple Clerical",
+        "surname": "CORRECTED",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "Simple clerical",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Simple Clerical",
+    "surname": "CORRECTED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999932,
+    "data": {
+      "id": 999999932,
+      "date": "2014-10-10",
+      "entryNumber": 32,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Complex Clerical",
+        "surname": "CORRECTED",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "Complex clerical",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Complex Clerical",
+    "surname": "CORRECTED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999933,
+    "data": {
+      "id": 999999933,
+      "date": "2014-10-10",
+      "entryNumber": 33,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Error Of Fact",
+        "surname": "CORRECTED",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "Error of fact",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Error Of Fact",
+    "surname": "CORRECTED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999934,
+    "data": {
+      "id": 999999934,
+      "date": "2014-10-10",
+      "entryNumber": 34,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Coroners Clerical",
+        "surname": "CORRECTED",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "Coroner's clerical",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Coroners Clerical",
+    "surname": "CORRECTED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999935,
+    "data": {
+      "id": 999999935,
+      "date": "2014-10-10",
+      "entryNumber": 35,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Coroners Error",
+        "surname": "CORRECTED",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "Coroner's error of fact",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Coroners Error",
+    "surname": "CORRECTED",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999940,
+    "data": {
+      "id": 999999940,
+      "date": "2014-10-10",
+      "entryNumber": 40,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Re-registered",
+        "surname": "MARGINAL",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "Re-registered",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Re-registered",
+    "surname": "MARGINAL",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999941,
+    "data": {
+      "id": 999999941,
+      "date": "2014-10-10",
+      "entryNumber": 41,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Post-mortem",
+        "surname": "MARGINAL",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "Post-mortem details",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Post-mortem",
+    "surname": "MARGINAL",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999942,
+    "data": {
+      "id": 999999942,
+      "date": "2014-10-10",
+      "entryNumber": 42,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Other",
+        "surname": "MARGINAL",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "Other",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester Other",
+    "surname": "MARGINAL",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999950,
+    "data": {
+      "id": 999999950,
+      "date": "2014-10-10",
+      "entryNumber": 50,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester",
+        "surname": "RG",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": true
+      },
+      "nextRegistration": null,
+      "previousRegistration": null
+    },
+    "forenames": "Tester",
+    "surname": "RG",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999960,
+    "data": {
+      "id": 999999960,
+      "date": "2014-10-10",
+      "entryNumber": 60,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Original",
+        "surname": "REGISTRATION",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": {
+        "id": 999999961,
+        "date": "2014-10-10",
+        "entryNumber": 61,
+        "registrar": {
+          "signature": "A. Registrar",
+          "designation": "Registrar",
+          "subdistrict": "Test Subdistrict",
+          "district": "Test District",
+          "administrativeArea": "Reading"
+        },
+        "informant": {
+          "forenames": "Informy",
+          "surname": "McInformface",
+          "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+          "qualification": "Life-long nemesis, Present at death",
+          "signature": "I. McInformface"
+        },
+        "deceased": {
+          "prefix": null,
+          "forenames": "Tester Previous",
+          "surname": "REGISTRATION",
+          "suffix": null,
+          "dateOfBirth": "1912-02-29",
+          "dateOfDeath": "2012-02-29",
+          "dateOfDeathQualifier": null,
+          "ageAtDeath": "100 years",
+          "birthplace": "Test address",
+          "deathplace": "Test address",
+          "sex": "Male",
+          "address": "10 Test street",
+          "occupation": "Unemployed",
+          "maidenSurname": "TESTER",
+          "aliases": [
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "causeOfDeath": "Old age",
+          "certifiedBy": "A. Doctor MD",
+          "relationshipToPartner": null
+        },
+        "partner": {
+          "name": null,
+          "occupation": null,
+          "retired": null
+        },
+        "mother": {
+          "name": null,
+          "occupation": null
+        },
+        "father": {
+          "name": null,
+          "occupation": null
+        },
+        "coroner": {
+          "name": null,
+          "designation": null,
+          "area": null
+        },
+        "inquestDate": null,
+        "status": {
+          "blocked": false,
+          "correction": "None",
+          "marginalNote": "None",
+          "onAuthorityOfRegistrarGeneral": false
+        },
+        "nextRegistration": {
+          "id": 999999962,
+          "date": "2014-10-10",
+          "entryNumber": 62,
+          "registrar": {
+            "signature": "A. Registrar",
+            "designation": "Registrar",
+            "subdistrict": "Test Subdistrict",
+            "district": "Test District",
+            "administrativeArea": "Reading"
+          },
+          "informant": {
+            "forenames": "Informy",
+            "surname": "McInformface",
+            "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+            "qualification": "Life-long nemesis, Present at death",
+            "signature": "I. McInformface"
+          },
+          "deceased": {
+            "prefix": null,
+            "forenames": "Tester Current",
+            "surname": "REGISTRATION",
+            "suffix": null,
+            "dateOfBirth": "1912-02-29",
+            "dateOfDeath": "2012-02-29",
+            "dateOfDeathQualifier": null,
+            "ageAtDeath": "100 years",
+            "birthplace": "Test address",
+            "deathplace": "Test address",
+            "sex": "Male",
+            "address": "10 Test street",
+            "occupation": "Unemployed",
+            "maidenSurname": "TESTER",
+            "aliases": [
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              }
+            ],
+            "causeOfDeath": "Old age",
+            "certifiedBy": "A. Doctor MD",
+            "relationshipToPartner": null
+          },
+          "partner": {
+            "name": null,
+            "occupation": null,
+            "retired": null
+          },
+          "mother": {
+            "name": null,
+            "occupation": null
+          },
+          "father": {
+            "name": null,
+            "occupation": null
+          },
+          "coroner": {
+            "name": null,
+            "designation": null,
+            "area": null
+          },
+          "inquestDate": null,
+          "status": {
+            "blocked": false,
+            "correction": "None",
+            "marginalNote": "None",
+            "onAuthorityOfRegistrarGeneral": false
+          },
+          "nextRegistration": null,
+          "previousRegistration": null
+        },
+        "previousRegistration": null
+      },
+      "previousRegistration": null
+    },
+    "forenames": "Tester Original",
+    "surname": "REGISTRATION",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999961,
+    "data": {
+      "id": 999999961,
+      "date": "2014-10-10",
+      "entryNumber": 61,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Previous",
+        "surname": "REGISTRATION",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": {
+        "id": 999999962,
+        "date": "2014-10-10",
+        "entryNumber": 62,
+        "registrar": {
+          "signature": "A. Registrar",
+          "designation": "Registrar",
+          "subdistrict": "Test Subdistrict",
+          "district": "Test District",
+          "administrativeArea": "Reading"
+        },
+        "informant": {
+          "forenames": "Informy",
+          "surname": "McInformface",
+          "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+          "qualification": "Life-long nemesis, Present at death",
+          "signature": "I. McInformface"
+        },
+        "deceased": {
+          "prefix": null,
+          "forenames": "Tester Current",
+          "surname": "REGISTRATION",
+          "suffix": null,
+          "dateOfBirth": "1912-02-29",
+          "dateOfDeath": "2012-02-29",
+          "dateOfDeathQualifier": null,
+          "ageAtDeath": "100 years",
+          "birthplace": "Test address",
+          "deathplace": "Test address",
+          "sex": "Male",
+          "address": "10 Test street",
+          "occupation": "Unemployed",
+          "maidenSurname": "TESTER",
+          "aliases": [
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "causeOfDeath": "Old age",
+          "certifiedBy": "A. Doctor MD",
+          "relationshipToPartner": null
+        },
+        "partner": {
+          "name": null,
+          "occupation": null,
+          "retired": null
+        },
+        "mother": {
+          "name": null,
+          "occupation": null
+        },
+        "father": {
+          "name": null,
+          "occupation": null
+        },
+        "coroner": {
+          "name": null,
+          "designation": null,
+          "area": null
+        },
+        "inquestDate": null,
+        "status": {
+          "blocked": false,
+          "correction": "None",
+          "marginalNote": "None",
+          "onAuthorityOfRegistrarGeneral": false
+        },
+        "nextRegistration": null,
+        "previousRegistration": null
+      },
+      "previousRegistration": {
+        "id": 999999960,
+        "date": "2014-10-10",
+        "entryNumber": 60,
+        "registrar": {
+          "signature": "A. Registrar",
+          "designation": "Registrar",
+          "subdistrict": "Test Subdistrict",
+          "district": "Test District",
+          "administrativeArea": "Reading"
+        },
+        "informant": {
+          "forenames": "Informy",
+          "surname": "McInformface",
+          "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+          "qualification": "Life-long nemesis, Present at death",
+          "signature": "I. McInformface"
+        },
+        "deceased": {
+          "prefix": null,
+          "forenames": "Tester Original",
+          "surname": "REGISTRATION",
+          "suffix": null,
+          "dateOfBirth": "1912-02-29",
+          "dateOfDeath": "2012-02-29",
+          "dateOfDeathQualifier": null,
+          "ageAtDeath": "100 years",
+          "birthplace": "Test address",
+          "deathplace": "Test address",
+          "sex": "Male",
+          "address": "10 Test street",
+          "occupation": "Unemployed",
+          "maidenSurname": "TESTER",
+          "aliases": [
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "causeOfDeath": "Old age",
+          "certifiedBy": "A. Doctor MD",
+          "relationshipToPartner": null
+        },
+        "partner": {
+          "name": null,
+          "occupation": null,
+          "retired": null
+        },
+        "mother": {
+          "name": null,
+          "occupation": null
+        },
+        "father": {
+          "name": null,
+          "occupation": null
+        },
+        "coroner": {
+          "name": null,
+          "designation": null,
+          "area": null
+        },
+        "inquestDate": null,
+        "status": {
+          "blocked": false,
+          "correction": "None",
+          "marginalNote": "None",
+          "onAuthorityOfRegistrarGeneral": false
+        },
+        "nextRegistration": null,
+        "previousRegistration": null
+      }
+    },
+    "forenames": "Tester Previous",
+    "surname": "REGISTRATION",
+    "date_of_birth": "1912-02-29",
+    "date_of_death": "2012-02-29"
+  },
+  {
+    "id": 999999962,
+    "data": {
+      "id": 999999962,
+      "date": "2014-10-10",
+      "entryNumber": 62,
+      "registrar": {
+        "signature": "A. Registrar",
+        "designation": "Registrar",
+        "subdistrict": "Test Subdistrict",
+        "district": "Test District",
+        "administrativeArea": "Reading"
+      },
+      "informant": {
+        "forenames": "Informy",
+        "surname": "McInformface",
+        "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+        "qualification": "Life-long nemesis, Present at death",
+        "signature": "I. McInformface"
+      },
+      "deceased": {
+        "prefix": null,
+        "forenames": "Tester Current",
+        "surname": "REGISTRATION",
+        "suffix": null,
+        "dateOfBirth": "1912-02-29",
+        "dateOfDeath": "2012-02-29",
+        "dateOfDeathQualifier": null,
+        "ageAtDeath": "100 years",
+        "birthplace": "Test address",
+        "deathplace": "Test address",
+        "sex": "Male",
+        "address": "10 Test street",
+        "occupation": "Unemployed",
+        "maidenSurname": "TESTER",
+        "aliases": [
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          },
+          {
+            "type": null,
+            "prefix": null,
+            "forenames": null,
+            "surname": null,
+            "suffix": null
+          }
+        ],
+        "causeOfDeath": "Old age",
+        "certifiedBy": "A. Doctor MD",
+        "relationshipToPartner": null
+      },
+      "partner": {
+        "name": null,
+        "occupation": null,
+        "retired": null
+      },
+      "mother": {
+        "name": null,
+        "occupation": null
+      },
+      "father": {
+        "name": null,
+        "occupation": null
+      },
+      "coroner": {
+        "name": null,
+        "designation": null,
+        "area": null
+      },
+      "inquestDate": null,
+      "status": {
+        "blocked": false,
+        "correction": "None",
+        "marginalNote": "None",
+        "onAuthorityOfRegistrarGeneral": false
+      },
+      "nextRegistration": null,
+      "previousRegistration": {
+        "id": 999999961,
+        "date": "2014-10-10",
+        "entryNumber": 61,
+        "registrar": {
+          "signature": "A. Registrar",
+          "designation": "Registrar",
+          "subdistrict": "Test Subdistrict",
+          "district": "Test District",
+          "administrativeArea": "Reading"
+        },
+        "informant": {
+          "forenames": "Informy",
+          "surname": "McInformface",
+          "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+          "qualification": "Life-long nemesis, Present at death",
+          "signature": "I. McInformface"
+        },
+        "deceased": {
+          "prefix": null,
+          "forenames": "Tester Previous",
+          "surname": "REGISTRATION",
+          "suffix": null,
+          "dateOfBirth": "1912-02-29",
+          "dateOfDeath": "2012-02-29",
+          "dateOfDeathQualifier": null,
+          "ageAtDeath": "100 years",
+          "birthplace": "Test address",
+          "deathplace": "Test address",
+          "sex": "Male",
+          "address": "10 Test street",
+          "occupation": "Unemployed",
+          "maidenSurname": "TESTER",
+          "aliases": [
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            },
+            {
+              "type": null,
+              "prefix": null,
+              "forenames": null,
+              "surname": null,
+              "suffix": null
+            }
+          ],
+          "causeOfDeath": "Old age",
+          "certifiedBy": "A. Doctor MD",
+          "relationshipToPartner": null
+        },
+        "partner": {
+          "name": null,
+          "occupation": null,
+          "retired": null
+        },
+        "mother": {
+          "name": null,
+          "occupation": null
+        },
+        "father": {
+          "name": null,
+          "occupation": null
+        },
+        "coroner": {
+          "name": null,
+          "designation": null,
+          "area": null
+        },
+        "inquestDate": null,
+        "status": {
+          "blocked": false,
+          "correction": "None",
+          "marginalNote": "None",
+          "onAuthorityOfRegistrarGeneral": false
+        },
+        "nextRegistration": null,
+        "previousRegistration": {
+          "id": 999999960,
+          "date": "2014-10-10",
+          "entryNumber": 60,
+          "registrar": {
+            "signature": "A. Registrar",
+            "designation": "Registrar",
+            "subdistrict": "Test Subdistrict",
+            "district": "Test District",
+            "administrativeArea": "Reading"
+          },
+          "informant": {
+            "forenames": "Informy",
+            "surname": "McInformface",
+            "address": "666 Inform House, 6 Inform street, Informington, Informshire",
+            "qualification": "Life-long nemesis, Present at death",
+            "signature": "I. McInformface"
+          },
+          "deceased": {
+            "prefix": null,
+            "forenames": "Tester Original",
+            "surname": "REGISTRATION",
+            "suffix": null,
+            "dateOfBirth": "1912-02-29",
+            "dateOfDeath": "2012-02-29",
+            "dateOfDeathQualifier": null,
+            "ageAtDeath": "100 years",
+            "birthplace": "Test address",
+            "deathplace": "Test address",
+            "sex": "Male",
+            "address": "10 Test street",
+            "occupation": "Unemployed",
+            "maidenSurname": "TESTER",
+            "aliases": [
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              },
+              {
+                "type": null,
+                "prefix": null,
+                "forenames": null,
+                "surname": null,
+                "suffix": null
+              }
+            ],
+            "causeOfDeath": "Old age",
+            "certifiedBy": "A. Doctor MD",
+            "relationshipToPartner": null
+          },
+          "partner": {
+            "name": null,
+            "occupation": null,
+            "retired": null
+          },
+          "mother": {
+            "name": null,
+            "occupation": null
+          },
+          "father": {
+            "name": null,
+            "occupation": null
+          },
+          "coroner": {
+            "name": null,
+            "designation": null,
+            "area": null
+          },
+          "inquestDate": null,
+          "status": {
+            "blocked": false,
+            "correction": "None",
+            "marginalNote": "None",
+            "onAuthorityOfRegistrarGeneral": false
+          },
+          "nextRegistration": null,
+          "previousRegistration": null
+        }
+      }
+    },
+    "forenames": "Tester Current",
+    "surname": "REGISTRATION",
     "date_of_birth": "1912-02-29",
     "date_of_death": "2012-02-29"
   }
