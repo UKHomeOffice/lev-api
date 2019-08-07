@@ -33,6 +33,7 @@
         "sex": "Indeterminate",
         "address": "888 Death House, 8 Death lane, Deadington, Deadshire",
         "occupation": "Unemployed",
+        "retired": true,
         "maidenSurname": "BLACK",
         "aliases": [
           {
@@ -135,6 +136,7 @@
         "sex": "Male",
         "address": "1 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -237,6 +239,7 @@
         "sex": "Male",
         "address": "2 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -339,6 +342,7 @@
         "sex": "Male",
         "address": "3 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -441,6 +445,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -543,6 +548,7 @@
         "sex": null,
         "address": null,
         "occupation": null,
+        "retired": null,
         "maidenSurname": null,
         "aliases": [
           {
@@ -645,6 +651,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -747,6 +754,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -849,6 +857,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -951,6 +960,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1053,6 +1063,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1155,6 +1166,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1257,6 +1269,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1359,6 +1372,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1461,6 +1475,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1563,6 +1578,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1665,6 +1681,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -1757,6 +1774,7 @@
           "sex": "Male",
           "address": "10 Test street",
           "occupation": "Unemployed",
+          "retired": false,
           "maidenSurname": "TESTER",
           "aliases": [
             {
@@ -1849,6 +1867,7 @@
             "sex": "Male",
             "address": "10 Test street",
             "occupation": "Unemployed",
+            "retired": false,
             "maidenSurname": "TESTER",
             "aliases": [
               {
@@ -1955,6 +1974,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -2047,6 +2067,7 @@
           "sex": "Male",
           "address": "10 Test street",
           "occupation": "Unemployed",
+          "retired": false,
           "maidenSurname": "TESTER",
           "aliases": [
             {
@@ -2142,6 +2163,7 @@
           "sex": "Male",
           "address": "10 Test street",
           "occupation": "Unemployed",
+          "retired": false,
           "maidenSurname": "TESTER",
           "aliases": [
             {
@@ -2245,6 +2267,7 @@
         "sex": "Male",
         "address": "10 Test street",
         "occupation": "Unemployed",
+        "retired": false,
         "maidenSurname": "TESTER",
         "aliases": [
           {
@@ -2338,6 +2361,7 @@
           "sex": "Male",
           "address": "10 Test street",
           "occupation": "Unemployed",
+          "retired": false,
           "maidenSurname": "TESTER",
           "aliases": [
             {
@@ -2431,6 +2455,7 @@
             "sex": "Male",
             "address": "10 Test street",
             "occupation": "Unemployed",
+            "retired": false,
             "maidenSurname": "TESTER",
             "aliases": [
               {
