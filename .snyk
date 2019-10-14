@@ -34,3 +34,8 @@ patch:
         patched: '2019-07-04T16:41:08.291Z'
     - snyk > snyk-mvn-plugin > lodash:
         patched: '2019-07-04T16:41:08.291Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-14T08:24:37.031Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-14T08:24:37.031Z'
