@@ -110,7 +110,7 @@ pipeline:
     channel: general
     username: Drone
     template: >
-      *Deployed {{repo.name}} to Dev-UK* - <{{build.link}}|#{{build.number}}>
+      *Deployed {{repo.name}} to Dev* - <{{build.link}}|#{{build.number}}>
     when:
       branch: master
       event: push
@@ -121,7 +121,7 @@ pipeline:
     channel: alerts
     username: Drone
     template: >
-      *Failed to deploy {{repo.name}} to Dev-UK*
+      *Failed to deploy {{repo.name}} to Dev*
 
       Author: {{build.author}}
 

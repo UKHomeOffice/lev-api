@@ -27,7 +27,7 @@
   "homepage": "https://github.com/UKHomeOffice/lev-api#readme",
   "dependencies": {
     "functional-augments": "^1.0.0",
-    "lev-restify": "^1.0.0",
+    "lev-restify": "^1.0.1",
     "moment": "^2.22.1",
     "pg-monitor": "^1.0.0",
     "pg-promise": "^8.4.4",
