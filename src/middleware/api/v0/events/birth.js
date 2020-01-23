@@ -37,14 +37,15 @@ const censorRecord = r =>
 
 module.exports = {
   read: (req, res, next) => {
-    if (!req.headers['x-auth-aud'] || !req.headers['x-auth-username']) {
+    const ri = reqInfo(req);
+
+    if (!ri.client || !ri.username) {
       next(new errors.UnauthorizedError());
     } else if (!req.params.id) {
       next(new errors.BadRequestError('Must provide an ID'));
     } else if (!req.params.id.match(/^\d+$/)) {
       next(new errors.BadRequestError('ID must be an integer'));
     } else {
-      const ri = reqInfo(req);
       const startTime = moment();
       const id = Number(req.params.id);
 
@@ -63,7 +64,9 @@ module.exports = {
     }
   },
   search: (req, res, next) => {
-    if (!req.headers['x-auth-aud'] || !req.headers['x-auth-username']) {
+    const ri = reqInfo(req);
+
+    if (!ri.client || !ri.username) {
       next(new errors.UnauthorizedError());
     } else if (!req.query.lastname) {
       next(new errors.BadRequestError('Must provide the lastname parameter'));
@@ -74,7 +77,6 @@ module.exports = {
     } else if (req.query.forenames && req.query.forename1) {
       next(new errors.BadRequestError('Must only provide forenames, or forename1 (plus optionally forename2, 3, and 4)'));
     } else {
-      const ri = reqInfo(req);
       const startTime = moment();
       const surname = new RegExp('^' + params.name2regex(req.query.lastname) + '$', 'i');
       const forenames = new RegExp('^' + params.name2regex(req.query.forenames || [req.query.forename1, req.query.forenames2, req.query.forename3, req.query.forename4].join(' ')) + '(\\s|$)', 'i');
