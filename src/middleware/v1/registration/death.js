@@ -10,6 +10,10 @@ const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
 
 module.exports = {
+  redactDeath: (death, roles) => {
+    return roles.fullDetails ? death :
+      { date: death.date, forenames: death.forenames, surname: death.surname }
+  },
   read: (req, res, next) => {
     const ri = reqInfo(req);
 
@@ -66,7 +70,7 @@ module.exports = {
         audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'death')
           .then(() => model.search(query))
           .then(r => {
-            res.send(r);
+            res.send(redactDeath(r, ri.roles));
             metrics.search('death', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
