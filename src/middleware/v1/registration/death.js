@@ -8,12 +8,9 @@ const model = require('../../../model/death_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
+const redactDeath = require('../../../lib/redaction');
 
 module.exports = {
-  redactDeath: (death, roles) => {
-    return roles.fullDetails ? death :
-      { date: death.date, forenames: death.forenames, surname: death.surname }
-  },
   read: (req, res, next) => {
     const ri = reqInfo(req);
 
