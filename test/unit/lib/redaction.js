@@ -3,13 +3,162 @@
 const redactDeath = require('../../../src/lib/redaction');
 const roleWithFullAccess = ['full-details'];
 const roleWithoutFullAccess = ['births'];
+
 const deathData = {
-  date: 'date',
-  dataToBeRedacted1: 'extraData',
+  id: 1000,
+  date: "2020-09-23",
+  entryNumber: 0,
+  inquestDate: "2020-09-23",
   deceased: {
-    forenames: 'forenames',
-    surname: 'surname',
-    dataToBeRedacted2: 'moreData'
+    forenames: "Forename1 Forname2",
+    surname: "SURNAME",
+    dateOfBirth: "2020-09-23",
+    dateOfDeath: "2020-09-23",
+    dateOfDeathQualifier: "On or about",
+    ageAtDeath: 20,
+    birthplace: "Birth Address",
+    deathplace: "Death Address",
+    sex: "Indeterminate",
+    address: "Current Address",
+    occupation: "",
+    retired: false,
+    maidenSurname: null,
+    causeOfDeath: "Natural causes",
+    certifiedBy: "Certification",
+    relationshipToPartner: "Bit on side",
+    aliases: [{
+      type: null,
+      prefix: null,
+      forenames: null,
+      surname: null,
+      suffix: null
+    }, {
+      type: null,
+      prefix: null,
+      forenames: null,
+      surname: null,
+      suffix: null
+    }]
+  },
+  informant: {
+    forenames: "Informant Forename1 Informant Forename2",
+    surname: "Informant Surname",
+    address: "Informant Address",
+    qualification: "Confidential Informant",
+    signature: "Here is a signature"
+  },
+  registrar: {
+    signature: "Registrar signature",
+    designation: "Registrar",
+    subdistrict: "Subdistrict town",
+    district: "District city",
+    administrativeArea: "Adminshire"
+  },
+  coroner: {
+    name: "Informy McInformface",
+    designation: "Coroner",
+    area: "Adminshire"
+  },
+  partner: {
+    name: "Partner name",
+    occupation: "Partner occupation",
+    retired: true
+  },
+  father: {
+    name: "Father name",
+    occupation: "Father Occupation"
+  },
+  mother: {
+    name: "Mother name",
+    occupation: "Mother occupation"
+  },
+  status: {
+    refer: false,
+    fatherAdded: 'Father added',
+    subsequentlyMarried: 'Subsequently married',
+    fatherModified: 'Father modified',
+    replaced: 'Replacement registration',
+    corrected: 'None',
+    courtOrderInPlace: 'Court order in place',
+    courtOrderRevoked: 'Court order revoked'
+  },
+  previousRegistration: {
+    date: null,
+    systemNumber: null
+  },
+  nextRegistration: {
+    date: null,
+    systemNumber: null
+  }
+}
+
+const redactedData = {
+  id: 1000,
+  date: "2020-09-23",
+  entryNumber: 0,
+  inquestDate: "2020-09-23",
+  deceased: {
+    forenames: "Forename1 Forname2",
+    surname: "SURNAME",
+    dateOfBirth: "2020-09-23",
+    dateOfDeath: "2020-09-23",
+    dateOfDeathQualifier: "On or about",
+    ageAtDeath: 20,
+    birthplace: "Birth Address",
+    deathplace: "Death Address",
+    sex: "Indeterminate",
+    address: "Current Address",
+    occupation: "",
+    retired: false,
+    maidenSurname: null,
+    causeOfDeath: "Natural causes",
+    certifiedBy: "Certification",
+    relationshipToPartner: "Bit on side",
+    aliases: [{
+      type: null,
+      prefix: null,
+      forenames: null,
+      surname: null,
+      suffix: null
+    }, {
+      type: null,
+      prefix: null,
+      forenames: null,
+      surname: null,
+      suffix: null
+    }]
+  },
+  informant: {
+    forenames: "Informant Forename1 Informant Forename2",
+    surname: "Informant Surname",
+    address: "Informant Address",
+    qualification: "Confidential Informant",
+    signature: "Here is a signature"
+  },
+  registrar: {
+    signature: "Registrar signature",
+    designation: "Registrar",
+    subdistrict: "Subdistrict town",
+    district: "District city",
+    administrativeArea: "Adminshire"
+  },
+  coroner: {
+    name: "Informy McInformface",
+    designation: "Coroner",
+    area: "Adminshire"
+  },
+  partner: {
+    name: "Partner name",
+    occupation: "Partner occupation",
+    retired: true
+  },
+  father: {
+    name: "Father name",
+    occupation: "Father Occupation"
+  },
+  mother: {
+    name: "Mother name",
+    occupation: "Mother occupation"
   }
 }
 
@@ -19,12 +168,10 @@ describe('lib/redaction.js', () => {
       expect(redactDeath).to.be.a('function')
     })
     it('should return the death data if role has full access', () => {
-      expect(redactDeath(deathData, roleWithFullAccess )).to.deep.equal(deathData);
+      expect(redactDeath(deathData, roleWithFullAccess)).to.deep.equal(deathData);
     })
     it('should return redacted death data if role has not got full access', () => {
-      expect(redactDeath(deathData, roleWithoutFullAccess)).to.deep.equal(
-        { date: 'date', deceased: { forenames: 'forenames', surname: 'surname' } }
-        );
+      expect(redactDeath(deathData, roleWithoutFullAccess)).to.deep.equal(redactedData);
     })
   })
 })
