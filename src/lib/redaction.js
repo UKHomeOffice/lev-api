@@ -1,10 +1,10 @@
 const redactDeath = (death, roles) => {
   return roles.includes('full-details') ? death :
     {
-      date: death[0].date,
+      date: death.date,
       deceased: {
-        forenames: death[0].deceased.forenames,
-        surname: death[0].deceased.surname
+        forenames: death.deceased.forenames,
+        surname: death.deceased.surname
       }
     }
 }
