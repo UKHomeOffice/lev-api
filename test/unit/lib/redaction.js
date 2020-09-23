@@ -3,7 +3,7 @@
 const redactDeath = require('../../../src/lib/redaction');
 const roleWithFullAccess = ['full-details'];
 const roleWithoutFullAccess = ['births'];
-const deathData = [{
+const deathData = {
   date: 'date',
   dataToBeRedacted1: 'extraData',
   deceased: {
@@ -11,7 +11,7 @@ const deathData = [{
     surname: 'surname',
     dataToBeRedacted2: 'moreData'
   }
-}]
+}
 
 describe('lib/redaction.js', () => {
   describe('redactDeath function', () => {
@@ -23,7 +23,7 @@ describe('lib/redaction.js', () => {
     })
     it('should return redacted death data if role has not got full access', () => {
       expect(redactDeath(deathData, roleWithoutFullAccess)).to.deep.equal(
-        [{ date: 'date', deceased: { forenames: 'forenames', surname: 'surname' } }]
+        { date: 'date', deceased: { forenames: 'forenames', surname: 'surname' } }
         );
     })
   })
