@@ -27,17 +27,17 @@ const deathData = {
     certifiedBy: "Certification",
     relationshipToPartner: "Bit on side",
     aliases: [{
-      type: null,
-      prefix: null,
-      forenames: null,
-      surname: null,
-      suffix: null
+      type: 'Stage Name',
+      "prefix": "The Artist Formally Known As...",
+      "forenames": "Prince Rogers",
+      "surname": "Prince Rogers Nelson",
+      "suffix": "Unpronounceable Symbol"
     }, {
-      type: null,
-      prefix: null,
-      forenames: null,
-      surname: null,
-      suffix: null
+      type: 'Undercover',
+      "prefix": "Agent",
+      "forenames": "Alec",
+      "surname": "Trevelyan",
+      "suffix": "006"
     }]
   },
   informant: {
@@ -103,18 +103,18 @@ const redactedData = {
     dateOfDeathQualifier: "On or about",
     sex: "Indeterminate",
     address: "Current Address",
-      aliases: [{
-        type: null,
-        prefix: null,
-        forenames: null,
-        surname: null,
-        suffix: null
+    aliases: [{
+      type: 'Stage Name',
+      "prefix": "The Artist Formally Known As...",
+      "forenames": "Prince Rogers",
+      "surname": "Prince Rogers Nelson",
+      "suffix": "Unpronounceable Symbol"
     }, {
-      type: null,
-      prefix: null,
-      forenames: null,
-      surname: null,
-      suffix: null
+      type: 'Undercover',
+      "prefix": "Agent",
+      "forenames": "Alec",
+      "surname": "Trevelyan",
+      "suffix": "006"
     }]
   },
   registrar: {
@@ -135,11 +135,11 @@ describe('lib/redaction.js', () => {
     it('should return redacted death data if role has not got full access', () => {
       expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess)).to.deep.equal(redactedData);
     })
-    it('should not have a coroner property',() => {
+    it('should not have a coroner property', () => {
       expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess))
         .not.to.have.property('coroner');
     })
-    it('should only have the following keys',() => {
+    it('should only have the following keys', () => {
       expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess))
         .to.have.keys('date', 'deceased', 'id', 'registrar')
     })
