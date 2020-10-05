@@ -121,7 +121,17 @@ const redactedData = {
     subdistrict: "Subdistrict town",
     district: "District city",
     administrativeArea: "Adminshire"
-  }
+  },
+  status: {
+    refer: false,
+    fatherAdded: 'Father added',
+    subsequentlyMarried: 'Subsequently married',
+    fatherModified: 'Father modified',
+    replaced: 'Replacement registration',
+    corrected: 'None',
+    courtOrderInPlace: 'Court order in place',
+    courtOrderRevoked: 'Court order revoked'
+  },
 }
 
 describe('lib/redaction.js', () => {
@@ -141,7 +151,7 @@ describe('lib/redaction.js', () => {
     })
     it('should only have the following keys', () => {
       expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess))
-        .to.have.keys('date', 'deceased', 'id', 'registrar')
+        .to.have.keys('date', 'deceased', 'id', 'registrar', 'status')
     })
   })
 })

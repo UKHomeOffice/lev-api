@@ -18,6 +18,7 @@ const redactDeath = (death, roles) => {
         district: death.registrar.district,
         administrativeArea: death.registrar.administrativeArea
       },
+      status: death.status
     }
 }
 
