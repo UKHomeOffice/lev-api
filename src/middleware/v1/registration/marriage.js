@@ -8,6 +8,8 @@ const model = require('../../../model/marriage_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
+const redactData = require('../../../lib/redactData');
+const dataset = 'marriage';
 
 module.exports = {
   read: (req, res, next) => {
@@ -23,12 +25,12 @@ module.exports = {
       const startTime = moment();
       const id = Number(req.params.id);
 
-      audit.create(ri.username, ri.client, req.url, ri.groups, 'lookup', 'marriage')
+      audit.create(ri.username, ri.client, req.url, ri.groups, 'lookup', dataset)
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            res.send(r);
-            metrics.lookup('marriage', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
+            res.send(redactData(r, ri.roles, dataset));
+            metrics.lookup(dataset, ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
             next(new errors.NotFoundError());
@@ -66,8 +68,8 @@ module.exports = {
         audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'marriage')
           .then(() => model.search(query))
           .then(r => {
-            res.send(r);
-            metrics.search('marriage', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
+            res.send(r.map(e => redactData(e, ri.roles, dataset)));
+            metrics.search(dataset, ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
           .catch(promiseRejectionHandler(next));

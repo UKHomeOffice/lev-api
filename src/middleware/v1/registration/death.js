@@ -8,7 +8,8 @@ const model = require('../../../model/death_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
-const redactDeath = require('../../../lib/redaction');
+const redactData = require('../../../lib/redactData');
+const dataset = 'death';
 
 module.exports = {
   read: (req, res, next) => {
@@ -24,12 +25,12 @@ module.exports = {
       const startTime = moment();
       const id = Number(req.params.id);
 
-      audit.create(ri.username, ri.client, req.url, ri.groups, 'lookup', 'death')
+      audit.create(ri.username, ri.client, req.url, ri.groups, 'lookup', dataset)
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            res.send(redactDeath(r, ri.roles));
-            metrics.lookup('death', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
+            res.send(redactData(r, ri.roles, dataset));
+            metrics.lookup(dataset, ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
             next(new errors.NotFoundError());
@@ -64,11 +65,11 @@ module.exports = {
           forenames: forenames
         };
 
-        audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'death')
+        audit.create(ri.username, ri.client, req.url, ri.groups, 'search', dataset)
           .then(() => model.search(query))
           .then(r => {
-            res.send(r.map(e => redactDeath(e, ri.roles)));
-            metrics.search('death', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
+            res.send(r.map(e => redactData(e, ri.roles, dataset)));
+            metrics.search(dataset, ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
           .catch(promiseRejectionHandler(next));
