@@ -1,8 +1,108 @@
-'use strict';
-
-const redactDeath = require('../../../src/lib/redaction');
-const roleWithFullAccess = ['full-details'];
-const roleWithoutFullAccess = ['births'];
+const marriageData = {
+  id: 97427491,
+  dateOfMarriage: "2020-05-01",
+  entryNumber: 1,
+  bride: {
+    forenames: "MacGregor",
+    surname: "Willow",
+    address: "3 Scotland Road",
+    age: 37,
+    occupation: 'Police Officer',
+    retired: 'false',
+    condition: 'single',
+    signature: 'Groom Signature'
+  },
+  groom: {
+    forenames: "Neil",
+    surname: "Howie",
+    address: "5 England Gardens",
+    age: 28,
+    occupation: 'Barmaid',
+    retired: 'false',
+    condition: 'single',
+    signature: 'Bride Signature'
+  },
+  placeOfMarriage: {
+    address: "15 Wicker Place",
+    parish: "Summerisle"
+  },
+  registrar: {
+    signature: "Registrar Signature",
+    designation: "Registrar",
+    superintendentSignature: "Superintendent Signature",
+    superintendentDesignation: "Superintendent",
+    district: "District Town",
+    administrativeArea: "Some City",
+  },
+  fatherOfGroom: {
+    surname: "Howie",
+    forenames: "Stephen",
+    occupation: "Estate Agent",
+    retired: true,
+    designation: "Father of Groom",
+    deceased: false
+  },
+  fatherOfBride: {
+    surname: "MacGregor",
+    forenames: "MacGregor",
+    occupation: "Publican",
+    retired: false,
+    designation: "Father of Bride",
+    deceased: false
+  },
+  witness1: {
+    signature: "Witness 1 Signature"
+  },
+  witness2: {
+    signature: "Witness 2 Signature"
+  },
+  status: {
+    refer: false,
+    fatherAdded: 'Father added',
+    subsequentlyMarried: 'Subsequently married',
+    fatherModified: 'Father modified',
+    replaced: 'Replacement registration',
+    corrected: 'None',
+    courtOrderInPlace: 'Court order in place',
+    courtOrderRevoked: 'Court order revoked'
+  }
+}
+const redactedMarriageData = {
+  id: 97427491,
+  dateOfMarriage: "2020-05-01",
+  bride: {
+    forenames: "MacGregor",
+    surname: "Willow",
+    address: "3 Scotland Road"
+  },
+  groom: {
+    forenames: "Neil",
+    surname: "Howie",
+    address: "5 England Gardens"
+  },
+  placeOfMarriage: {
+    address: "15 Wicker Place",
+    parish: "Summerisle"
+  },
+  registrar: {
+    district: "District Town",
+    administrativeArea: "Some City",
+  },
+  status: {
+    refer: false,
+    corrected: 'None',
+  },
+  status: {
+    refer: false,
+    fatherAdded: 'Father added',
+    subsequentlyMarried: 'Subsequently married',
+    fatherModified: 'Father modified',
+    replaced: 'Replacement registration',
+    corrected: 'None',
+    courtOrderInPlace: 'Court order in place',
+    courtOrderRevoked: 'Court order revoked'
+  }
+}
 
 const deathData = {
   id: 1000,
@@ -92,7 +192,7 @@ const deathData = {
   }
 }
 
-const redactedData = {
+const redactedDeathData = {
   id: 1000,
   date: "2020-09-23",
   deceased: {
@@ -121,27 +221,17 @@ const redactedData = {
     subdistrict: "Subdistrict town",
     district: "District city",
     administrativeArea: "Adminshire"
+  },
+  status: {
+    refer: false,
+    fatherAdded: 'Father added',
+    subsequentlyMarried: 'Subsequently married',
+    fatherModified: 'Father modified',
+    replaced: 'Replacement registration',
+    corrected: 'None',
+    courtOrderInPlace: 'Court order in place',
+    courtOrderRevoked: 'Court order revoked'
   }
 }
 
-describe('lib/redaction.js', () => {
-  describe('redactDeath function', () => {
-    it('should be a function', () => {
-      expect(redactDeath).to.be.a('function')
-    })
-    it('should return the death data if role has full access', () => {
-      expect(redactDeath(Object.assign({}, deathData), roleWithFullAccess)).to.deep.equal(deathData);
-    })
-    it('should return redacted death data if role has not got full access', () => {
-      expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess)).to.deep.equal(redactedData);
-    })
-    it('should not have a coroner property', () => {
-      expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess))
-        .not.to.have.property('coroner');
-    })
-    it('should only have the following keys', () => {
-      expect(redactDeath(Object.assign({}, deathData), roleWithoutFullAccess))
-        .to.have.keys('date', 'deceased', 'id', 'registrar')
-    })
-  })
-})
+module.exports = { marriageData, redactedMarriageData, deathData, redactedDeathData }
