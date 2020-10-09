@@ -83,6 +83,22 @@ const deathData = {
   nextRegistration: undefined
 }
 
+const deathDataWithPreviousRegistration = {
+  ...deathData,
+  previousRegistration: {
+    ...deathData,
+    nextRegistration: null
+  }
+}
+
+const deathDataWithNextRegistration = {
+  ...deathData,
+  nextRegistration: {
+    ...deathData,
+    previousRegistration: null
+  }
+}
+
 const deathDataBlockedRecord = {
   ...deathData,
   status: {
@@ -252,6 +268,14 @@ describe('lib/censorDeath.js', () => {
       it('should return redacted death data if role has not got full access', () => {
         expect(censorDeath(Object.assign({}, deathData), roleWithoutFullAccess))
           .to.deep.equal(redactedDataNotBlocked);
+      })
+      it.only('if there is a previous registration, this previous registration should not have the property nextRegistration', () => {
+        expect(censorDeath(Object.assign({}, deathDataWithPreviousRegistration), roleWithoutFullAccess))
+          .to.not.have.deep.property('nextRegistration');
+      })
+      it('if there is a next registration, this registration should not have the property previousRegistration', () => {
+        expect(censorDeath(Object.assign({}, deathDataWithNextRegistration), roleWithoutFullAccess))
+          .to.not.have.deep.property('previousRegistration');
       })
     })
     describe('when the record is blocked', () => {

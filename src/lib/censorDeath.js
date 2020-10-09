@@ -67,8 +67,8 @@ const censorDeath = (death, roles) => {
       marginalNote: censorField(false, death.status.marginalNote),
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
-    previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles),
-    nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles),
+    ...!death.nextRegistration && { previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles) },
+    ...!death.previousRegistration && { nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles) },
   }
 }
 
