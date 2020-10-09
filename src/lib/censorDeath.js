@@ -63,12 +63,12 @@ const censorDeath = (death, roles) => {
     inquestDate: censorField(true, death.inquestDate),
     status: {
       blocked: death.status.blocked,
-      correction: censorField(true, death.status.correction),
-      marginalNote: censorField(true, death.status.marginalNote),
+      correction: censorField(false, death.status.correction),
+      marginalNote: censorField(false, death.status.marginalNote),
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
-    previousRegistration: death.previousRegistration,
-    nextRegistration: death.nextRegistration
+    previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles),
+    nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles),
   }
 }
 

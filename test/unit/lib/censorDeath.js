@@ -79,8 +79,8 @@ const deathData = {
     marginalNote: "None",
     onAuthorityOfRegistrarGeneral: false
   },
-  previousRegistration: {},
-  nextRegistration: {}
+  previousRegistration: undefined,
+  nextRegistration: undefined
 }
 
 const deathDataBlockedRecord = {
@@ -155,8 +155,8 @@ const blockedDeathData = {
     marginalNote: null,
     onAuthorityOfRegistrarGeneral: null
   },
-  previousRegistration: {},
-  nextRegistration: {}
+  previousRegistration: undefined,
+  nextRegistration: undefined
 }
 
 const redactedDataNotBlocked = {
@@ -231,12 +231,12 @@ const redactedDataNotBlocked = {
   },
   status: {
     blocked: false,
-    correction: null,
-    marginalNote: null,
+    correction: "None",
+    marginalNote: "None",
     onAuthorityOfRegistrarGeneral: null
   },
-  previousRegistration: {},
-  nextRegistration: {}
+  previousRegistration: undefined,
+  nextRegistration: undefined
 }
 
 describe('lib/censorDeath.js', () => {
@@ -244,7 +244,7 @@ describe('lib/censorDeath.js', () => {
     it('should be a function', () => {
       expect(censorDeath).to.be.a('function')
     })
-    describe('record not blocked', () => {
+    describe('when the record is NOT blocked', () => {
       it('should return the full death data if role has full access', () => {
         expect(censorDeath(Object.assign({}, deathData), roleWithFullAccess))
           .to.deep.equal(deathData);
@@ -254,7 +254,7 @@ describe('lib/censorDeath.js', () => {
           .to.deep.equal(redactedDataNotBlocked);
       })
     })
-    describe('record blocked', () => {
+    describe('when the record is blocked', () => {
       it('should return null on relevant blocked record fields, with a role that has full access', () => {
         expect(censorDeath(Object.assign({}, deathDataBlockedRecord), roleWithFullAccess))
           .to.deep.equal(blockedDeathData);
