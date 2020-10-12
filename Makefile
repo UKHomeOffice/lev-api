@@ -4,7 +4,7 @@ patch_version != jq -r '.version' 'package.json'
 minor_version != echo "$(patch_version)" | awk -F '.' '{print $$1"."$$2}'
 
 #test_image = quay.io/ukhomeofficedigital/lev-api-test:$(minor_version)
-test_image = quay.io/ukhomeofficedigital/lev-api-test:latest
+test_image = quay.io/ukhomeofficedigital/lev-api-test:v0.14
 perf_test_image = quay.io/ukhomeofficedigital/artillery-ci:0.2
 
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
