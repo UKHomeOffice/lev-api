@@ -8,7 +8,7 @@ const model = require('../../../model/death_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
-const redactDeath = require('../../../lib/redaction');
+const censorDeath = require('../../../lib/censorDeath');
 
 module.exports = {
   read: (req, res, next) => {
@@ -28,7 +28,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            res.send(redactDeath(r, ri.roles));
+            res.send(censorDeath(r, ri.roles));
             metrics.lookup('death', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
@@ -67,7 +67,7 @@ module.exports = {
         audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'death')
           .then(() => model.search(query))
           .then(r => {
-            res.send(r.map(e => redactDeath(e, ri.roles)));
+            res.send(r.map(e => censorDeath(e, ri.roles)));
             metrics.search('death', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
