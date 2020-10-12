@@ -1,4 +1,15 @@
 const censorDeath = (death, roles) => {
+  const r = {};
+  if (death.nextRegistration) {
+    r.nextRegistration = censorDeath(death.nextRegistration, roles)
+  }
+  else if (death.previousRegistration) {
+    r.previousRegistration = censorDeath(death.previousRegistration, roles); 
+  }
+  else {
+    r.nextRegistration = null;
+    r.previousRegistration = null;
+  }
   const censorField = (redact, value) => {
     return death.status.blocked !== false || (redact && !roles.includes('full-details')) ?
       null : value
@@ -14,7 +25,7 @@ const censorDeath = (death, roles) => {
       suffix: censorField(true, death.deceased.suffix),
       maidenSurname: censorField(true, death.deceased.maidenSurname),
       dateOfBirth: censorField(false, death.deceased.dateOfBirth),
-      dateOfDeath: censorField(false,death.deceased.dateOfDeath),
+      dateOfDeath: censorField(false, death.deceased.dateOfDeath),
       dateOfDeathQualifier: censorField(false, death.deceased.dateOfDeathQualifier),
       birthplace: censorField(true, death.deceased.birthplace),
       deathplace: censorField(true, death.deceased.deathplace),
@@ -67,8 +78,7 @@ const censorDeath = (death, roles) => {
       marginalNote: censorField(false, death.status.marginalNote),
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
-    ...!death.nextRegistration && { previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles) },
-    ...!death.previousRegistration && { nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles) },
+    ...r
   }
 }
 

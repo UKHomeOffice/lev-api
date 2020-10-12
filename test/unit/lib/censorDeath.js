@@ -79,8 +79,8 @@ const deathData = {
     marginalNote: "None",
     onAuthorityOfRegistrarGeneral: false
   },
-  previousRegistration: undefined,
-  nextRegistration: undefined
+  previousRegistration: null,
+  nextRegistration: null
 }
 
 const deathDataWithPreviousRegistration = {
@@ -171,8 +171,8 @@ const blockedDeathData = {
     marginalNote: null,
     onAuthorityOfRegistrarGeneral: null
   },
-  previousRegistration: undefined,
-  nextRegistration: undefined
+  previousRegistration: null,
+  nextRegistration: null
 }
 
 const redactedDataNotBlocked = {
@@ -251,8 +251,8 @@ const redactedDataNotBlocked = {
     marginalNote: "None",
     onAuthorityOfRegistrarGeneral: null
   },
-  previousRegistration: undefined,
-  nextRegistration: undefined
+  previousRegistration: null,
+  nextRegistration: null
 }
 
 describe('lib/censorDeath.js', () => {
@@ -269,13 +269,21 @@ describe('lib/censorDeath.js', () => {
         expect(censorDeath(Object.assign({}, deathData), roleWithoutFullAccess))
           .to.deep.equal(redactedDataNotBlocked);
       })
-      it.only('if there is a previous registration, this previous registration should not have the property nextRegistration', () => {
-        expect(censorDeath(Object.assign({}, deathDataWithPreviousRegistration), roleWithoutFullAccess))
+      it('if there is a previous registration, this previous registration should not have the property nextRegistration', () => {
+        expect(censorDeath(Object.assign({}, deathDataWithPreviousRegistration), roleWithFullAccess))
           .to.not.have.deep.property('nextRegistration');
       })
+      it('if there is a previous registration, the next registration field should not be null or undefined', () => {
+        expect(censorDeath(Object.assign({}, deathDataWithPreviousRegistration), roleWithFullAccess))
+          .to.have.deep.property('previousRegistration');
+      })
       it('if there is a next registration, this registration should not have the property previousRegistration', () => {
-        expect(censorDeath(Object.assign({}, deathDataWithNextRegistration), roleWithoutFullAccess))
+        expect(censorDeath(Object.assign({}, deathDataWithNextRegistration), roleWithFullAccess))
           .to.not.have.deep.property('previousRegistration');
+      })
+      it('if there is a next registration, the next registration field should not be null or undefined', () => {
+        expect(censorDeath(Object.assign({}, deathDataWithNextRegistration), roleWithFullAccess))
+          .to.have.deep.property('nextRegistration');
       })
     })
     describe('when the record is blocked', () => {
