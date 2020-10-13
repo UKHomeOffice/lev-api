@@ -9,7 +9,7 @@ const marriageData = {
   placeOfMarriage: {
     address: "3 Road to Hell St",
     parish: "Some Parish",
-    short: false
+    short: "3 Road to Hell"
   },
   registrar: {
     signature: "Registrar Signature",
@@ -142,7 +142,7 @@ const redactedMarriageDataNotBlocked = {
   placeOfMarriage: {
     address: "3 Road to Hell St",
     parish: "Some Parish",
-    short: null
+    short: "3 Road to Hell"
   },
   registrar: {
     signature: null,
