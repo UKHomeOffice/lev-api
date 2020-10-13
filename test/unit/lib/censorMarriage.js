@@ -417,11 +417,11 @@ describe('lib/censorMarriage.js', () => {
       })
     })
     describe('when the record is blocked', () => {
-      it('should return null on elevant blocked record fields, with a role that has full access', () => {
+      it('should return null on relevant blocked record fields, with a role that has full access', () => {
         expect(censorMarriage(Object.assign({}, redactedMarriageDataBlockedRecord), roleWithFullAccess))
           .to.deep.equal(marriageDataBlockedRecord);
       })
-      it('should return null on rlevant blocked record fields, with a role that does not have full access', () => {
+      it('should return null on relevant blocked record fields, with a role that does not have full access', () => {
         expect(censorMarriage(Object.assign({}, redactedMarriageDataBlockedRecord), roleWithoutFullAccess))
           .to.deep.equal(marriageDataBlockedRecord);
       })
