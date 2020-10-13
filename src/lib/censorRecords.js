@@ -69,8 +69,8 @@ const censorDeath = (death, roles) => {
       marginalNote: censorField(false, death.status.marginalNote),
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
-    previousRegistration: death.previousRegistration && censorRecords(death.previousRegistration, roles),
-    nextRegistration: death.nextRegistration && censorRecords(death.nextRegistration, roles),
+    previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles),
+    nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles),
   }
 }
 
@@ -205,4 +205,95 @@ const censorMarriage = (marriage, roles) => {
   }
 }
 
-module.exports = { censorDeath, censorMarriage };
+const censorPartnership = (partnership, roles) => {
+  const censorField = censor(partnership.status.blocked, roles)
+  return {
+      id: partnership.id,
+      dateOfPartnership: censorField(false, partnership.dateOfPartnership),
+      placeOfPartnership: {
+        address: censorField(false,partnership.placeOfPartnership.address),
+        short: censorField(true,partnership.placeOfPartnership.short)
+      },
+      registrar: {
+        signature: censorField(true,partnership.registrar.signature)
+      },
+      partner1: {
+        prefix: censorField(true,partnership.partner1.prefix),
+        forenames: censorField(false,partnership.partner1.forenames),
+        surname: censorField(false,partnership.partner1.surname),
+        suffix: censorField(true,partnership.partner1.suffix),
+        address: censorField(false,partnership.partner1.address),
+        dob: censorField(true,partnership.partner1.dob),
+        sex: censorField(true,partnership.partner1.sex),
+        aliases: censorField(true,partnership.partner1.aliases) || [],
+        occupation: censorField(true,partnership.partner1.occupation),
+        retired: censorField(true,partnership.partner1.retired),
+        condition: censorField(true,partnership.partner1.condition),
+        signature: censorField(true,partnership.partner1.signature)
+      },
+      partner2: {
+        prefix: censorField(true,partnership.partner2.prefix),
+        forenames: censorField(false,partnership.partner2.forenames),
+        surname: censorField(false,partnership.partner2.surname),
+        suffix: censorField(true,partnership.partner2.suffix),
+        address: censorField(false,partnership.partner2.address),
+        dob: censorField(true,partnership.partner2.dob),
+        sex: censorField(true,partnership.partner2.sex),
+        aliases: censorField(true,partnership.partner2.aliases) || [],
+        occupation: censorField(true,partnership.partner2.occupation),
+        retired: censorField(true,partnership.partner2.retired),
+        condition: censorField(true,partnership.partner2.condition),
+        signature: censorField(true,partnership.partner2.signature)
+      },
+     fatherOfPartner1: {
+        surname: censorField(true,partnership.fatherOfPartner1.surname),
+        forenames: censorField(true,partnership.fatherOfPartner1.forenames),
+       occupation: censorField(true,partnership.fatherOfPartner1.occupation),
+       retired: censorField(true,partnership.fatherOfPartner1.retired),
+       designation: censorField(true,partnership.fatherOfPartner1.designation),
+       deceased: censorField(true,partnership.fatherOfPartner1.deceased)
+    },
+     motherOfPartner1: {
+       surname: censorField(true,partnership.motherOfPartner1.surname),
+       forenames: censorField(true,partnership.motherOfPartner1.forenames),
+       occupation: censorField(true,partnership.motherOfPartner1.occupation),
+       retired: censorField(true,partnership.motherOfPartner1.retired),
+       designation: censorField(true,partnership.motherOfPartner1.designation),
+       deceased: censorField(true,partnership.motherOfPartner1.deceased)
+     },
+     fatherOfPartner2: {
+       surname: censorField(true,partnership.fatherOfPartner2.surname),
+       forenames: censorField(true,partnership.fatherOfPartner2.forenames),
+       occupation: censorField(true,partnership.fatherOfPartner2.occupation),
+       retired: censorField(true,partnership.fatherOfPartner2.retired),
+       designation: censorField(true,partnership.fatherOfPartner2.designation),
+       deceased: censorField(true,partnership.fatherOfPartner2.deceased)
+     },
+     motherOfPartner2: {
+       surname: censorField(true,partnership.motherOfPartner2.surname),
+       forenames: censorField(true,partnership.motherOfPartner2.forenames),
+       occupation: censorField(true,partnership.motherOfPartner2.occupation),
+       retired: censorField(true,partnership.motherOfPartner2.retired),
+       designation: censorField(true,partnership.motherOfPartner2.designation),
+       deceased: censorField(true,partnership.motherOfPartner2.deceased)
+     },
+    witness1: {
+      signature: censorField(true, partnership.witness1.signature),
+      signatureIsMark: censorField(true, partnership.witness1.signatureIsMark)
+    },
+    witness2: {
+      signature: censorField(true, partnership.witness2.signature),
+      signatureIsMark: censorField(true, partnership.witness2.signatureIsMark)
+    },
+    status: {
+      blocked: partnership.status.blocked,
+      correction: censorField(false, partnership.status.correction),
+      marginalNote: censorField(false, partnership.status.marginalNote),
+      onAuthorityOfRegistrarGeneral: censorField(true, partnership.status.onAuthorityOfRegistrarGeneral)
+    },
+    previousRegistration: partnership.previousRegistration && censorPartnership(partnership.previousRegistration, roles),
+    nextRegistration: partnership.nextRegistration && censorPartnership(partnership.nextRegistration, roles),
+  }
+}
+
+module.exports = { censorDeath, censorMarriage, censorPartnership };
