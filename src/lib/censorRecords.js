@@ -83,7 +83,7 @@ const censorMarriage = (marriage, roles) => {
     placeOfMarriage: {
       address: censorField(false, marriage.placeOfMarriage.address),
       parish: censorField(false, marriage.placeOfMarriage.parish),
-      short: censorField(true, marriage.placeOfMarriage.short)
+      short: censorField(false, marriage.placeOfMarriage.short)
     },
     registrar: {
       signature: censorField(true, marriage.registrar.signature),
