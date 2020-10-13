@@ -8,7 +8,7 @@ const model = require('../../../model/death_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
-const censorDeath = require('../../../lib/censorDeath');
+const { censorDeath }= require('../../../lib/censorRecords');
 
 module.exports = {
   read: (req, res, next) => {

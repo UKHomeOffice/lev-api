@@ -1,8 +1,7 @@
 'use strict';
-const censorDeath = require('../../../src/lib/censorDeath');
+const { censorDeath } = require('../../../src/lib/censorRecords');
 const roleWithFullAccess = ['full-details'];
 const roleWithoutFullAccess = ['births'];
-
 const deathData = {
   id: 1000,
   date: "2020-09-23",
@@ -159,7 +158,7 @@ const blockedDeathData = {
   nextRegistration: undefined
 }
 
-const redactedDataNotBlocked = {
+const redactedDeathDataNotBlocked = {
   id: 1000,
   date: "2020-09-23",
   entryNumber: null,
@@ -239,7 +238,7 @@ const redactedDataNotBlocked = {
   nextRegistration: undefined
 }
 
-describe('lib/censorDeath.js', () => {
+describe('lib/censorRecords.js', () => {
   describe('censorDeath function', () => {
     it('should be a function', () => {
       expect(censorDeath).to.be.a('function')
@@ -251,7 +250,7 @@ describe('lib/censorDeath.js', () => {
       })
       it('should return redacted death data if role has not got full access', () => {
         expect(censorDeath(Object.assign({}, deathData), roleWithoutFullAccess))
-          .to.deep.equal(redactedDataNotBlocked);
+          .to.deep.equal(redactedDeathDataNotBlocked);
       })
     })
     describe('when the record is blocked', () => {
