@@ -8,7 +8,7 @@ const model = require('../../../model/marriage_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
-const censorMarriage = require('../../../lib/censorMarriage');
+const { censorMarriage } = require('../../../lib/censorRecords');
 
 module.exports = {
   read: (req, res, next) => {
