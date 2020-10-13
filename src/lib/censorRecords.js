@@ -212,7 +212,7 @@ const censorPartnership = (partnership, roles) => {
       dateOfPartnership: censorField(false, partnership.dateOfPartnership),
       placeOfPartnership: {
         address: censorField(false,partnership.placeOfPartnership.address),
-        short: censorField(true,partnership.placeOfPartnership.short)
+        short: censorField(false,partnership.placeOfPartnership.short)
       },
       registrar: {
         signature: censorField(true,partnership.registrar.signature)

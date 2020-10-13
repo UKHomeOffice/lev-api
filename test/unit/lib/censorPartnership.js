@@ -96,7 +96,7 @@ const redactedPartnershipDataNotBlocked = {
   dateOfPartnership: "2020-09-23",
   placeOfPartnership: {
     address: "Address of Place of Partnership",
-    short: null
+    short: false
   },
   registrar: {
     signature: null
