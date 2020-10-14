@@ -128,8 +128,6 @@ const marriageData = {
   status: {
     blocked: false,
     marginalNote: "Marginal Correction",
-    correction: false,
-    onAuthorityOfRegistrarGeneral: "Err..."
   },
   previousRegistration: undefined,
   nextRegistration: undefined,
@@ -256,9 +254,6 @@ const redactedMarriageDataNotBlocked = {
   status: {
     blocked: false,
     marginalNote: "Marginal Correction",
-    correction: false,
-    onAuthorityOfRegistrarGeneral: null
-
   },
   previousRegistration: undefined,
   nextRegistration: undefined,
@@ -392,10 +387,7 @@ const marriageDataBlockedRecord = {
   },
   status: {
     blocked: true,
-    marginalNote: null,
-    correction: null,
-    onAuthorityOfRegistrarGeneral: null
-
+    marginalNote: null
   },
   previousRegistration: undefined,
   nextRegistration: undefined,

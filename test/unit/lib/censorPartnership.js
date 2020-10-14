@@ -1,94 +1,92 @@
 'use strict';
-const { censorPartnership } = require('../../../src/lib/censorRecords');
+const {censorPartnership} = require('../../../src/lib/censorRecords');
 const roleWithFullAccess = ['full-details'];
 const roleWithoutFullAccess = ['births'];
 
 const partnershipData = {
   id: 3000,
-    dateOfPartnership: "2020-09-23",
+  dateOfPartnership: "2020-09-23",
   placeOfPartnership: {
-  address: "Address of Place of Partnership",
-    short: false
-},
+    address: "Address of Place of Partnership",
+    short: "Place of Partnership"
+  },
   registrar: {
-    signature: "Resitrar Signature"
+    signature: "Regsitrar Signature"
   },
   partner1: {
     prefix: "Mr",
-      forenames: "PARTNER",
-      surname: "ONE",
-      suffix: "ESQ",
-      address: "PARTNER ONE ADDRESS",
-      dob: "1987-09-13",
-      sex: "Male",
-      aliases: [],
-      occupation: "Hotelier",
-      retired: false,
-      condition: "Single",
-      signature: "Partner 1 Signature"
+    forenames: "PARTNER",
+    surname: "ONE",
+    suffix: "ESQ",
+    address: "PARTNER ONE ADDRESS",
+    dob: "1987-09-13",
+    sex: "Male",
+    aliases: [],
+    occupation: "Hotelier",
+    retired: false,
+    condition: "Single",
+    signature: "Partner 1 Signature"
   },
   partner2: {
-      prefix: "Dr",
-      forenames: "PARTNER",
-      surname: "TWO",
-      suffix: "MD",
-      address: "PARTNER TWO ADDRESS",
-      dob: "1989-02-10",
-      sex: "Male",
-      aliases: [],
-      occupation: "Doctor",
-      retired: false,
-      condition: "Single",
-      signature: "Partner 2 Signature"
+    prefix: "Dr",
+    forenames: "PARTNER",
+    surname: "TWO",
+    suffix: "MD",
+    address: "PARTNER TWO ADDRESS",
+    dob: "1989-02-10",
+    sex: "Male",
+    aliases: [],
+    occupation: "Doctor",
+    retired: false,
+    condition: "Single",
+    signature: "Partner 2 Signature"
   },
   fatherOfPartner1: {
     surname: "ONE",
-      forenames: "FATHER",
-      occupation: "International Man of Mystery",
-      retired: true,
-      designation: "Unknown",
-      deceased: false
+    forenames: "FATHER",
+    occupation: "International Man of Mystery",
+    retired: true,
+    designation: "Unknown",
+    deceased: false
   },
   motherOfPartner1: {
     surname: "ONE",
-      forenames: "MOTHER",
-      occupation: "Shop Manager",
-      retired: false,
-      designation: "Unknown",
-      deceased: false
+    forenames: "MOTHER",
+    occupation: "Shop Manager",
+    retired: false,
+    designation: "Unknown",
+    deceased: false
   },
   fatherOfPartner2: {
     surname: "TWO",
-      forenames: "FATHER",
-      occupation: "Butcher",
-      retired: true,
-      designation: "N/A",
-      deceased: true
+    forenames: "FATHER",
+    occupation: "Butcher",
+    retired: true,
+    designation: "N/A",
+    deceased: true
   },
   motherOfPartner2: {
     surname: "TWO",
-      forenames: "MOTHER",
-      occupation: "Market Trader",
-      retired: true,
-      designation: "N/A",
-      deceased: false
+    forenames: "MOTHER",
+    occupation: "Market Trader",
+    retired: true,
+    designation: "N/A",
+    deceased: false
   },
   witness1: {
     signature: "WITNESS 1 SIGNATURE",
-      signatureIsMark: false
+    signatureIsMark: false
   },
   witness2: {
     signature: "WITNESS 2 SIGNATURE",
-      signatureIsMark: true
+    signatureIsMark: true
   },
   status: {
     blocked: false,
-      correction: "CORRECTION",
-      marginalNote: "MARGINAL NOTE",
-      onAuthorityOfRegistrarGeneral: "AUTHORITAH!"
+    marginalNote: "MARGINAL NOTE",
   },
   previousRegistration: undefined,
-    nextRegistration: undefined
+  nextRegistration: undefined
 }
 
 const redactedPartnershipDataNotBlocked = {
@@ -96,7 +94,7 @@ const redactedPartnershipDataNotBlocked = {
   dateOfPartnership: "2020-09-23",
   placeOfPartnership: {
     address: "Address of Place of Partnership",
-    short: false
+    short: "Place of Partnership"
   },
   registrar: {
     signature: null
@@ -171,9 +169,7 @@ const redactedPartnershipDataNotBlocked = {
   },
   status: {
     blocked: false,
-    correction: "CORRECTION",
     marginalNote: "MARGINAL NOTE",
-    onAuthorityOfRegistrarGeneral: null
   },
   previousRegistration: undefined,
   nextRegistration: undefined
@@ -267,9 +263,7 @@ const blockedPartnerShipData = {
   },
   status: {
     blocked: true,
-    correction: null,
     marginalNote: null,
-    onAuthorityOfRegistrarGeneral: null
   },
   previousRegistration: undefined,
   nextRegistration: undefined
