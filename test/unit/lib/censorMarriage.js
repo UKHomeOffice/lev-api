@@ -128,8 +128,6 @@ const marriageData = {
   status: {
     blocked: false,
     marginalNote: "Marginal Correction",
-    correction: false,
-    onAuthorityOfRegistrarGeneral: "Err..."
   },
   previousRegistration: undefined,
   nextRegistration: undefined,
@@ -256,9 +254,6 @@ const redactedMarriageDataNotBlocked = {
   status: {
     blocked: false,
     marginalNote: "Marginal Correction",
-    correction: false,
-    onAuthorityOfRegistrarGeneral: null
-
   },
   previousRegistration: undefined,
   nextRegistration: undefined,
@@ -392,10 +387,7 @@ const marriageDataBlockedRecord = {
   },
   status: {
     blocked: true,
-    marginalNote: null,
-    correction: null,
-    onAuthorityOfRegistrarGeneral: null
-
+    marginalNote: null
   },
   previousRegistration: undefined,
   nextRegistration: undefined,
@@ -417,11 +409,11 @@ describe('lib/censorMarriage.js', () => {
       })
     })
     describe('when the record is blocked', () => {
-      it('should return null on elevant blocked record fields, with a role that has full access', () => {
+      it('should return null on relevant blocked record fields, with a role that has full access', () => {
         expect(censorMarriage(Object.assign({}, redactedMarriageDataBlockedRecord), roleWithFullAccess))
           .to.deep.equal(marriageDataBlockedRecord);
       })
-      it('should return null on rlevant blocked record fields, with a role that does not have full access', () => {
+      it('should return null on relevant blocked record fields, with a role that does not have full access', () => {
         expect(censorMarriage(Object.assign({}, redactedMarriageDataBlockedRecord), roleWithoutFullAccess))
           .to.deep.equal(marriageDataBlockedRecord);
       })

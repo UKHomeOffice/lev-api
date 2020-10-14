@@ -8,6 +8,7 @@ const model = require('../../../model/partnership_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
+const { censorPartnership } = require('../../../lib/censorRecords');
 
 module.exports = {
   read: (req, res, next) => {
@@ -27,7 +28,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            res.send(r);
+            res.send(censorPartnership(r, ri.roles));
             metrics.lookup('partnership', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
@@ -66,7 +67,7 @@ module.exports = {
         audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'partnership')
           .then(() => model.search(query))
           .then(r => {
-            res.send(r);
+            res.send(r.map(e => censorPartnership(e, ri.roles)));
             metrics.search('partnership', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
