@@ -74,20 +74,20 @@ const partnershipData = {
     deceased: false
   },
   witness1: {
-    signature: "WITNESS 1 SIGNATURE",
-    signatureIsMark: false
+    forename: "Anthony",
+    surname: "Witness"
   },
   witness2: {
-    signature: "WITNESS 2 SIGNATURE",
-    signatureIsMark: true
+    forename: "Anabel",
+    surname: "Other"
   },
   status: {
     blocked: false,
-    marginalNote: "MARGINAL NOTE",
+    marginalNote: "MARGINAL NOTE"
   },
   previousRegistration: undefined,
   nextRegistration: undefined
-}
+};
 
 const redactedPartnershipDataNotBlocked = {
   id: 3000,
@@ -160,20 +160,20 @@ const redactedPartnershipDataNotBlocked = {
     deceased: null
   },
   witness1: {
-    signature: null,
-    signatureIsMark: null
+    forename: null,
+    surname: null
   },
   witness2: {
-    signature: null,
-    signatureIsMark: null
+    forename: null,
+    surname: null
   },
   status: {
     blocked: false,
-    marginalNote: "MARGINAL NOTE",
+    marginalNote: "MARGINAL NOTE"
   },
   previousRegistration: undefined,
   nextRegistration: undefined
-}
+};
 
 const partnershipDataBlockedRecord = {
   ...partnershipData,
@@ -181,7 +181,7 @@ const partnershipDataBlockedRecord = {
     ...partnershipData.status,
     blocked: true
   }
-}
+};
 
 const blockedPartnerShipData = {
   id: 3000,
@@ -254,45 +254,45 @@ const blockedPartnerShipData = {
     deceased: null
   },
   witness1: {
-    signature: null,
-    signatureIsMark: null
+    forename: null,
+    surname: null
   },
   witness2: {
-    signature: null,
-    signatureIsMark: null
+    forename: null,
+    surname: null
   },
   status: {
     blocked: true,
-    marginalNote: null,
+    marginalNote: null
   },
   previousRegistration: undefined,
   nextRegistration: undefined
-}
+};
 
 describe('lib/censorPartnership.js', () => {
   describe('censorPartnership function', () => {
     it('should be a function', () => {
-      expect(censorPartnership).to.be.a('function')
-    })
+      expect(censorPartnership).to.be.a('function');
+    });
     describe('when record is NOT blocked', () => {
       it('a full record should be returned with the full-details role', () => {
         expect(censorPartnership(partnershipData, roleWithFullAccess))
-          .to.deep.equal(partnershipData)
-      })
+          .to.deep.equal(partnershipData);
+      });
       it('should show a redacted record if the user does not have full-details role', () => {
         expect(censorPartnership(partnershipData, roleWithoutFullAccess))
-          .to.deep.equal(redactedPartnershipDataNotBlocked)
-      })
-    })
+          .to.deep.equal(redactedPartnershipDataNotBlocked);
+      });
+    });
     describe('when the record is blocked', () => {
       it('should return null on relevant blocked record fields, with a role that has full access', () => {
         expect(censorPartnership(Object.assign({}, partnershipDataBlockedRecord), roleWithFullAccess))
           .to.deep.equal(blockedPartnerShipData);
-      })
+      });
       it('should return null on relevant blocked record fields, with a role that does not have full access', () => {
         expect(censorPartnership(Object.assign({}, partnershipDataBlockedRecord), roleWithoutFullAccess))
           .to.deep.equal(blockedPartnerShipData);
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});
