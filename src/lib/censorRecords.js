@@ -1,10 +1,12 @@
-const censor = (blocked, roles) => (redact, value) => {
-  return blocked !== false || (redact && !roles.includes('full-details')) ?
-    null : value
-}
+const censor = (blocked, roles) => (redact, value) => (
+  blocked !== false || (redact && !roles.includes('full-details'))
+    ? null
+    : value
+);
 
 const censorDeath = (death, roles) => {
-  const censorField = censor(death.status.blocked, roles)
+  const censorField = censor(death.status.blocked, roles);
+
   return {
     id: death.id,
     date: censorField(false, death.date),
@@ -70,12 +72,13 @@ const censorDeath = (death, roles) => {
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
     previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles),
-    nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles),
-  }
-}
+    nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles)
+  };
+};
 
 const censorMarriage = (marriage, roles) => {
-  const censorField = censor(marriage.status.blocked, roles)
+  const censorField = censor(marriage.status.blocked, roles);
+
   return {
     id: marriage.id,
     entryNumber: censorField(true, marriage.entryNumber),
@@ -196,15 +199,15 @@ const censorMarriage = (marriage, roles) => {
     },
     status: {
       blocked: marriage.status.blocked,
-      marginalNote: censorField(false, marriage.status.marginalNote),
+      marginalNote: censorField(false, marriage.status.marginalNote)
     },
     previousRegistration: marriage.previousRegistration && censorMarriage(marriage.previousRegistration, roles),
-    nextRegistration: marriage.nextRegistration && censorMarriage(marriage.nextRegistration, roles),
-  }
-}
+    nextRegistration: marriage.nextRegistration && censorMarriage(marriage.nextRegistration, roles)
+  };
+};
 
 const censorPartnership = (partnership, roles) => {
-  const censorField = censor(partnership.status.blocked, roles)
+  const censorField = censor(partnership.status.blocked, roles);
   return {
     id: partnership.id,
     dateOfPartnership: censorField(false, partnership.dateOfPartnership),
@@ -276,20 +279,20 @@ const censorPartnership = (partnership, roles) => {
       deceased: censorField(true,partnership.motherOfPartner2.deceased)
     },
     witness1: {
-      signature: censorField(true, partnership.witness1.signature),
-      signatureIsMark: censorField(true, partnership.witness1.signatureIsMark)
+      forename: censorField(true, partnership.witness1.forename),
+      surname: censorField(true, partnership.witness1.surname)
     },
     witness2: {
-      signature: censorField(true, partnership.witness2.signature),
-      signatureIsMark: censorField(true, partnership.witness2.signatureIsMark)
+      forename: censorField(true, partnership.witness2.forename),
+      surname: censorField(true, partnership.witness2.surname)
     },
     status: {
       blocked: partnership.status.blocked,
-      marginalNote: censorField(false, partnership.status.marginalNote),
+      marginalNote: censorField(false, partnership.status.marginalNote)
     },
     previousRegistration: partnership.previousRegistration && censorPartnership(partnership.previousRegistration, roles),
-    nextRegistration: partnership.nextRegistration && censorPartnership(partnership.nextRegistration, roles),
-  }
-}
+    nextRegistration: partnership.nextRegistration && censorPartnership(partnership.nextRegistration, roles)
+  };
+};
 
 module.exports = { censorDeath, censorMarriage, censorPartnership };
