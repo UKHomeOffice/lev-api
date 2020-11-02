@@ -410,7 +410,7 @@ const censorBirthV1 = (birth, roles) => {
       originalPrefix: censorField(false, birth.child.originalPrefix),
       prefix: censorField(false, birth.child.prefix),
       forenames: censorField(false, birth.child.forenames),
-      originalForenames: censorField(false, birth.child.originalForenames),
+      originalForenames: censorField(true, birth.child.originalForenames),
       surname: censorField(false, birth.child.surname),
       originalSuffix: censorField(false, birth.child.originalSuffix),
       suffix: censorField(false, birth.child.suffix),

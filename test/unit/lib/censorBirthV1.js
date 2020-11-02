@@ -118,7 +118,7 @@ const redactedBirthDataNotBlocked = {
     originalPrefix: "Master",
     prefix: "Mr",
     forenames: "Expensive",
-    originalForenames: "Inconvenient",
+    originalForenames: null,
     surname: "Mistake",
     originalSuffix: "SUFFIX 1",
     suffix: "SUFFIX 2",
