@@ -156,7 +156,7 @@ const redactedBirthData = {
     reRegistered: false
   },
   previousRegistration: {
-    date: null,
+    date: "2020-05-23",
     systemNumber: 3455667
   }
 }

@@ -369,7 +369,7 @@ const censorBirthV0 = (birth, roles) => {
       reRegistered: censorField(false, birth.status.reRegistered)
     },
     previousRegistration: {
-      date: censorField(true, birth.previousRegistration.date),
+      date: censorField(false, birth.previousRegistration.date),
       systemNumber: censorField(false, birth.previousRegistration.systemNumber)
     }
   }
@@ -407,22 +407,22 @@ const censorBirthV1 = (birth, roles) => {
       signatureIsMark: censorField(true, birth.informant2.signatureIsMark)
     },
     child: {
-      originalPrefix: censorField(true, birth.child.originalPrefix),
-      prefix: censorField(true, birth.child.prefix),
+      originalPrefix: censorField(false, birth.child.originalPrefix),
+      prefix: censorField(false, birth.child.prefix),
       forenames: censorField(false, birth.child.forenames),
-      originalForenames: censorField(true, birth.child.originalForenames),
+      originalForenames: censorField(false, birth.child.originalForenames),
       surname: censorField(false, birth.child.surname),
-      originalSuffix: censorField(true, birth.child.originalSuffix),
-      suffix: censorField(true, birth.child.suffix),
+      originalSuffix: censorField(false, birth.child.originalSuffix),
+      suffix: censorField(false, birth.child.suffix),
       dateOfBirth: censorField(false, birth.child.dateOfBirth),
       sex: censorField(false, birth.child.sex),
       birthplace: censorField(false, birth.child.birthplace)
     },
     mother: {
-      prefix: censorField(true, birth.mother.prefix),
+      prefix: censorField(false, birth.mother.prefix),
       forenames: censorField(false, birth.mother.forenames),
       surname: censorField(false, birth.mother.surname),
-      suffix: censorField(true, birth.mother.suffix),
+      suffix: censorField(false, birth.mother.suffix),
       birthplace: censorField(false, birth.mother.birthplace),
       occupation: censorField(true, birth.mother.occupation),
       aliases: censorField(true, birth.mother.aliases) || [],
@@ -431,10 +431,10 @@ const censorBirthV1 = (birth, roles) => {
       marriageSurname: censorField(false, birth.mother.marriageSurname)
     },
     father: {
-      prefix: censorField(true, birth.father.prefix),
+      prefix: censorField(false, birth.father.prefix),
       forenames: censorField(false, birth.father.forenames),
       surname: censorField(false, birth.father.surname),
-      suffix: censorField(true, birth.father.suffix),
+      suffix: censorField(false, birth.father.suffix),
       birthplace: censorField(false, birth.father.birthplace),
       occupation: censorField(true, birth.father.occupation),
       aliases: censorField(true, birth.father.aliases) || [],
@@ -449,10 +449,10 @@ const censorBirthV1 = (birth, roles) => {
       marginalNote: censorField(false, birth.status.marginalNote),
       cancelled: censorField(false, birth.status.cancelled),
       correction: censorField(false, birth.status.correction),
-      nameUpdate: censorField(false, birth.status.nameUpdate),
-      onAuthorityOfRegistrarGeneral: censorField(false, birth.status.onAuthorityOfRegistrarGeneral),
+      nameUpdate: censorField(true, birth.status.nameUpdate),
+      onAuthorityOfRegistrarGeneral: censorField(true, birth.status.onAuthorityOfRegistrarGeneral),
       potentiallyFictitious: censorField(false, birth.status.potentiallyFictitious),
-      praOrCourtOrder: censorField(false, birth.status.praOrCourtOrder),
+      praOrCourtOrder: censorField(true, birth.status.praOrCourtOrder),
       reregistration: censorField(false, birth.status.reregistration)
     },
     previousRegistration: birth.previousRegistration && censorBirthV1(birth.previousRegistration, roles),

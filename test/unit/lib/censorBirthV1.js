@@ -57,7 +57,7 @@ const birthData = {
     marriageSurname: "MARRIAGE SURNAME"
   },
   father: {
-    prefix: "MR",
+    prefix: "Mr",
     forenames: "FATHER FORENAME",
     surname: "FATHER SURNAME",
     suffix: "ESQ",
@@ -115,22 +115,22 @@ const redactedBirthDataNotBlocked = {
     signatureIsMark: null
   },
   child: {
-    originalPrefix: null,
-    prefix: null,
+    originalPrefix: "Master",
+    prefix: "Mr",
     forenames: "Expensive",
-    originalForenames: null,
+    originalForenames: "Inconvenient",
     surname: "Mistake",
-    originalSuffix: null,
-    suffix: null,
+    originalSuffix: "SUFFIX 1",
+    suffix: "SUFFIX 2",
     dateOfBirth: "2020-09-23",
     sex: "Male",
     birthplace: "Bath"
   },
   mother: {
-    prefix: null,
+    prefix: "Ms",
     forenames: "MOTHER FORENAME",
     surname: "MOTHER SURNAME",
-    suffix: null,
+    suffix: "N/A",
     birthplace: "Exeter",
     occupation: null,
     aliases: [],
@@ -139,10 +139,10 @@ const redactedBirthDataNotBlocked = {
     marriageSurname: "MARRIAGE SURNAME"
   },
   father: {
-    prefix: null,
+    prefix: "Mr",
     forenames: "FATHER FORENAME",
     surname: "FATHER SURNAME",
-    suffix: null,
+    suffix: "ESQ",
     birthplace: "BRISTOL",
     occupation: null,
     aliases: [],
@@ -157,10 +157,10 @@ const redactedBirthDataNotBlocked = {
     marginalNote: "MARGINAL NOTE",
     cancelled: false,
     correction: "None",
-    nameUpdate: "None",
-    onAuthorityOfRegistrarGeneral: false,
+    nameUpdate: null,
+    onAuthorityOfRegistrarGeneral: null,
     potentiallyFictitious: false,
-    praOrCourtOrder: "None",
+    praOrCourtOrder: null,
     reregistration: "None"
   },
   previousRegistration: undefined,
