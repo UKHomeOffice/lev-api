@@ -407,12 +407,12 @@ const censorBirthV1 = (birth, roles) => {
       signatureIsMark: censorField(true, birth.informant2.signatureIsMark)
     },
     child: {
-      originalPrefix: censorField(false, birth.child.originalPrefix),
+      originalPrefix: censorField(true, birth.child.originalPrefix),
       prefix: censorField(false, birth.child.prefix),
       forenames: censorField(false, birth.child.forenames),
       originalForenames: censorField(true, birth.child.originalForenames),
       surname: censorField(false, birth.child.surname),
-      originalSuffix: censorField(false, birth.child.originalSuffix),
+      originalSuffix: censorField(true, birth.child.originalSuffix),
       suffix: censorField(false, birth.child.suffix),
       dateOfBirth: censorField(false, birth.child.dateOfBirth),
       sex: censorField(false, birth.child.sex),

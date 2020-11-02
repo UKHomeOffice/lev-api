@@ -115,12 +115,12 @@ const redactedBirthDataNotBlocked = {
     signatureIsMark: null
   },
   child: {
-    originalPrefix: "Master",
+    originalPrefix: null,
     prefix: "Mr",
     forenames: "Expensive",
     originalForenames: null,
     surname: "Mistake",
-    originalSuffix: "SUFFIX 1",
+    originalSuffix: null,
     suffix: "SUFFIX 2",
     dateOfBirth: "2020-09-23",
     sex: "Male",
