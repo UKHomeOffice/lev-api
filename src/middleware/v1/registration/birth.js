@@ -8,6 +8,7 @@ const model = require('../../../model/birth_registration_v1');
 const metrics = require('../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../lib/params');
+const { censorBirthV1 } = require('../../../lib/censorRecords');
 
 module.exports = {
   read: (req, res, next) => {
@@ -27,7 +28,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            res.send(r);
+            res.send(censorBirthV1(r, ri.roles));
             metrics.lookup('birth', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
@@ -66,7 +67,7 @@ module.exports = {
         audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'birth')
           .then(() => model.search(query))
           .then(r => {
-            res.send(r);
+            res.send(r.map(e => censorBirthV1(e, ri.roles)));
             metrics.search('birth', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
