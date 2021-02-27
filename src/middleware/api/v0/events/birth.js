@@ -8,7 +8,32 @@ const model = require('../../../../model/birth_registration_v0');
 const metrics = require('../../../../lib/metrics');
 const reqInfo = require('lev-restify').reqInfo;
 const params = require('../../../../lib/params');
-const { censorBirthV0 } = require('../../../../lib/censorRecords');
+
+const censorRecord = r =>
+  !r.status.blockedRegistration ? r : {
+    location: {},
+    subjects: {
+      child: {
+        originalName: {},
+        name: {}
+      },
+      father: {
+        name: {}
+      },
+      mother: {
+        name: {}
+      },
+      informant: {
+        name: {}
+      }
+    },
+    systemNumber: r.systemNumber,
+    id: r.id,
+    status: {
+      blockedRegistration: true
+    },
+    previousRegistration: {}
+  };
 
 module.exports = {
   read: (req, res, next) => {
@@ -28,7 +53,7 @@ module.exports = {
         .then(() => model.read(id))
         .then(r => {
           if (r) {
-            res.send(censorBirthV0(r, ri.roles));
+            res.send(censorRecord(r));
             metrics.lookup('birth', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
             next();
           } else {
@@ -69,7 +94,7 @@ module.exports = {
         audit.create(ri.username, ri.client, req.url, ri.groups, 'search', 'birth')
           .then(() => model.search(query))
           .then(r => {
-            res.send(r.map(e => censorBirthV0(e, ri.roles)));
+            res.send(r.map(censorRecord));
             metrics.search('birth', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), req.query);
             next();
           })
