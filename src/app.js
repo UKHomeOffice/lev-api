@@ -4,6 +4,7 @@ const config = require('../config.js');
 const httpd = require('./lib/httpd');
 const readiness = require('./middleware/readiness');
 const v0Birth = require('./middleware/api/v0/events/birth');
+const v01Birth = require('./middleware/api/v0.1/events/birth')
 const v0UserActivity = require('./middleware/api/v0/audit/user-activity');
 const v1Birth = require('./middleware/v1/registration/birth');
 const v1Death = require('./middleware/v1/registration/death');
@@ -15,6 +16,8 @@ process.title = config.name.replace(/[^\w]/gi, '').substr(0, 6);
 httpd.get('/readiness', readiness);
 httpd.get('/api/v0/events/birth/:id', v0Birth.read);
 httpd.get('/api/v0/events/birth', v0Birth.search);
+httpd.get('/api/v0.1/events/birth/:id', v01Birth.read);
+httpd.get('/api/v0.1/events/birth', v01Birth.search);
 httpd.get('/api/v0/audit/user-activity', v0UserActivity.search);
 httpd.get('/v1/registration/birth/:id', v1Birth.read);
 httpd.get('/v1/registration/birth', v1Birth.search);
