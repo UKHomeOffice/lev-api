@@ -6,7 +6,7 @@ matrix:
   MINOR:
     - 16
   PATCH:
-    - 0
+    - 1
   DOCKER_USERNAME:
     - ukhomeofficedigital+lev_api
   DOCKER_REPO:
