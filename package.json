@@ -10,7 +10,7 @@
     "test": "npm run test:cover && npm run test:check-coverage",
     "test:unit": "mocha --reporter spec ./test/unit",
     "test:cover": "nyc --all npm run test:unit && nyc report --reporter=html",
-    "test:check-coverage": "nyc check-coverage --statements 0 --branches 0 --functions 0 --lines 0",
+    "test:check-coverage": "nyc check-coverage --statements 50 --branches 60 --functions 60 --lines 50",
     "snyk-protect": "snyk protect",
     "postinstall": "npm run snyk-protect",
     "prepublish": "npm run snyk-protect"
