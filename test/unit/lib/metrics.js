@@ -137,11 +137,11 @@ describe('lib/metrics.js', () => {
     const subject = metrics.lookup;
 
     it('is a function', () => (typeof subject).should.equal('function'));
-    it('takes eight arguments', () => subject.length.should.equal(8));
+    it('takes nine arguments', () => subject.length.should.equal(9));
 
     requestValidationTest(subject);
 
-    describe('when called with eight arguments', () => {
+    describe('when called with nine arguments', () => {
       describe('that IS NOT a number', () => {
         it('throws an error', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, {})).to.throw());
         it('throws a TypeError', () => expect(() => subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, {})).to.throw(TypeError));
@@ -163,7 +163,7 @@ describe('lib/metrics.js', () => {
             before(() => {
               resetStubs();
               register.resetMetrics();
-              subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, 1);
+              subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, 1, true);
             });
 
             it('calls increment from the hot-shots library', () => hsIncrementStub.should.have.been.called);
@@ -173,6 +173,8 @@ describe('lib/metrics.js', () => {
             it('calls increment on lev.api.req.${client}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.my-client'));
             it('calls increment on lev.api.req.${dataSet}.lookup', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth.lookup'));
             it('calls increment on lev.api.req.${group}', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.group'));
+            it('calls increment on lev.api.req.${dataSet}.blocked', () => hsIncrementStub.should.have.been.calledWith('lev.api.req.birth.blocked'));
+
 
             it('calls timing from the hot-shots library', () => hsTimingStub.should.have.been.called);
             it('calls timing on lev.api.req', () => hsTimingStub.should.have.been.calledWith('lev.api.req.time', responseTime));
@@ -195,7 +197,9 @@ describe('lib/metrics.js', () => {
             it('increments the Prometheus counter lev_api_req_client', () => register.getSingleMetricAsString('lev_api_req_myclient').should.match(/[^0-9]1$/));
             it('increments the Prometheus counter lev_api_req_group', () => register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
             it('increments the Prometheus counter lev_api_req_lookup', () => register.getSingleMetricAsString('lev_api_req_lookup').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_birth_lookup', () => register.getSingleMetricAsString('lev_api_req_birth_lookup').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req_birth_lookup', () => register.getSingleMetricAsString('lev_api_req_birth_lookup').should.match(/\D1$/));
+            it('increments the Prometheus counter lev_api_req_birth_blocked', () => register.getSingleMetricAsString('lev_api_req_birth_blocked').should.match(/ 1$/));
+
 
             it('calls log.info', () => logInfoStub.should.have.been.called);
             it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
@@ -208,6 +212,15 @@ describe('lib/metrics.js', () => {
               username: 'user'
             }));
           });
+          describe('non-blocked record', () => {
+            before(() => {
+              resetStubs();
+              register.resetMetrics();
+              subject('birth', 'user', 'my-client', ['group'], ['role'], startTime, finishTime, 1, false);
+            });
+            it('does not increment on lev.api.req.${dataSet}.blocked', () => hsIncrementStub.should.not.have.been.calledWith('lev.api.req.birth.blocked'));
+            it('does not increment the Prometheus counter lev_api_req_birth_blocked', () => register.getSingleMetricAsString('lev_api_req_birth_blocked').should.match(/ 0$/));
+          })
         });
       });
     });

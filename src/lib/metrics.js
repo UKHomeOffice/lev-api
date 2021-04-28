@@ -59,7 +59,7 @@ const validateCommon = (dataSet, username, client, groups, roles, startTime, fin
   }
 };
 
-const statsd = (reqType, dataSet, username, client, groups, duration) => {
+const statsd = (reqType, dataSet, username, client, groups, duration, blocked) => {
   const statsdPrefix = 'lev.api';
 
   statsdClient.increment(`${statsdPrefix}.req`);
@@ -68,6 +68,7 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
   statsdClient.increment(`${statsdPrefix}.req.${client}`);
   statsdClient.increment(`${statsdPrefix}.req.${dataSet}.${reqType}`);
   groups.forEach(g => statsdClient.increment(`${statsdPrefix}.req.${g}`));
+  blocked && statsdClient.increment(`${statsdPrefix}.req.${dataSet}.blocked`);
 
   statsdClient.timing(`${statsdPrefix}.req.time`, duration);
   statsdClient.timing(`${statsdPrefix}.req.${reqType}.time`, duration);
@@ -84,7 +85,7 @@ const statsd = (reqType, dataSet, username, client, groups, duration) => {
   groups.forEach(g => statsdClient.set(`${statsdPrefix}.req.${g}.users`, username));
 };
 
-const prometheus = (reqType, dataSet, username, client, groups, duration) => {
+const prometheus = (reqType, dataSet, username, client, groups, duration, blocked) => {
   const prometheusPrefix = 'lev_api';
   const escape = t => t.replace(/[ -/]/g, '');
 
@@ -141,6 +142,14 @@ const prometheus = (reqType, dataSet, username, client, groups, duration) => {
     help: `Request time of requests from members of the ${g} group`
   }));
 
+  if(blocked) {
+    prometheusMetrics.req[dataSet].blocked = prometheusMetrics.req[dataSet].blocked || new promClient.Counter({
+      name: `${prometheusPrefix}_req_${escape(dataSet)}_blocked`,
+      help: `Number of blocked records for ${dataSet}`
+    });
+    prometheusMetrics.req[dataSet].blocked.inc();
+  }
+
   // Update metrics
   prometheusMetrics.req.inc();
   prometheusMetrics.req[reqType].inc();
@@ -157,7 +166,7 @@ const prometheus = (reqType, dataSet, username, client, groups, duration) => {
   groups.forEach(g => prometheusMetrics.req[g].time.observe(duration));
 };
 
-const lookup = (dataSet, username, client, groups, roles, startTime, finishTime, id) => {
+const lookup = (dataSet, username, client, groups, roles, startTime, finishTime, id, blocked) => {
   validateCommon(dataSet, username, client, groups, roles, startTime, finishTime);
 
   if (id === undefined) {
@@ -171,10 +180,10 @@ const lookup = (dataSet, username, client, groups, roles, startTime, finishTime,
   const reqType = 'lookup';
   const duration = finishTime.diff(startTime);
 
-  statsd(reqType, dataSet, username, client, groups, duration);
-  prometheus(reqType, dataSet, username, client, groups, duration);
+  statsd(reqType, dataSet, username, client, groups, duration, blocked);
+  prometheus(reqType, dataSet, username, client, groups, duration, blocked);
 
-  const msg = `${username}(${groups.join(',')}) accessed ${dataSet} record ${id} using ${client} in ${duration} ms`;
+  const msg = `${username}(${groups.join(',')}) accessed ${blocked ? 'BLOCKED ' : ''}${dataSet} record ${id} using ${client} in ${duration} ms`;
 
   log.info({
     dataSet: dataSet,
