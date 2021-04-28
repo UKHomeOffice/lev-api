@@ -29,7 +29,7 @@ module.exports = {
         .then(r => {
           if (r) {
             res.send(censorPartnership(r, ri.roles));
-            metrics.lookup('partnership', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id);
+            metrics.lookup('partnership', ri.username, ri.client, ri.groups, ri.roles, startTime, moment(), id, r.status.blocked);
             next();
           } else {
             next(new errors.NotFoundError());
