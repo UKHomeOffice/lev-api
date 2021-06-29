@@ -1,6 +1,6 @@
 {
   "name": "lev-api",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "description": "Life Event Verification API",
   "main": "src/app.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "mocha": "^8.3.2",
-    "nodemon": "^1.17.5",
+    "nodemon": "^2.0.8",
     "nyc": "^15.1.0",
     "proxyquire": "^2.0.1",
     "sinon": "^5.0.10",
