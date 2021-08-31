@@ -34,10 +34,13 @@ docker-test-deps:
 	docker pull '$(perf_test_image)'
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' pull
 
-node-deps: node_modules/
+node-deps: build/ node_modules/
 
 node_modules/: package.json
 	npm install
+
+build/: node_modules/
+	npm run compile
 
 docker:
 	docker build -t '$(DOCKER_IMAGE)' .

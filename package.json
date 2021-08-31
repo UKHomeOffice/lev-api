@@ -4,9 +4,10 @@
   "description": "Life Event Verification API",
   "main": "src/app.js",
   "scripts": {
-    "start": "node .",
-    "start:dev": "NODE_ENV=development POSTGRES_DB=levdb POSTGRES_USER=lev POSTGRES_PASSWORD=lev POSTGRES_SSL=false nodemon -w src/ -w config.js .",
-    "start:dev-mock": "NODE_ENV=development MOCK=true nodemon -w src/ -w config.js -w mock/ .",
+    "compile": "tsc",
+    "start": "node build/src/app.js",
+    "start:dev": "NODE_ENV=development POSTGRES_DB=levdb POSTGRES_USER=lev POSTGRES_PASSWORD=lev POSTGRES_SSL=false nodemon -w src/ -w config.js -x ts-node .",
+    "start:dev-mock": "NODE_ENV=development MOCK=true nodemon -w src/ -w config.js -w mock/ -x ts-node .",
     "test": "npm run test:cover && npm run test:check-coverage",
     "test:unit": "mocha --reporter spec ./test/unit",
     "test:cover": "nyc --all npm run test:unit && nyc report --reporter=html",
@@ -41,7 +42,9 @@
     "nyc": "^15.1.0",
     "proxyquire": "^2.0.1",
     "sinon": "^5.0.10",
-    "sinon-chai": "^3.1.0"
+    "sinon-chai": "^3.1.0",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3"
   },
   "nyc": {
     "include": [
