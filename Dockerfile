@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12.22.1-alpine
 
 RUN apk add --no-cache \
       ca-certificates \
