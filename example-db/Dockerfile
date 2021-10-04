@@ -1,3 +1,3 @@
-FROM postgres:9-alpine
+FROM postgres:13-alpine
 
-COPY docker-entrypoint-initdb.d/ docker-entrypoint-initdb.d/
+COPY --chown=postgres:postgres docker-entrypoint-initdb.d/ docker-entrypoint-initdb.d/

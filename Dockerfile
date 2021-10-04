@@ -14,14 +14,14 @@ USER app
 WORKDIR /app
 ENV NODE_ENV production
 
-COPY *node_modules/ package.json .snyk /app/
+COPY --chown=app:app *node_modules/ package.json .snyk /app/
 RUN npm install --only production > .npm-install.log 2>&1 \
  && rm .npm-install.log \
  || ( EC=$?; cat .npm-install.log; exit $EC )
 
-COPY mock/ /app/mock/
-COPY src/ /app/src/
-COPY config.js /app/
+COPY --chown=app:app mock/ /app/mock/
+COPY --chown=app:app src/ /app/src/
+COPY --chown=app:app config.js rds-combined-ca-bundle.pem /app/
 
 RUN npm run postinstall
 
