@@ -1,136 +1,184 @@
-matrix:
-  NAME:
-    - ukhomeofficedigital/lev-api
-  MAJOR:
-    - 0
-  MINOR:
-    - 16
-  PATCH:
-    - 4
-  DOCKER_USERNAME:
-    - ukhomeofficedigital+lev_api
-  DOCKER_REPO:
-    - quay.io
-pipeline:
-  test_pr:
-    image: quay.io/ukhomeofficedigital/lev-ci
-    environment:
-      - DOCKER_HOST=tcp://172.17.0.1:2375
-    commands:
-      - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test
-    when:
-      event: pull_request
-  test_push:
-    image: quay.io/ukhomeofficedigital/lev-ci
-    environment:
-      - DOCKER_HOST=tcp://172.17.0.1:2375
-    commands:
-      - set -o pipefail
-      - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test | tee 'test.log'
-    when:
-      event: push
-      branch: master
-  docker-build-and-push:
-    image: ukhomeoffice/drone-docker
-    secrets: [ docker_password ]
-    username: '${DOCKER_USERNAME}'
-    repo: '${DOCKER_REPO}/${NAME}'
-    registry: '${DOCKER_REPO}'
+---
+kind: pipeline
+name: matrix-1
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: test_pr
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/lev-ci
+  commands:
+  - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test
+  environment:
+    DOCKER_HOST: tcp://172.17.0.1:2375
+  when:
+    event:
+    - pull_request
+
+- name: test_push
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/lev-ci
+  commands:
+  - set -o pipefail
+  - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test | tee 'test.log'
+  environment:
+    DOCKER_HOST: tcp://172.17.0.1:2375
+  when:
+    branch:
+    - master
+    event:
+    - push
+
+- name: docker-build-and-push
+  pull: if-not-exists
+  image: ukhomeoffice/drone-docker
+  settings:
+    registry: quay.io
+    repo: quay.io/ukhomeofficedigital/lev-api
     tags:
-      - '${MAJOR}.${MINOR}.${PATCH}-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}'
-      - '${MAJOR}.${MINOR}.${PATCH}'
-      - '${MAJOR}.${MINOR}'
-      - '${MAJOR}'
-      - 'latest'
-    when:
-      event: push
-      branch: master
-  deploy_image:
-    image: quay.io/ukhomeofficedigital/lev-ci
-    secrets:
-      - KUBE_SERVER
-      - KUBE_NAMESPACE
-      - KUBE_TOKEN
-      - KUBE_DEPLOYMENT
-      - KUBE_CONTAINER
-      - USERNAME
-      - PASSWORD
-      - CLIENT_ID
-      - CLIENT_SECRET
-      - OIDC_URL
-      - TEST_URL
-    environment:
-      - DOCKER_HOST=tcp://172.17.0.1:2375
-      - TAG=${MAJOR}.${MINOR}.${PATCH}-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
-    commands:
-      - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
-      - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 2
-      - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT}" "$${KUBE_CONTAINER}=${DOCKER_REPO}/${NAME}:$${TAG}"
-      - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT}"
-      - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 1
-      - sleep 30
-      - set -o pipefail
-      - docker run --env "USERNAME=$${USERNAME}" --env "PASSWORD=$${PASSWORD}" --env "CLIENT_ID=$${CLIENT_ID}" --env "CLIENT_SECRET=$${CLIENT_SECRET}" --env "OIDC_URL=$${OIDC_URL}" --env "TEST_URL=$${TEST_URL}" quay.io/ukhomeofficedigital/lev-api-test:${MAJOR}.${MINOR} | tee 'e2e.log'
-      - $${kubectl} annotate --overwrite deployment "$${KUBE_DEPLOYMENT}" lev-api-test-log="`cat test.log e2e.log`"
-    when:
-      branch: master
-      event: push
-  deploy_docs:
-    image: quay.io/ukhomeofficedigital/lev-ci
-    secrets:
-      - KUBE_SERVER
-      - KUBE_NAMESPACE
-      - KUBE_TOKEN
-      - KUBE_DEPLOYMENT_DOCS
-      - KUBE_CONTAINER_DOCS
-    environment:
-      - DOCKER_HOST=tcp://172.17.0.1:2375
-      - IMAGE=quay.io/ukhomeofficedigital/lev-api-docs:${MAJOR}.${MINOR}
-    commands:
-      - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
-      - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT_DOCS}" "$${KUBE_CONTAINER_DOCS}=$${IMAGE}"
-      - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT_DOCS}"
-    when:
-      branch: master
-      event: push
-  promote_to_uat:
-    image: quay.io/ukhomeofficedigital/drone-trigger:latest
-    secrets: [ drone_token ]
-    drone_server: https://drone-gitlab.acp.homeoffice.gov.uk
-    repo: lev/levops
+    - 0.16.4-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
+    - 0.16.4
+    - 0.16
+    - 0
+    - latest
+    username: ukhomeofficedigital+lev_api
+  environment:
+    DOCKER_PASSWORD:
+      from_secret: docker_password
+  when:
+    branch:
+    - master
+    event:
+    - push
+
+- name: deploy_image
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/lev-ci
+  commands:
+  - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
+  - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 2
+  - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT}" "$${KUBE_CONTAINER}=quay.io/ukhomeofficedigital/lev-api:$${TAG}"
+  - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT}"
+  - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 1
+  - sleep 30
+  - set -o pipefail
+  - docker run --env "USERNAME=$${USERNAME}" --env "PASSWORD=$${PASSWORD}" --env "CLIENT_ID=$${CLIENT_ID}" --env "CLIENT_SECRET=$${CLIENT_SECRET}" --env "OIDC_URL=$${OIDC_URL}" --env "TEST_URL=$${TEST_URL}" quay.io/ukhomeofficedigital/lev-api-test:0.16 | tee 'e2e.log'
+  - $${kubectl} annotate --overwrite deployment "$${KUBE_DEPLOYMENT}" lev-api-test-log="`cat test.log e2e.log`"
+  environment:
+    CLIENT_ID:
+      from_secret: CLIENT_ID
+    CLIENT_SECRET:
+      from_secret: CLIENT_SECRET
+    DOCKER_HOST: tcp://172.17.0.1:2375
+    KUBE_CONTAINER:
+      from_secret: KUBE_CONTAINER
+    KUBE_DEPLOYMENT:
+      from_secret: KUBE_DEPLOYMENT
+    KUBE_NAMESPACE:
+      from_secret: KUBE_NAMESPACE
+    KUBE_SERVER:
+      from_secret: KUBE_SERVER
+    KUBE_TOKEN:
+      from_secret: KUBE_TOKEN
+    OIDC_URL:
+      from_secret: OIDC_URL
+    PASSWORD:
+      from_secret: PASSWORD
+    TAG: 0.16.4-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
+    TEST_URL:
+      from_secret: TEST_URL
+    USERNAME:
+      from_secret: USERNAME
+  when:
+    branch:
+    - master
+    event:
+    - push
+
+- name: deploy_docs
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/lev-ci
+  commands:
+  - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
+  - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT_DOCS}" "$${KUBE_CONTAINER_DOCS}=$${IMAGE}"
+  - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT_DOCS}"
+  environment:
+    DOCKER_HOST: tcp://172.17.0.1:2375
+    IMAGE: quay.io/ukhomeofficedigital/lev-api-docs:0.16
+    KUBE_CONTAINER_DOCS:
+      from_secret: KUBE_CONTAINER_DOCS
+    KUBE_DEPLOYMENT_DOCS:
+      from_secret: KUBE_DEPLOYMENT_DOCS
+    KUBE_NAMESPACE:
+      from_secret: KUBE_NAMESPACE
+    KUBE_SERVER:
+      from_secret: KUBE_SERVER
+    KUBE_TOKEN:
+      from_secret: KUBE_TOKEN
+  when:
+    branch:
+    - master
+    event:
+    - push
+
+- name: promote_to_uat
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/drone-trigger:latest
+  settings:
     branch: master
-    event: push
     deploy_to: uat
-    when:
-      branch: master
-      event: push
-      status: success
-  notify_slack_success:
-    image: plugins/slack:1.0
-    secrets: [ slack_webhook ]
+    drone_server: https://drone-gitlab.acp.homeoffice.gov.uk
+    event: push
+    repo: lev/levops
+  environment:
+    DRONE_TOKEN:
+      from_secret: drone_token
+  when:
+    branch:
+    - master
+    event:
+    - push
+    status:
+    - success
+
+- name: notify_slack_success
+  pull: if-not-exists
+  image: plugins/slack:1.0
+  settings:
     channel: general
+    template: "*Deployed {{repo.name}} to Dev* - <{{build.link}}|#{{build.number}}>\n"
     username: Drone
-    template: >
-      *Deployed {{repo.name}} to Dev* - <{{build.link}}|#{{build.number}}>
-    when:
-      branch: master
-      event: push
-      status: success
-  notify_slack_failure:
-    image: plugins/slack
-    secrets: [ slack_webhook ]
+  environment:
+    SLACK_WEBHOOK:
+      from_secret: slack_webhook
+  when:
+    branch:
+    - master
+    event:
+    - push
+    status:
+    - success
+
+- name: notify_slack_failure
+  pull: if-not-exists
+  image: plugins/slack
+  settings:
     channel: alerts
+    template: "*Failed to deploy {{repo.name}} to Dev*\nAuthor: {{build.author}}\nDuration: {{since job.started}} Job: <{{build.link}}|#{{build.number}}>\nCommit: {{build.commit}}\n"
     username: Drone
-    template: >
-      *Failed to deploy {{repo.name}} to Dev*
+  environment:
+    SLACK_WEBHOOK:
+      from_secret: slack_webhook
+  when:
+    branch:
+    - master
+    event:
+    - push
+    status:
+    - failure
 
-      Author: {{build.author}}
-
-      Duration: {{since job.started}}
-      Job: <{{build.link}}|#{{build.number}}>
-
-      Commit: {{build.commit}}
-    when:
-      branch: master
-      event: push
-      status: failure
+...
