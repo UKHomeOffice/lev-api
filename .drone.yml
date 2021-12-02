@@ -131,7 +131,7 @@ steps:
   settings:
     branch: master
     deploy_to: uat
-    drone_server: https://drone-gitlab.acp.homeoffice.gov.uk
+    drone_server: https://drone-gl.acp.homeoffice.gov.uk
     event: push
     repo: lev/levops
   environment:
