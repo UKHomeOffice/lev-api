@@ -4,7 +4,7 @@ RUN apk add --no-cache \
       ca-certificates \
       g++ \
       make \
-      python \
+      python3 \
  && apk upgrade --no-cache \
  && addgroup -S app \
  && adduser -S app -G app -u 31337 -h /app/ \
@@ -29,7 +29,7 @@ USER root
 RUN apk del --no-cache \
       g++ \
       make \
-      python
+      python3
 
 USER 31337
 ENV LISTEN_HOST="0.0.0.0" \
