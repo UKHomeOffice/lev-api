@@ -13,6 +13,8 @@ steps:
   image: quay.io/ukhomeofficedigital/lev-ci
   commands:
   - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test
+  environment:
+    DOCKER_HOST: tcp://127.0.0.1:2375
   when:
     event:
     - pull_request
@@ -24,7 +26,7 @@ steps:
   - set -o pipefail
   - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test | tee 'test.log'
   environment:
-    DOCKER_HOST: tcp://172.17.0.1:2375
+    DOCKER_HOST: tcp://127.0.0.1:2375
   when:
     branch:
     - master
@@ -71,7 +73,7 @@ steps:
       from_secret: CLIENT_ID
     CLIENT_SECRET:
       from_secret: CLIENT_SECRET
-    DOCKER_HOST: tcp://172.17.0.1:2375
+    DOCKER_HOST: tcp://127.0.0.1:2375
     KUBE_CONTAINER:
       from_secret: KUBE_CONTAINER
     KUBE_DEPLOYMENT:
@@ -105,7 +107,7 @@ steps:
   - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT_DOCS}" "$${KUBE_CONTAINER_DOCS}=$${IMAGE}"
   - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT_DOCS}"
   environment:
-    DOCKER_HOST: tcp://172.17.0.1:2375
+    DOCKER_HOST: tcp://127.0.0.1:2375
     IMAGE: quay.io/ukhomeofficedigital/lev-api-docs:0.16
     KUBE_CONTAINER_DOCS:
       from_secret: KUBE_CONTAINER_DOCS
