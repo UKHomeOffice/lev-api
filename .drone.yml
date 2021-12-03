@@ -40,10 +40,9 @@ steps:
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/lev-api
     tags:
-    - 0.16.4-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
-    - 0.16.4
-    - 0.16
-    - 0
+    - "0.16.5-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
+    - "0.16.5"
+    - "0.16"
     - latest
     username: ukhomeofficedigital+lev_api
   environment:
@@ -88,7 +87,7 @@ steps:
       from_secret: OIDC_URL
     PASSWORD:
       from_secret: PASSWORD
-    TAG: 0.16.4-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}
+    TAG: "0.16.5-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
     TEST_URL:
       from_secret: TEST_URL
     USERNAME:
