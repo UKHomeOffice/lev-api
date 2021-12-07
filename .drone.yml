@@ -134,6 +134,8 @@ steps:
     fork: true
     repositories:
       - lev/levops
+    params:
+      - deploy_to=uat
   when:
     branch:
     - master
