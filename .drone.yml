@@ -17,7 +17,7 @@ steps:
     DOCKER_HOST: tcp://127.0.0.1:2375
   when:
     event:
-    - pull_request
+      - pull_request
 
 - name: test_push
   pull: if-not-exists
@@ -29,9 +29,9 @@ steps:
     DOCKER_HOST: tcp://127.0.0.1:2375
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
 
 - name: docker-build-and-push
   pull: if-not-exists
@@ -50,9 +50,9 @@ steps:
       from_secret: docker_password
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
 
 - name: deploy_image
   pull: if-not-exists
@@ -94,9 +94,9 @@ steps:
       from_secret: USERNAME
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
 
 - name: deploy_docs
   pull: if-not-exists
@@ -120,9 +120,9 @@ steps:
       from_secret: KUBE_TOKEN
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
 
 - name: notify_slack_success
   pull: if-not-exists
@@ -136,11 +136,11 @@ steps:
       from_secret: slack_webhook
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
     status:
-    - success
+      - success
 
 - name: notify_slack_failure
   pull: if-not-exists
@@ -154,11 +154,11 @@ steps:
       from_secret: slack_webhook
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
     status:
-    - failure
+      - failure
 
 services:
   - name: docker
