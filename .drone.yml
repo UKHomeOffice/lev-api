@@ -147,7 +147,7 @@ steps:
   image: plugins/slack
   settings:
     channel: alerts
-    template: "*Failed to deploy {{repo.name}} to Dev*\nAuthor: {{build.author}}\nDuration: {{since job.started}} Job: <{{build.link}}|#{{build.number}}>\nCommit: {{build.commit}}\n"
+    template: "* Failed to deploy {{repo.name}} to Dev*\nAuthor: {{build.author}}\nDuration: {{since job.started}} Job: <{{build.link}}|#{{build.number}}>\nCommit: {{build.commit}}\n"
     username: Drone
   environment:
     SLACK_WEBHOOK:
