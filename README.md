@@ -8,5 +8,5 @@ Testing
 
 To test changes to this repository simply run:
 ```bash
-make test 
+make test
 ```
