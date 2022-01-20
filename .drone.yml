@@ -7,6 +7,11 @@ platform:
   os: linux
   arch: amd64
 
+resources:
+  requests:
+    cpu: 1000
+    memory: 16GiB
+
 steps:
 - name: test_pr
   pull: if-not-exists
