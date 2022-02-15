@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:16-alpine
 
 RUN apk add --no-cache \
       ca-certificates \
@@ -15,7 +15,7 @@ WORKDIR /app
 ENV NODE_ENV production
 
 COPY --chown=app:app *node_modules/ package.json .snyk /app/
-RUN npm install --only production > .npm-install.log 2>&1 \
+RUN npm install --omit=dev > .npm-install.log 2>&1 \
  && rm .npm-install.log \
  || ( EC=$?; cat .npm-install.log; exit $EC )
 
