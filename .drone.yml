@@ -40,9 +40,9 @@ steps:
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/lev-api
     tags:
-    - "0.17.0-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
-    - "0.17.0"
-    - "0.17"
+    - "0.18.0-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
+    - "0.18.0"
+    - "0.18"
     - latest
     username: ukhomeofficedigital+lev_api
   environment:
