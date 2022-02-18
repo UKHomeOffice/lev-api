@@ -58,9 +58,10 @@ steps:
   pull: if-not-exists
   image: quay.io/ukhomeofficedigital/lev-ci
   commands:
+  - source get-package-details
   - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
   - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 2
-  - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT}" "$${KUBE_CONTAINER}=quay.io/ukhomeofficedigital/lev-api:$${TAG}"
+  - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT}" "$${KUBE_CONTAINER}=quay.io/ukhomeofficedigital/lev-api:$${FULL_DETAILS}"
   - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT}"
   - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 1
   - sleep 30
@@ -87,7 +88,6 @@ steps:
       from_secret: OIDC_URL
     PASSWORD:
       from_secret: PASSWORD
-    TAG: "0.16.5-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
     TEST_URL:
       from_secret: TEST_URL
     USERNAME:

@@ -8,7 +8,7 @@ To test changes to this repository simply run:
 ```bash
 make test
 ```
-## Local Developement & Testing
+## Local Development & Testing
 ### Test against an environment
 ```
 POSTGRES_DB=xxx POSTGRES_USER=xxx POSTGRES_PASSWORD=xxx POSTGRES_SSL=true NODE_TLS_REJECT_UNAUTHORIZED=0 npm start
