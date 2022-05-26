@@ -70,8 +70,8 @@ const censorDeath = (death, roles) => {
       marginalNote: censorField(false, death.status.marginalNote),
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
-    previousRegistration: death.previousRegistration ? censorDeath(death.previousRegistration, roles) : null,
-    nextRegistration: death.nextRegistration ? censorDeath(death.nextRegistration, roles) : null
+    previousRegistration: death.previousRegistration ? censorDeath(death.previousRegistration, roles) : undefined,
+    nextRegistration: death.nextRegistration ? censorDeath(death.nextRegistration, roles) : undefined
   };
 };
 
@@ -199,8 +199,8 @@ const censorMarriage = (marriage, roles) => {
       blocked: marriage.status.blocked,
       marginalNote: censorField(false, marriage.status.marginalNote)
     },
-    previousRegistration: marriage.previousRegistration ? censorMarriage(marriage.previousRegistration, roles) : null,
-    nextRegistration: marriage.nextRegistration ? censorMarriage(marriage.nextRegistration, roles) : null
+    previousRegistration: marriage.previousRegistration ? censorMarriage(marriage.previousRegistration, roles) : undefined,
+    nextRegistration: marriage.nextRegistration ? censorMarriage(marriage.nextRegistration, roles) : undefined
   };
 };
 
@@ -288,8 +288,8 @@ const censorPartnership = (partnership, roles) => {
       blocked: partnership.status.blocked,
       marginalNote: censorField(false, partnership.status.marginalNote)
     },
-    previousRegistration: partnership.previousRegistration ? censorPartnership(partnership.previousRegistration, roles) : null,
-    nextRegistration: partnership.nextRegistration ? censorPartnership(partnership.nextRegistration, roles) : null
+    previousRegistration: partnership.previousRegistration ? censorPartnership(partnership.previousRegistration, roles) : undefined,
+    nextRegistration: partnership.nextRegistration ? censorPartnership(partnership.nextRegistration, roles) : undefined
   };
 };
 
@@ -455,8 +455,8 @@ const censorBirthV1 = (birth, roles) => {
       praOrCourtOrder: censorField(true, birth.status.praOrCourtOrder),
       reregistration: censorField(false, birth.status.reregistration)
     },
-    previousRegistration: birth.previousRegistration ? censorBirthV1(birth.previousRegistration, roles) : null,
-    nextRegistration: birth.nextRegistration ? censorBirthV1(birth.nextRegistration, roles) : null
+    previousRegistration: birth.previousRegistration ? censorBirthV1(birth.previousRegistration, roles) : undefined,
+    nextRegistration: birth.nextRegistration ? censorBirthV1(birth.nextRegistration, roles) : undefined
   }
 }
 
