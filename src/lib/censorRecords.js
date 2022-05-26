@@ -70,8 +70,8 @@ const censorDeath = (death, roles) => {
       marginalNote: censorField(false, death.status.marginalNote),
       onAuthorityOfRegistrarGeneral: censorField(true, death.status.onAuthorityOfRegistrarGeneral)
     },
-    previousRegistration: death.previousRegistration && censorDeath(death.previousRegistration, roles),
-    nextRegistration: death.nextRegistration && censorDeath(death.nextRegistration, roles)
+    previousRegistration: death.previousRegistration ? censorDeath(death.previousRegistration, roles) : null,
+    nextRegistration: death.nextRegistration ? censorDeath(death.nextRegistration, roles) : null
   };
 };
 
@@ -199,8 +199,8 @@ const censorMarriage = (marriage, roles) => {
       blocked: marriage.status.blocked,
       marginalNote: censorField(false, marriage.status.marginalNote)
     },
-    previousRegistration: marriage.previousRegistration && censorMarriage(marriage.previousRegistration, roles),
-    nextRegistration: marriage.nextRegistration && censorMarriage(marriage.nextRegistration, roles)
+    previousRegistration: marriage.previousRegistration ? censorMarriage(marriage.previousRegistration, roles) : null,
+    nextRegistration: marriage.nextRegistration ? censorMarriage(marriage.nextRegistration, roles) : null
   };
 };
 
@@ -288,8 +288,8 @@ const censorPartnership = (partnership, roles) => {
       blocked: partnership.status.blocked,
       marginalNote: censorField(false, partnership.status.marginalNote)
     },
-    previousRegistration: partnership.previousRegistration && censorPartnership(partnership.previousRegistration, roles),
-    nextRegistration: partnership.nextRegistration && censorPartnership(partnership.nextRegistration, roles)
+    previousRegistration: partnership.previousRegistration ? censorPartnership(partnership.previousRegistration, roles) : null,
+    nextRegistration: partnership.nextRegistration ? censorPartnership(partnership.nextRegistration, roles) : null
   };
 };
 
@@ -455,8 +455,8 @@ const censorBirthV1 = (birth, roles) => {
       praOrCourtOrder: censorField(true, birth.status.praOrCourtOrder),
       reregistration: censorField(false, birth.status.reregistration)
     },
-    previousRegistration: birth.previousRegistration && censorBirthV1(birth.previousRegistration, roles),
-    nextRegistration: birth.nextRegistration && censorBirthV1(birth.nextRegistration, roles)
+    previousRegistration: birth.previousRegistration ? censorBirthV1(birth.previousRegistration, roles) : null,
+    nextRegistration: birth.nextRegistration ? censorBirthV1(birth.nextRegistration, roles) : null
   }
 }
 
