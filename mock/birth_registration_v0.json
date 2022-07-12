@@ -48,18 +48,18 @@
           "occupation": "Unemployed",
           "maidenSurname": "SMITH",
           "marriageSurname": "WHITE",
-          "usualAddress": "888 Mum House, 8 Mum lane, Mumford, MU1 1Y"
+          "usualAddress": null
         },
         "informant": {
           "name": {
-            "givenName": "Informy",
-            "surname": "McInformface",
-            "fullName": "Informy McInformface",
+            "givenName": "John Narcissus Ouroboros",
+            "surname": "SMITH",
+            "fullName": "John Narcissus Ouroboros SMITH",
             "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": "888 Dad House, 8 Dad street, Daddington, Dadshire",
-          "qualification": "Parent, Mother",
-          "signature": "J. Smith, J.Smith"
+          "qualification": "Parent ,Mother",
+          "signature": "J. Smith ,J.Smith"
         }
       },
       "systemNumber": 123456789,
@@ -136,10 +136,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum One",
+            "surname": "Multiple",
+            "fullName": "Mum One Multiple",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -220,10 +220,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum Two",
+            "surname": "Multiple",
+            "fullName": "Mum Two Multiple",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -304,10 +304,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum Three",
+            "surname": "Multiple",
+            "fullName": "Mum Three Multiple",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -388,10 +388,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum",
+            "surname": "Solo",
+            "fullName": "Mum Solo",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -556,10 +556,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum",
+            "surname": "Cancelled",
+            "fullName": "Mum Cancelled",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -640,10 +640,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum",
+            "surname": "Cautionmark",
+            "fullName": "Mum Cautionmark",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -724,10 +724,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum",
+            "surname": "Courtorder",
+            "fullName": "Mum Courtorder",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -808,10 +808,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum",
+            "surname": "Fictitious",
+            "fullName": "Mum Fictitious",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -892,10 +892,10 @@
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Mum",
+            "surname": "Reregistered",
+            "fullName": "Mum Reregistered",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -915,7 +915,7 @@
         "reRegistered": "Subsequently married"
       },
       "previousRegistration": {
-        "date": "2013-08-28",
+        "date": "2014-10-10",
         "systemNumber": 999999922
       }
     },
@@ -1056,14 +1056,14 @@
           "occupation": "Teacher",
           "maidenSurname": null,
           "marriageSurname": null,
-          "usualAddress": "38 York Rd"
+          "usualAddress": null
         },
         "informant": {
           "name": {
-            "givenName": null,
-            "surname": null,
-            "fullName": null,
-            "qualifier": null
+            "givenName": "Annabelle",
+            "surname": "LEE",
+            "fullName": "Annabelle LEE",
+            "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": null,
           "qualification": "Mother",
@@ -1140,7 +1140,7 @@
           "occupation": "Teacher",
           "maidenSurname": "LEE",
           "marriageSurname": null,
-          "usualAddress": "38 York Rd"
+          "usualAddress": null
         },
         "informant": {
           "name": {
@@ -1150,8 +1150,8 @@
             "qualifier": "generated from prepending forename to surname"
           },
           "usualAddress": "38 York Rd",
-          "qualification": "Father, Mother",
-          "signature": "A. Howard, A. Howard"
+          "qualification": "Father ,Mother",
+          "signature": "A. Howard ,A. Howard"
         }
       },
       "systemNumber": 999999931,
