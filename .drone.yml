@@ -10,7 +10,7 @@ platform:
 steps:
 - name: test_pr
   pull: always
-  image: quay.io/ukhomeofficedigital/lev-ci
+  image: quay.io/ukhomeofficedigital/lev-ci:latest
   commands:
   - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test
   environment:
@@ -21,7 +21,7 @@ steps:
 
 - name: test_push
   pull: always
-  image: quay.io/ukhomeofficedigital/lev-ci
+  image: quay.io/ukhomeofficedigital/lev-ci:latest
   commands:
   - set -o pipefail
   - make 'compose_project_name=lev-api-${DRONE_BUILD_NUMBER}' test | tee 'test.log'
@@ -56,7 +56,7 @@ steps:
 
 - name: deploy_image
   pull: always
-  image: quay.io/ukhomeofficedigital/lev-ci
+  image: quay.io/ukhomeofficedigital/lev-ci:latest
   commands:
   - source get-package-details
   - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
@@ -100,7 +100,7 @@ steps:
 
 - name: deploy_docs
   pull: always
-  image: quay.io/ukhomeofficedigital/lev-ci
+  image: quay.io/ukhomeofficedigital/lev-ci:latest
   commands:
   - kubectl="kubectl --insecure-skip-tls-verify --server=$${KUBE_SERVER} --namespace=$${KUBE_NAMESPACE} --token=$${KUBE_TOKEN}"
   - $${kubectl} set image "deployment/$${KUBE_DEPLOYMENT_DOCS}" "$${KUBE_CONTAINER_DOCS}=$${IMAGE}"
