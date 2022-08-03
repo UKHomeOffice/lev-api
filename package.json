@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/UKHomeOffice/lev-api#readme",
   "dependencies": {
-    "@snyk/protect": "^1.841.0",
+    "@snyk/protect": "^1.971.0",
     "functional-augments": "^1.0.0",
     "lev-restify": "^1.0.1",
     "moment": "^2.22.1",
