@@ -40,8 +40,8 @@ steps:
     registry: quay.io
     repo: quay.io/ukhomeofficedigital/lev-api
     tags:
-    - "0.18.0-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
-    - "0.18.0"
+    - "0.18.1-${DRONE_BUILD_NUMBER}-${DRONE_COMMIT:0:10}"
+    - "0.18.1"
     - "0.18"
     - latest
     username: ukhomeofficedigital+lev_api
@@ -66,7 +66,7 @@ steps:
   - $${kubectl} scale deployment "$${KUBE_DEPLOYMENT}" --replicas 1
   - sleep 30
   - set -o pipefail
-  - docker run --env "USERNAME=$${USERNAME}" --env "PASSWORD=$${PASSWORD}" --env "CLIENT_ID=$${CLIENT_ID}" --env "CLIENT_SECRET=$${CLIENT_SECRET}" --env "OIDC_URL=$${OIDC_URL}" --env "TEST_URL=$${TEST_URL}" quay.io/ukhomeofficedigital/lev-api-test:0.16 | tee 'e2e.log'
+  - docker run --env "USERNAME=$${USERNAME}" --env "PASSWORD=$${PASSWORD}" --env "CLIENT_ID=$${CLIENT_ID}" --env "CLIENT_SECRET=$${CLIENT_SECRET}" --env "OIDC_URL=$${OIDC_URL}" --env "TEST_URL=$${TEST_URL}" quay.io/ukhomeofficedigital/lev-api-test:0.18.1 | tee 'e2e.log'
   - $${kubectl} annotate --overwrite deployment "$${KUBE_DEPLOYMENT}" lev-api-test-log="`cat test.log e2e.log`"
   environment:
     CLIENT_ID:
@@ -107,7 +107,7 @@ steps:
   - $${kubectl} rollout status "deployment/$${KUBE_DEPLOYMENT_DOCS}"
   environment:
     DOCKER_HOST: tcp://127.0.0.1:2375
-    IMAGE: quay.io/ukhomeofficedigital/lev-api-docs:0.16
+    IMAGE: quay.io/ukhomeofficedigital/lev-api-docs:0.18.1
     KUBE_CONTAINER_DOCS:
       from_secret: KUBE_CONTAINER_DOCS
     KUBE_DEPLOYMENT_DOCS:
