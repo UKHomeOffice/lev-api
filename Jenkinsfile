@@ -5,4 +5,7 @@ library(
                               credentialsId: 'git'])
 )
 
-pipelineNodeJSApp {}
+pipelineNodeJSApp {
+    dockerApplicationService = 'api'
+    dockerImage = "lev-api"
+}
