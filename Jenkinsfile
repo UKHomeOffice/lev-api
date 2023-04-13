@@ -1,15 +1,8 @@
-pipeline {
-    agent { label 'docker' }
-    options {
-        disableConcurrentBuilds()
-    }
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                  echo "This is an application build"
-                }
-            }
-        }
-    }
-}
+library(
+        identifier: 'jenkins-shared@3.0.0',
+        retriever: modernSCM([$class       : 'GitSCMSource',
+                              remote       : 'ssh://git@bitbucket.ipttools.info/lev/jenkins-shared.git#LEV-78-extend-jenkinsfile',
+                              credentialsId: 'git'])
+)
+
+pipelineNodeJSApp {}
