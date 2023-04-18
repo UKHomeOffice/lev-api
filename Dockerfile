@@ -23,8 +23,6 @@ COPY --chown=app:app mock/ /app/mock/
 COPY --chown=app:app src/ /app/src/
 COPY --chown=app:app config.js rds-combined-ca-bundle.pem /app/
 
-RUN npm run postinstall
-
 USER root
 RUN apk del --no-cache \
       g++ \
