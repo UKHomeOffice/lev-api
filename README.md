@@ -22,3 +22,11 @@ POSTGRES_DB=xxx POSTGRES_USER=xxx POSTGRES_PASSWORD=xxx POSTGRES_SSL=true NODE_T
 ```
 docker-compose up --build
 ```
+
+## Re-Platforming the Service
+
+Due to internal re-replatforming, 2 branches are currently in use, using different CI/CD strategies:
+
+* main - Jenkins based
+* master - Drone based
+
