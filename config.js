@@ -6,10 +6,10 @@ const fs = require('fs');
 const defaultsFalse = v => String(v || '').match(/(true|yes|on)/i) !== null;
 const defaultsTrue = v => String(v || '').match(/(false|no|off)/i) === null;
 
-const dbPassword = fs.readFile('/app/config/dbpassword.txt', 'utf8', (err, data) => {
-  if (err) { console.log('file not found') };
-  return data;
-});
+// const dbPassword = fs.readFile('/app/config/dbpassword.txt', 'utf8', (err, data) => {
+//   if (err) { console.log('file not found') };
+//   return data;
+// });
 
 module.exports = {
   env: process.env.NODE_ENV,
@@ -23,7 +23,7 @@ module.exports = {
   postgres: {
     host: process.env.POSTGRES_HOST || 'localhost',
     name: process.env.POSTGRES_DB,
-    pass: process.env.POSTGRES_PASSWORD || dbPassword,
+    pass: process.env.POSTGRES_PASSWORD,
     port: process.env.POSTGRES_PORT || 5432,
     user: process.env.POSTGRES_USER,
     ssl: defaultsTrue(process.env.POSTGRES_SSL)
