@@ -10,10 +10,7 @@
     "test": "npm-run-all test:cover test:check-coverage",
     "test:unit": "mocha --reporter spec ./test/unit",
     "test:cover": "nyc --all npm run test:unit && nyc report --reporter=html",
-    "test:check-coverage": "nyc check-coverage --statements 50 --branches 60 --functions 60 --lines 50",
-    "snyk-protect": "snyk-protect",
-    "postinstall": "npm run snyk-protect",
-    "prepare": "npm run snyk-protect"
+    "test:check-coverage": "nyc check-coverage --statements 50 --branches 60 --functions 60 --lines 50"
   },
   "repository": {
     "type": "git",
@@ -26,7 +23,6 @@
   },
   "homepage": "https://github.com/UKHomeOffice/lev-api#readme",
   "dependencies": {
-    "@snyk/protect": "^1.841.0",
     "functional-augments": "^1.0.0",
     "lev-restify": "^1.0.1",
     "moment": "^2.22.1",

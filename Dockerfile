@@ -1,5 +1,8 @@
 FROM node:16-alpine
 
+ENV HTTP_PROXY='http://proxy.local:8080'
+ENV HTTPS_PROXY='http://proxy.local:8080'
+
 RUN apk add --no-cache \
       ca-certificates \
       g++ \
@@ -22,8 +25,6 @@ RUN npm install --omit=dev > .npm-install.log 2>&1 \
 COPY --chown=app:app mock/ /app/mock/
 COPY --chown=app:app src/ /app/src/
 COPY --chown=app:app config.js rds-combined-ca-bundle.pem /app/
-
-RUN npm run postinstall
 
 USER root
 RUN apk del --no-cache \
