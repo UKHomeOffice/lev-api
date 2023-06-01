@@ -1,9 +1,9 @@
 config:
   target: http://api:8080
   phases:
-    - duration: 10
+    - duration: 20
       arrivalRate: 10
-      rampTo: 50
+      rampTo: 100
       name: "Warm up the application"
     - duration: 60
       arrivalRate: 200

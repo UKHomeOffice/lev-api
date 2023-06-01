@@ -3,7 +3,6 @@
 const fs = require('fs');
 const packageJson = require('./package.json');
 
-
 const defaultsFalse = v => String(v || '').match(/(true|yes|on)/i) !== null;
 const defaultsTrue = v => String(v || '').match(/(false|no|off)/i) === null;
 
@@ -11,8 +10,7 @@ let dbPassword;
 
 try {
   dbPassword = fs.readFileSync('/app/config/dbpassword.txt', 'utf8', (err, data) => data);
-  } catch(err) {
-}
+  } catch(err) {}
 
 module.exports = {
   env: process.env.NODE_ENV,
