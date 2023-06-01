@@ -7,10 +7,13 @@ const packageJson = require('./package.json');
 const defaultsFalse = v => String(v || '').match(/(true|yes|on)/i) !== null;
 const defaultsTrue = v => String(v || '').match(/(false|no|off)/i) === null;
 
-const dbPassword = fs.readFileSync('/app/config/dbpassword.txt', 'utf8', (err, data) => {
-  if (err) { console.log('file not found') };
-  return data;
-});
+let dbPassword;
+
+try {
+  dbPassword = fs.readFileSync('/app/config/dbpassword.txt', 'utf8', (err, data) => data);
+  } catch(err) {
+    console.log("FILE DOES NOT EXIST")
+}
 
 module.exports = {
   env: process.env.NODE_ENV,
