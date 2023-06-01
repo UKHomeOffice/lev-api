@@ -7,7 +7,7 @@ const packageJson = require('./package.json');
 const defaultsFalse = v => String(v || '').match(/(true|yes|on)/i) !== null;
 const defaultsTrue = v => String(v || '').match(/(false|no|off)/i) === null;
 
-const dbPassword = fs.readFile('/app/config/dbpassword.txt', 'utf8', (err, data) => {
+const dbPassword = fs.readFileSync('/app/config/dbpassword.txt', 'utf8', (err, data) => {
   if (err) { console.log('file not found') };
   return data;
 });
