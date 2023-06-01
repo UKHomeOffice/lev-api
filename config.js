@@ -12,7 +12,6 @@ let dbPassword;
 try {
   dbPassword = fs.readFileSync('/app/config/dbpassword.txt', 'utf8', (err, data) => data);
   } catch(err) {
-    console.log("FILE DOES NOT EXIST")
 }
 
 module.exports = {
