@@ -10,5 +10,5 @@ pipelineDeployment {
     application = 'lev-api'
     service = 'api'
     zone = 'i'
-    dockerImagePath = 'ho/hmpo/lev/api'
+    dockerImagePath = 'ho/hmpo/lev/api/lev-api'
 }
