@@ -17,7 +17,7 @@ USER app
 WORKDIR /app
 ENV NODE_ENV production
 
-COPY --chown=app:app *node_modules/ package.json .snyk /app/
+COPY --chown=app:app *node_modules/ package.json /app/
 RUN npm install --omit=dev > .npm-install.log 2>&1 \
  && rm .npm-install.log \
  || ( EC=$?; cat .npm-install.log; exit $EC )
