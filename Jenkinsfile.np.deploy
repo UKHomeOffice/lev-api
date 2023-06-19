@@ -5,15 +5,11 @@ library(
                               credentialsId: 'git'])
 )
 
-def zone = 'i'
-def service = 'api'
-def application = 'lev-api'
-
 pipelineDeployment {
     environments = ['dev1']
-    application = "$application"
-    service = "$service"
-    zone = "$zone"
-    cluster = "np-${zone}-docker-env1"
-    dockerImagePath = "ho/hmpo/lev/${service}/${application}"
+    application = 'lev-api'
+    service = 'api'
+    zone = 'i'
+    cluster = 'np-i-docker-env1'
+    dockerImagePath = 'ho/hmpo/lev/api/lev-api'
 }

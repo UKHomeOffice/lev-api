@@ -5,11 +5,9 @@ library(
                               credentialsId: 'git'])
 )
 
-def zone = 'i'
-
 pipelineNodeJSApp {
     dockerApplicationService = 'api'
     dockerImage = 'lev-api'
-    zone = "$zone"
-    dev1k8sCluster = "np-${zone}-docker-env1"
+    zone = 'i'
+    dev1k8sCluster = 'np-i-docker-env1'
 }
