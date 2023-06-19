@@ -9,5 +9,5 @@ pipelineNodeJSApp {
     dockerApplicationService = 'api'
     dockerImage = 'lev-api'
     zone = 'i'
-    dev1k8sCluster = "np-i-docker-env1"
+    dev1k8sCluster = 'np-i-docker-env1'
 }
