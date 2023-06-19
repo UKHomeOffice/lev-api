@@ -76,4 +76,4 @@ docker-compose-clean:
 run: docker-compose-clean docker-compose
 	docker-compose up
 
-test: unit-test
+test: unit-test docker-test
