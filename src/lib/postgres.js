@@ -9,14 +9,14 @@ const pgm = require('pg-monitor');
 
 const getToken = require('./generateToken.js');
 
-getToken().then(e => e)
+getToken().then(e => console.log(e))
 
 const connection = {
   host: config.postgres.host,
   port: config.postgres.port,
   database: config.postgres.name,
   user: config.postgres.user,
-  password: config.postgres.pass || (async () => await getToken()),
+  password: config.postgres.pass || getToken(),
   ssl: config.postgres.ssl
 };
 
