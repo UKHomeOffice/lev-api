@@ -9,6 +9,8 @@ const pgm = require('pg-monitor');
 
 const getToken = require('./generateToken.js');
 
+getToken().then(e => e)
+
 const connection = {
   host: config.postgres.host,
   port: config.postgres.port,
@@ -17,8 +19,6 @@ const connection = {
   password: config.postgres.pass || (async () => await getToken()),
   ssl: config.postgres.ssl
 };
-
-console.log(connection);
 
 const db = config.mock ? undefined : pgp(connection);
 

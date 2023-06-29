@@ -2,9 +2,9 @@ const config = require('../../config');
 const { Signer } = require('@aws-sdk/rds-signer');
 const { fromNodeProviderChain } = require('@aws-sdk/credential-providers');
 
-const credentials = fromNodeProviderChain();
-
 const getToken = async () => {
+  const credentialPromise = fromNodeProviderChain();
+  const credentials = await credentialPromise();
   const signer = new Signer({
     hostname: config.postgres.host,
     port: config.postgres.port,
@@ -12,10 +12,7 @@ const getToken = async () => {
     region: config.postgres.region,
     credentials: credentials
   });
-  const token = await signer.getAuthToken()
-  console.log(credentials)
-  console.log(token)
-  return token;
+  return await signer.getAuthToken()
 }
 
 module.exports = getToken
