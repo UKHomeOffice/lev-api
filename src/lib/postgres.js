@@ -18,6 +18,8 @@ const connection = {
   ssl: config.postgres.ssl
 };
 
+console.log(connection);
+
 const db = config.mock ? undefined : pgp(connection);
 
 if (!config.mock) {

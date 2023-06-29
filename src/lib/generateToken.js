@@ -12,7 +12,10 @@ const getToken = async () => {
     region: config.postgres.region,
     credentials: credentials
   });
-  return await signer.getAuthToken();
+  const token = await signer.getAuthToken()
+  console.log(credentials)
+  console.log(token)
+  return token;
 }
 
 module.exports = getToken
