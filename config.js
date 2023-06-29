@@ -27,6 +27,7 @@ module.exports = {
     pass: process.env.POSTGRES_PASSWORD || dbPassword,
     port: process.env.POSTGRES_PORT || 5432,
     user: process.env.POSTGRES_USER,
+    region: process.env.AWS_REGION,
     ssl: defaultsTrue(process.env.POSTGRES_SSL)
   }
 };
