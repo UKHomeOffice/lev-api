@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/UKHomeOffice/lev-api#readme",
   "dependencies": {
+    "@aws-sdk/credential-providers": "^3.360.0",
+    "@aws-sdk/rds-signer": "^3.362.0",
     "functional-augments": "^1.0.0",
     "lev-restify": "^1.0.1",
     "moment": "^2.22.1",
