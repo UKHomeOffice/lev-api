@@ -1,7 +1,7 @@
 FROM node:16-alpine
 
-ENV HTTP_PROXY='http://proxy.local:8080'
-ENV HTTPS_PROXY='http://proxy.local:8080'
+#ENV HTTP_PROXY='http://proxy.local:8080'
+#ENV HTTPS_PROXY='http://proxy.local:8080'
 
 RUN apk add --no-cache \
       ca-certificates \
