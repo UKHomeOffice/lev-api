@@ -2,6 +2,7 @@
 
 const config = require('../config.js');
 const httpd = require('./lib/httpd');
+const logger = require('./lib/logger');
 const readiness = require('./middleware/readiness');
 const v0Birth = require('./middleware/api/v0/events/birth');
 const v0UserActivity = require('./middleware/api/v0/audit/user-activity');
@@ -26,5 +27,7 @@ httpd.get('/v1/registration/partnership/:id', v1Partnership.read);
 httpd.get('/v1/registration/partnership', v1Partnership.search);
 
 httpd.listen(config.httpd.port, config.httpd.host, () => {
+  //logger.info(httpd.name + ' listening at ' + httpd.url);
+  // logger.info('%s listening at %s', httpd.name, httpd.url);
   httpd.log.info('%s listening at %s', httpd.name, httpd.url);
 });

@@ -25,3 +25,4 @@ module.exports = {
     ssl: defaultsTrue(process.env.POSTGRES_SSL)
   }
 };
+
