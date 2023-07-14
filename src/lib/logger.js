@@ -1,10 +1,12 @@
 'use strict';
-const logger = require('./httpd').log;
+// const bunyan = require('./httpd').log;
 
-logger.addStream({
-    name: 'lev-api',
-    level: 'debug',
-    path: 'lev-api.log'
-});
+
+
+// bunyan.addStream({
+//     name: 'lev-api',
+//     level: 'debug',
+//     path: 'lev-api.log'
+// });
 
 
