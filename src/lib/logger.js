@@ -6,7 +6,7 @@ const bunyan = require('bunyan');
 function modifiedStream() {
   return {
     write: entry => {
-      var logObject = JSON.parse(entry)
+      const logObject = JSON.parse(entry)
       logObject['@timestamp'] = logObject.time;
       // delete logObject.time; //TODO - change format
 
@@ -24,7 +24,11 @@ function modifiedStream() {
 
       process.stdout.write(JSON.stringify(logObject) + '\n');
       const fs = require('fs');
-      fs.appendFile('./logs/lev-api.log', JSON.stringify(logObject) + '\n', err => {
+      const loggingDir = './logs';
+      if (!fs.existsSync(loggingDir)) {
+        fs.mkdirSync(loggingDir);
+      }
+      fs.appendFile(loggingDir + '/lev-api.log', JSON.stringify(logObject) + '\n', err => {
         if (err) {
           console.error(err);
         }
