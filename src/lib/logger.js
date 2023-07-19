@@ -3,6 +3,9 @@
 const logger = require('../lib/httpd').log;
 const bunyan = require('bunyan');
 
+// disable default bunyan stream to stdout
+logger.level(bunyan.FATAL + 1);
+
 function modifiedStream() {
   return {
     write: entry => {
