@@ -8,6 +8,7 @@ RUN apk add --no-cache \
       g++ \
       make \
       python3 \
+      logrotate \
  && apk upgrade --no-cache \
  && addgroup -S app \
  && adduser -S app -G app -u 31337 -h /app/ \
@@ -27,6 +28,8 @@ COPY --chown=app:app src/ /app/src/
 COPY --chown=app:app config.js rds-combined-ca-bundle.pem /app/
 
 USER root
+COPY log-rotation.conf /etc/logrotate.d/app
+
 RUN apk del --no-cache \
       g++ \
       make \
