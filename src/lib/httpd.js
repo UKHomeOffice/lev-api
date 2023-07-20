@@ -11,10 +11,11 @@ const httpd = restify.createServer({
 // disable default bunyan stream to stdout
 httpd.log.level(bunyan.FATAL + 1);
 
-function modifiedStream() {
-  return {
+httpd.log.addStream({
+  level: 'debug',
+  stream: {
     write: entry => {
-      const logObject = JSON.parse(entry)
+      const logObject = JSON.parse(entry);
       // new logging elements
       logObject['@timestamp'] = logObject.time;
       logObject['log.level'] = bunyan.nameFromLevel[logObject.level];
@@ -35,12 +36,7 @@ function modifiedStream() {
         }
       });
     }
-  };
-};
-
-httpd.log.addStream({
-  level: 'debug',
-  stream: modifiedStream(),
+  }
 });
 
 module.exports = httpd;
