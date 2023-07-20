@@ -190,12 +190,12 @@ describe('lib/metrics.js', () => {
             it('calls set on lev.api.req.${dataSet}.lookup', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.lookup.users', 'user'));
             it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
 
-            it('increments the Prometheus counter lev_api_req', () => register.getSingleMetricAsString('lev_api_req').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_birth', () => register.getSingleMetricAsString('lev_api_req_birth').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_client', () => register.getSingleMetricAsString('lev_api_req_myclient').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_group', () => register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_lookup', () => register.getSingleMetricAsString('lev_api_req_lookup').should.match(/[^0-9]1$/));
-            it('increments the Prometheus counter lev_api_req_birth_lookup', () => register.getSingleMetricAsString('lev_api_req_birth_lookup').should.match(/[^0-9]1$/));
+            it('increments the Prometheus counter lev_api_req', () => register.getSingleMetricAsString('lev_api_req').then(e => e.should.match(/[^0-9]1$/)));
+            it('increments the Prometheus counter lev_api_req_birth', () => register.getSingleMetricAsString('lev_api_req_birth').then(e => e.should.match(/[^0-9]1$/)));
+            it('increments the Prometheus counter lev_api_req_client', () => register.getSingleMetricAsString('lev_api_req_myclient').then(e => e.should.match(/[^0-9]1$/)));
+            it('increments the Prometheus counter lev_api_req_group', () => register.getSingleMetricAsString('lev_api_req_group').then(e => e.should.match(/[^0-9]1$/)));
+            it('increments the Prometheus counter lev_api_req_lookup', () => register.getSingleMetricAsString('lev_api_req_lookup').then(e => e.should.match(/[^0-9]1$/)));
+            it('increments the Prometheus counter lev_api_req_birth_lookup', () => register.getSingleMetricAsString('lev_api_req_birth_lookup').then(e => e.should.match(/[^0-9]1$/)));
 
             it('calls log.info', () => logInfoStub.should.have.been.called);
             it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
@@ -258,12 +258,12 @@ describe('lib/metrics.js', () => {
         it('calls set on lev.api.req.${dataSet}.search', () => hsSetStub.should.have.been.calledWith('lev.api.req.birth.search.users', 'user'));
         it('calls set on lev.api.req.${group}', () => hsSetStub.should.have.been.calledWith('lev.api.req.group.users', 'user'));
 
-        it('increments the Prometheus counter lev_api_req', () => register.getSingleMetricAsString('lev_api_req').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_birth', () => register.getSingleMetricAsString('lev_api_req_birth').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_client', () => register.getSingleMetricAsString('lev_api_req_myclient').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_group', () => register.getSingleMetricAsString('lev_api_req_group').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_search', () => register.getSingleMetricAsString('lev_api_req_search').should.match(/[^0-9]1$/));
-        it('increments the Prometheus counter lev_api_req_birth_search', () => register.getSingleMetricAsString('lev_api_req_birth_search').should.match(/[^0-9]1$/));
+        it('increments the Prometheus counter lev_api_req', () => register.getSingleMetricAsString('lev_api_req').then(e => e.should.match(/[^0-9]1$/)));
+        it('increments the Prometheus counter lev_api_req_birth', () => register.getSingleMetricAsString('lev_api_req_birth').then(e => e.should.match(/[^0-9]1$/)));
+        it('increments the Prometheus counter lev_api_req_client', () => register.getSingleMetricAsString('lev_api_req_myclient').then(e => e.should.match(/[^0-9]1$/)));
+        it('increments the Prometheus counter lev_api_req_group', () => register.getSingleMetricAsString('lev_api_req_group').then(e => e.should.match(/[^0-9]1$/)));
+        it('increments the Prometheus counter lev_api_req_search', () => register.getSingleMetricAsString('lev_api_req_search').then(e => e.should.match(/[^0-9]1$/)));
+        it('increments the Prometheus counter lev_api_req_birth_search', () => register.getSingleMetricAsString('lev_api_req_birth_search').then(e => e.should.match(/[^0-9]1$/)));
 
         it('calls log.info', () => logInfoStub.should.have.been.called);
         it('calls log.info with request information', () => logInfoStub.should.have.been.calledWith({
