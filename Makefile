@@ -52,7 +52,6 @@ docker-compose: docker-compose-deps docker docker-compose.yml
 	docker-compose build
 
 docker-test: docker-test-deps docker
-	docker network ls
 	docker rm -vf 'lev-api-mock' || true
 	docker run -d --name 'lev-api-mock' --env 'MOCK=true' '$(DOCKER_IMAGE)'
 	docker run --net 'container:lev-api-mock' --env 'TEST_URL=http://localhost:8080' --env 'WAIT=true' '$(test_image)'
