@@ -42,4 +42,9 @@ describe('bunyanStreamFormatter', () => {
     expect(new Date(formattedStream['@timestamp']).getTime())
       .to.be.greaterThan(0);
   });
+
+  it('should match the "time" field from the incoming stream', () => {
+    expect(formattedStream['@timestamp'])
+      .to.equal(mockStream['time']);
+  });
 });
