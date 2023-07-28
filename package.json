@@ -27,7 +27,7 @@
     "@aws-sdk/rds-signer": "^3.362.0",
     "bunyan": "^1.8.15",
     "functional-augments": "^1.0.0",
-    "lev-restify": "https://github.com/UKHomeOffice/lev-restify.git#lev-182-prevent-metrics-endpoint-promise",
+    "lev-restify": "github:UKHomeOffice/lev-restify#lev-182-prevent-metrics-endpoint-promise",
     "moment": "^2.29.4",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.11.1"
