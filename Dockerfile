@@ -9,7 +9,6 @@ RUN apk add --no-cache \
       make \
       python3 \
       logrotate \
-      git \
  && apk upgrade --no-cache \
  && addgroup -S app \
  && adduser -S app -G app -u 31337 -h /app/ \
