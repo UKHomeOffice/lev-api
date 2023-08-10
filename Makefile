@@ -13,6 +13,9 @@ compose_project_name = $(current_dir)
 compose_network_regexp != echo "$$(echo '$(compose_project_name)' | sed -E 's/([-_])+/[-_]*/g')_default"
 probe_network = docker network ls | grep -o '$(compose_network_regexp)'
 
+HTTP_PROXY := ""
+HTTPS_PROXY := ""
+
 .PHONY: all clean deps distclean docker docker-clean docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
 all: deps test docker
@@ -40,7 +43,7 @@ node_modules/: package.json
 	npm install
 
 docker:
-	docker build -t '$(DOCKER_IMAGE)' .
+	docker build -t '$(DOCKER_IMAGE)' . --build-arg HTTP_PROXY=$(HTTP_PROXY) --build-arg HTTPS_PROXY=$(HTTPS_PROXY)
 
 docker-clean:
 	docker rmi -f '$(DOCKER_IMAGE)'
@@ -49,7 +52,7 @@ unit-test: node-deps
 	npm test
 
 docker-compose: docker-compose-deps docker docker-compose.yml
-	docker-compose build
+	docker-compose build --build-arg HTTP_PROXY=$(HTTP_PROXY) --build-arg HTTPS_PROXY=$(HTTPS_PROXY)
 
 docker-test: docker-test-deps docker
 	docker rm -vf 'lev-api-mock' || true
@@ -57,7 +60,7 @@ docker-test: docker-test-deps docker
 	docker run --net 'container:lev-api-mock' --env 'TEST_URL=http://localhost:8080' --env 'WAIT=true' '$(test_image)'
 	docker stop 'lev-api-mock'
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' down -v
-	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' build
+	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' build --build-arg HTTP_PROXY=$(HTTP_PROXY) --build-arg HTTPS_PROXY=$(HTTPS_PROXY)
 	docker-compose -f docker-compose-test.yml -p '$(compose_project_name)' up &> /dev/null &
 	compose_network=`$(probe_network)`; \
 	while [ $$? -ne 0 ]; do \
