@@ -1,5 +1,5 @@
 library(
-        identifier: 'jenkins-shared@lev-194',
+        identifier: 'jenkins-shared@master',
         retriever: modernSCM([$class       : 'GitSCMSource',
                               remote       : 'ssh://git@bitbucket.ipttools.info/lev/jenkins-shared.git',
                               credentialsId: 'git'])
