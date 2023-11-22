@@ -1,6 +1,6 @@
 {
   "name": "lev-api",
-  "version": "0.20.0",
+  "version": "0.21.0",
   "description": "Life Event Verification API",
   "main": "src/app.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "@aws-sdk/rds-signer": "^3.362.0",
     "bunyan": "^1.8.15",
     "functional-augments": "^1.0.0",
-    "lev-restify": "^4.0.0",
+    "lev-restify": "^4.1.0",
     "moment": "^2.29.4",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.11.1"
