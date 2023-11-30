@@ -28,7 +28,7 @@
   "dependencies": {
     "@snyk/protect": "^1.841.0",
     "functional-augments": "^1.0.0",
-    "lev-restify": "^1.0.1",
+    "lev-restify": "^3.0.0",
     "moment": "^2.22.1",
     "pg-monitor": "^1.4.1",
     "pg-promise": "^10.11.1"
