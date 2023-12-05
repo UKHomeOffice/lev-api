@@ -2,7 +2,7 @@
 
 const documentStore = require('../lib/document-store');
 
-const model = documentStore('marriage_registration_v1', [
+const model = documentStore('lev.marriage_registration_v1', [
   'date_of_marriage',
   'bride_forenames',
   'bride_surname',

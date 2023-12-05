@@ -10,7 +10,7 @@ const reduce2Object = (acc, e) => {
 
 module.exports = {
   create: (username, client, uri, groups, operation, dataset) =>
-    postgres.none('INSERT INTO lev_audit (date_time, username, client, uri, groups, operation, dataset) VALUES (current_timestamp, $1, $2, $3, $4, $5, $6)', [username, client, uri, groups, operation, dataset]),
+    postgres.none('INSERT INTO lev.lev_audit (date_time, username, client, uri, groups, operation, dataset) VALUES (current_timestamp, $1, $2, $3, $4, $5, $6)', [username, client, uri, groups, operation, dataset]),
   search: (start, finish, username, group, operation, dataset) => {
     const usernameFragment = username ? ' AND username LIKE \'%$3#%\'' : '';
     const groupFragment = group ? ' AND groups @> $4' : '';

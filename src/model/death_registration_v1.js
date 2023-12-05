@@ -2,7 +2,7 @@
 
 const documentStore = require('../lib/document-store');
 
-const model = documentStore('death_registration_v1', [
+const model = documentStore('lev.death_registration_v1', [
   'forenames',
   'surname',
   'date_of_birth',
