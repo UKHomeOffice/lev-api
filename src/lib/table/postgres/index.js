@@ -24,3 +24,5 @@ module.exports = (tableName, fields, idField) => {
     }
   };
 };
+
+src/lib/table/postgres/index.js
