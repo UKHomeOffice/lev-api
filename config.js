@@ -22,6 +22,8 @@ module.exports = {
     port: process.env.POSTGRES_PORT || 5432,
     user: process.env.POSTGRES_USER,
     region: process.env.AWS_REGION,
-    ssl: defaultsTrue(process.env.POSTGRES_SSL)
+    ssl: defaultsTrue(process.env.POSTGRES_SSL),
+    idleTimeoutMillis: process.env.IDLE_TIMEOUT_MILLIS || undefined,
+    maxUses: process.env.MAX_USES || undefined
   }
 };

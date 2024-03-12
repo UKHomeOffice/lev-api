@@ -15,7 +15,9 @@ const connection = {
   database: config.postgres.name,
   user: config.postgres.user,
   password: config.postgres.pass || (async () => await getToken()),
-  ssl: config.postgres.ssl
+  ssl: config.postgres.ssl,
+  idleTimeoutMillis: config.postgres.idleTimeoutMillis,
+  maxUses: config.postgres.maxUses
 };
 
 const db = config.mock ? undefined : pgp(connection);
