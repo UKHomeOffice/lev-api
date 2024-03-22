@@ -22,7 +22,7 @@ RUN npm install --omit=dev > .npm-install.log 2>&1 \
 
 COPY --chown=app:app mock/ /app/mock/
 COPY --chown=app:app src/ /app/src/
-COPY --chown=app:app config.js rds-combined-ca-bundle.pem /app/
+COPY --chown=app:app config.js eu-west-2-bundle.pem /app/
 
 USER root
 COPY log-rotation.conf /etc/logrotate.d/app
@@ -38,5 +38,5 @@ ENV LISTEN_HOST="0.0.0.0" \
     POSTGRES_HOST="localhost" \
     POSTGRES_PORT="5432" \
     POSTGRES_DB="lev" \
-    NODE_EXTRA_CA_CERTS="/app/rds-combined-ca-bundle.pem"
+    NODE_EXTRA_CA_CERTS="/app/eu-west-2-bundle.pem"
 CMD ["node", "."]
