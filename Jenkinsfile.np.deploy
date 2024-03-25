@@ -6,7 +6,7 @@ library(
 )
 
 pipelineDeployment {
-    environments = ['dev1', 'nft1', 'prp1']
+    environments = ['dev1', 'nft1', 'prp1', 'prd1']
     application = 'lev-api'
     service = 'api'
     zone = 'i'
