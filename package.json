@@ -9,7 +9,7 @@
     "start:dev-mock": "NODE_ENV=development MOCK=true nodemon -w src/ -w config.js -w mock/ .",
     "test": "npm-run-all test:cover test:check-coverage",
     "test:unit": "mocha --reporter spec ./test/unit",
-    "test:cover": "nyc --all npm run test:unit && nyc report --reporter=html",
+    "test:cover": "nyc --all npm run test:unit && nyc report --reporter=html --reporter=lcov",
     "test:check-coverage": "nyc check-coverage --statements 50 --branches 60 --functions 60 --lines 50"
   },
   "repository": {
