@@ -22,4 +22,4 @@ POSTGRES_DB=xxx POSTGRES_USER=xxx POSTGRES_PASSWORD=xxx POSTGRES_SSL=true NODE_T
 ```
 docker-compose up --build
 ```
-TEST
+
