@@ -30,7 +30,7 @@
     "functional-augments": "^1.0.0",
     "lev-restify": "^1.0.1",
     "moment": "^2.22.1",
-    "pg-monitor": "^1.4.1",
+    "pg-monitor": "^1.5.0",
     "pg-promise": "^10.11.1"
   },
   "devDependencies": {
