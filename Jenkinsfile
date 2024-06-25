@@ -1,5 +1,5 @@
 library(
-        identifier: 'jenkins-shared@master',
+        identifier: 'jenkins-shared@lev-458-adding-es-lint-step-to-node-pipeline',
         retriever: modernSCM([$class       : 'GitSCMSource',
                               remote       : 'ssh://git@bitbucket.ipttools.info/lev/jenkins-shared.git',
                               credentialsId: 'git'])
