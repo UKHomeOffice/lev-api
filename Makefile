@@ -18,7 +18,7 @@ HTTPS_PROXY := ""
 
 .PHONY: all clean deps distclean docker docker-clean docker-compose docker-compose-clean docker-compose-deps docker-test docker-test-deps node-deps run test unit-test
 
-all: deps test docker
+all: deps lint test docker
 
 clean: docker-compose-clean
 	rm -rf node_modules/
@@ -47,6 +47,9 @@ docker:
 
 docker-clean:
 	docker rmi -f '$(DOCKER_IMAGE)'
+
+lint:
+	npx eslint .
 
 unit-test: node-deps
 	npm test
