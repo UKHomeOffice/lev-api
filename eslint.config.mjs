@@ -11,7 +11,7 @@ export default [
     }
   },
   {
-    ignores: ['.mocharc.js', 'config.js']
+    ignores: ['dist/']
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
