@@ -7,7 +7,10 @@ export default [
     files: ["**/*.js"],
     languageOptions: {
       sourceType: "script",
-      globals: globals.browser
+      globals: {
+        ...globals.browser,
+        ...globals.node
+        }
     }
   },
   {

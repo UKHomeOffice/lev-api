@@ -27,4 +27,4 @@ docker-compose up --build
 To execute the linter run:
 
 `npm run lint`
-Please be aware of that running the linter may flag problems/errors that already exist in the repo. 
+Please be aware of that running the linter may flag problems/errors that already exist in the repo.
