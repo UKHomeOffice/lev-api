@@ -49,7 +49,7 @@ docker-clean:
 	docker rmi -f '$(DOCKER_IMAGE)'
 
 lint: node-deps
-	npm run lint . --max-warnings=0 || exit 0
+	npm run lint . 
 
 unit-test: node-deps
 	npm test
