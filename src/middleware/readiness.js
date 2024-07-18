@@ -1,6 +1,5 @@
 'use strict';
 
-const errors = require('lev-restify').errors;
 const promiseRejectionHandler = require('../lib/promise-rejection-handler.js');
 const readiness = require('../lib/readiness');
 
