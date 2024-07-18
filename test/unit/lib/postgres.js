@@ -2,7 +2,6 @@
 
 const pgp = require('pg-promise');
 const proxyquire = require('proxyquire');
-const moment = require('moment');
 
 const anyStub = sinon.stub();
 const noneStub = sinon.stub();

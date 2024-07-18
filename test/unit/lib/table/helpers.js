@@ -1,6 +1,5 @@
 'use strict';
 
-const proxyquire = require('proxyquire');
 const { key2Field } = require('../../../../src/lib/table/helpers');
 
 describe('lib/table/helpers.js', () => {

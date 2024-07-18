@@ -1,6 +1,5 @@
 'use strict';
 
-const fs = require('fs');
 const packageJson = require('./package.json');
 
 const defaultsFalse = v => String(v || '').match(/(true|yes|on)/i) !== null;
